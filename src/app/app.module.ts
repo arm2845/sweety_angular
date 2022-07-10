@@ -8,6 +8,8 @@ import { ProductSingleComponent } from './components/product-single/product-sing
 import {CommonModule} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MainService } from "./services/main.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,9 +23,12 @@ import { HeaderComponent } from './components/header/header.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MainService
+  ],
   bootstrap: [
     AppComponent
   ]

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ProductCategories} from "../../constants/product-categories";
-import {ProductCategory} from "../../interfaces/product-category";
+import {ProductCategory} from "../../models/product-category";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../models/product";
-import {Products} from "../../constants/products";
+import {MainService} from "../../services/main.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-menu-nav',
@@ -11,25 +11,36 @@ import {Products} from "../../constants/products";
   styleUrls: ['./menu-nav.component.scss']
 })
 export class MenuNavComponent implements OnInit {
-  productCategories = ProductCategories;
+  productCategories: ProductCategory[] = [];
   products: Product[] = [];
+  selectedTab = 1;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private mainService: MainService,
   ) { }
 
   ngOnInit(): void {
-    this.setFirstCategoryAsSelected();
-    this.products = Products;
+    this.getCategories();
   }
 
-  setFirstCategoryAsSelected(): void {
-    this.productCategories[0].selected = true;
+  getCategories(): void {
+    this.mainService.getCategories().pipe(
+      tap((categories: any) => this.productCategories = categories.data),
+      tap(() => this.setCategoryAsSelected()),
+      tap((categories: any) => this.products = categories.data[0].items),
+    )
+      .subscribe();
+  }
+
+  setCategoryAsSelected(): void {
+    const index = this.productCategories.findIndex(category => category.id == this.selectedTab);
+    this.productCategories[index].selected = true;
     this.router.navigate([], {
         relativeTo: this.route,
         queryParams: {
-          category: this.productCategories[0].id
+          category: this.productCategories[index].id
         },
         queryParamsHandling: 'merge',
         skipLocationChange: true
@@ -43,7 +54,8 @@ export class MenuNavComponent implements OnInit {
   }
 
   getItemsByCategory(id: number): void {
-
+    const index = this.productCategories.findIndex(category => category.id == id);
+    this.products = this.productCategories[index].items;
   }
 
 }

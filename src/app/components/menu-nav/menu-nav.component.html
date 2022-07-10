@@ -7,7 +7,7 @@
           <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <ng-container *ngFor="let category of productCategories">
               <a [class.active]="category.selected" class="nav-link ftco-animate" data-toggle="pill" role="tab"
-                 [routerLink]="['/menu', category.id]" (click)="selectCategory(category)">{{category.displayName | titlecase}}</a>
+                 [routerLink]="['/menu', category.id]" (click)="selectCategory(category)">{{category.name_en | titlecase}}</a>
             </ng-container>
           </div>
         </div>

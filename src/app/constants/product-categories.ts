@@ -1,6 +1,6 @@
 import {ProductCategory} from "../interfaces/product-category";
 
-export const ProductCategories: ProductCategory[] = [
+export const ProductCategories: any = [
   {
     id: 1,
     name: 'coffee',
