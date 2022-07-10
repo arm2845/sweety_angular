@@ -5,8 +5,12 @@ import {MenuNavComponent} from "./components/menu-nav/menu-nav.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'menu/:id',
     component: MenuNavComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'menu/1',
   },
 ];
 

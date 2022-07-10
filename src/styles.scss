@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/icomoon/icomoon_style";
 
 :root {
   --blue: #007bff;
@@ -243,4 +243,27 @@ body {
   -ms-flex-align: center !important;
   align-items: center !important;
 }
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  -moz-transition:    all $transition ease;
+  -o-transition:      all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: 		all $transition ease;
+  transition:         all $transition ease;
+}
+
+.text-center {
+  text-align: center !important; }
+
+.mb-2,
+.my-2 {
+  margin-bottom: 0.5rem !important; }
+
 

@@ -5,17 +5,23 @@ import {AppRoutingModule} from "./app-routing.module";
 import { MenuNavComponent } from './components/menu-nav/menu-nav.component';
 import { ProductListingComponent } from './components/product-listing/product-listing.component';
 import { ProductSingleComponent } from './components/product-single/product-single.component';
+import {CommonModule} from "@angular/common";
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuNavComponent,
     ProductListingComponent,
-    ProductSingleComponent
+    ProductSingleComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [
