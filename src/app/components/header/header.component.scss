@@ -28,6 +28,21 @@
       .menu-icon {
         padding-right: 10px;
       }
+      .menu-cart-icon {
+        position: relative;
+        padding-right: 15px;
+        .item-count {
+          position: absolute;
+          font-size: 12px;
+          background-color: #cc2131;
+          border-radius: 50%;
+          width: 14px;
+          height: 14px;
+          text-align: center;
+          top: -6px;
+          left: 10px;
+        }
+      }
     }
   }
 }
