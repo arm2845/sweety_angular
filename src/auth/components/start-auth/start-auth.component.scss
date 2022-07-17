@@ -1,0 +1,25 @@
+.login-main-container {
+  .form-container {
+    width: 400px;
+    height: 300px;
+  }
+}
+
+input:focus {
+  border: 3px solid #e1c9c9 !important;
+  outline: none !important;
+}
+
+input::placeholder {
+  color: #e1c9c9 !important;
+  font-style: oblique;
+}
+
+@media (max-width: 800px) {
+  .login-main-container {
+    .form-container {
+      width: 350px;
+      height: 350px;
+    }
+  }
+}

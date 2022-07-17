@@ -1,0 +1,17 @@
+<div class="login-main-container">
+  <div class="image-container">
+    <img class="login-image" src="../../../assets/images/illustrations/register-ill.png">
+  </div>
+  <div class="form-container">
+    <div class="header">
+      Register
+    </div>
+    <form class="form" [formGroup]="registerForm">
+      <input class="input-row" type="text" formControlName="username" placeholder="username">
+      <input class="input-row" type="text" formControlName="phone" placeholder="phone number">
+      <input class="input-row" type="text" formControlName="password" placeholder="password">
+      <input class="input-row" type="text" formControlName="password_confirmation" placeholder="confirm password">
+      <button class="submit-button" type="submit">Register</button>
+    </form>
+  </div>
+</div>

@@ -22,13 +22,9 @@
       </div>
     </ng-container>
     <ng-container *ngIf="!isAuthUser">
-      <div class="header-item">
+      <div class="header-item" routerLink="/auth">
         <span class="icon-log-in menu-icon"></span>
         <span class="menu-item-name">Log in</span>
-      </div>
-      <div class="header-item">
-        <span class="icon-register menu-icon"></span>
-        <span class="menu-item-name">Register</span>
       </div>
     </ng-container>
     <ng-container *ngIf="isAuthUser">

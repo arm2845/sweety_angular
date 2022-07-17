@@ -1,0 +1,15 @@
+<div class="login-main-container">
+  <div class="image-container">
+    <img class="login-image" src="../../../assets/images/illustrations/login-il.png">
+  </div>
+  <div class="form-container">
+    <div class="header">
+      Login
+    </div>
+    <form class="form" [formGroup]="loginForm">
+      <input class="input-row" type="text" formControlName="username" placeholder="username">
+      <input class="input-row" type="text" formControlName="password" placeholder="password">
+      <button class="submit-button" type="submit">Login</button>
+    </form>
+  </div>
+</div>

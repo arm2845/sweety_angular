@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MainService } from "./services/main.service";
 import { HttpClientModule } from "@angular/common/http";
 import { CartComponent } from './components/cart/cart.component';
+import {AuthModule} from "../auth/auth.module";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -26,10 +28,15 @@ import { CartComponent } from './components/cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule,
+    RouterModule,
   ],
   providers: [
     MainService
+  ],
+  exports: [
+    HeaderComponent,
   ],
   bootstrap: [
     AppComponent

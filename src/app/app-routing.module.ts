@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import {CommonModule} from "@angular/common";
 import {MenuNavComponent} from "./components/menu-nav/menu-nav.component";
 import {CartComponent} from "./components/cart/cart.component";
+import {LoginComponent} from "../auth/components/login/login.component";
+import {StartAuthComponent} from "../auth/components/start-auth/start-auth.component";
+import {RegisterComponent} from "../auth/components/register/register.component";
 
 const routes: Routes = [
   {
@@ -12,6 +15,18 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'auth',
+    component: StartAuthComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: '**',
