@@ -3,15 +3,22 @@
     <img class="login-image" src="../../../assets/images/illustrations/register-ill.png">
   </div>
   <div class="form-container">
-    <div class="header">
-      Register
-    </div>
     <form class="form" [formGroup]="registerForm">
-      <input class="input-row" type="text" formControlName="username" placeholder="username">
-      <input class="input-row" type="text" formControlName="phone" placeholder="phone number">
-      <input class="input-row" type="text" formControlName="password" placeholder="password">
-      <input class="input-row" type="text" formControlName="password_confirmation" placeholder="confirm password">
-      <button class="submit-button" type="submit">Register</button>
+      <label class="login-label" for="username">Name</label>
+      <input id="username" class="input-row" type="text" formControlName="username" placeholder="Name">
+      <label class="login-label" for="phone">Phone number</label>
+      <input id="phone" class="input-row" type="text" formControlName="phone" placeholder="+374 ( )">
+      <div class="password-container">
+        <label class="login-label" for="password1">Password</label>
+        <input id="password1" class="input-row" type="text" formControlName="password" placeholder="********">
+        <span class="icon-hide-pass pass-icon"></span>
+      </div>
+      <div class="password-container">
+        <label class="login-label" for="password2">Confirm password</label>
+        <input id="password2" class="input-row" type="text" formControlName="password_confirmation" placeholder="********">
+        <span class="icon-hide-pass pass-icon"></span>
+      </div>
+      <button class="submit-button button-filled" type="submit">Register</button>
     </form>
   </div>
 </div>

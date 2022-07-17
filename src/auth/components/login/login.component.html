@@ -1,15 +1,17 @@
 <div class="login-main-container">
   <div class="image-container">
-    <img class="login-image" src="../../../assets/images/illustrations/login-il.png">
+    <img class="login-image" src="../../../assets/images/illustrations/login-ill.png">
   </div>
   <div class="form-container">
-    <div class="header">
-      Login
-    </div>
     <form class="form" [formGroup]="loginForm">
-      <input class="input-row" type="text" formControlName="username" placeholder="username">
-      <input class="input-row" type="text" formControlName="password" placeholder="password">
-      <button class="submit-button" type="submit">Login</button>
+      <label class="login-label" for="username">Name</label>
+      <input id="username" class="input-row" type="text" formControlName="username" placeholder="Name">
+      <div class="password-container">
+        <label class="login-label" for="password">Password</label>
+        <input id="password" class="input-row" type="text" formControlName="password" placeholder="********">
+        <span class="icon-hide-pass pass-icon"></span>
+      </div>
+      <button class="submit-button button-filled" type="submit">Login</button>
     </form>
   </div>
 </div>
