@@ -10,15 +10,15 @@
       <input id="phone" class="input-row" type="text" formControlName="phone" placeholder="+374 ( )">
       <div class="password-container">
         <label class="login-label" for="password1">Password</label>
-        <input id="password1" class="input-row" type="text" formControlName="password" placeholder="********">
-        <span class="icon-hide-pass pass-icon"></span>
+        <input id="password1" class="input-row" type="password" formControlName="password" placeholder="********">
+        <span (click)="showHidePass($event, 'password1')" class="icon-hide-pass pass-icon"></span>
       </div>
       <div class="password-container">
         <label class="login-label" for="password2">Confirm password</label>
-        <input id="password2" class="input-row" type="text" formControlName="password_confirmation" placeholder="********">
-        <span class="icon-hide-pass pass-icon"></span>
+        <input id="password2" class="input-row" type="password" formControlName="password_confirmation" placeholder="********">
+        <span (click)="showHidePass($event, 'password2')" class="icon-hide-pass pass-icon"></span>
       </div>
-      <button class="submit-button button-filled" type="submit">Register</button>
+      <button class="submit-button button-filled" type="submit" routerLink="/menu">Register</button>
     </form>
   </div>
 </div>

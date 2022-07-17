@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {changePassVisibility} from "../../helpers/change-pass-visibility-helper";
 
 @Component({
   selector: 'app-register',
@@ -26,6 +27,10 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
       password_confirmation: ['', Validators.required],
     })
+  }
+
+  showHidePass(event: any, id: string): void {
+    changePassVisibility(event.target, id);
   }
 
 }
