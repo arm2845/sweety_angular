@@ -11,7 +11,7 @@
         <input id="password" class="input-row" type="password" formControlName="password" placeholder="********">
         <span (click)="showHidePass($event, 'password')" class="icon-hide-pass pass-icon"></span>
       </div>
-      <button class="submit-button button-filled" type="submit" routerLink="/menu">Login</button>
+      <button class="submit-button button-filled" type="submit" (click)="login()">Login</button>
     </form>
   </div>
 </div>

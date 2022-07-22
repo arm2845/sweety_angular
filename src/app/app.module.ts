@@ -9,10 +9,11 @@ import {CommonModule} from "@angular/common";
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainService } from "./services/main.service";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CartComponent } from './components/cart/cart.component';
 import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
+import { ApiInterceptor } from "./interceptors/api.interceptor";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {RouterModule} from "@angular/router";
     RouterModule,
   ],
   providers: [
-    MainService
+    MainService,
+    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }
   ],
   exports: [
     HeaderComponent,

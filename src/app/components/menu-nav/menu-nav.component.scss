@@ -35,7 +35,6 @@ app-header {
     }
     .nav-link {
       padding: 10px !important;
-      border-radius: 0;
       margin-bottom: 0;
       color: #000000;
       font-size: 20px;
@@ -45,10 +44,10 @@ app-header {
       border: 1px solid transparent;
       background: #fff;
       width: 16.6%;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      border-radius: 0;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      border-radius: 10px;
       &:after {
         position: absolute;
         bottom: -10px;
@@ -60,11 +59,11 @@ app-header {
         margin: 0 auto;
         border-style: solid;
         border-width: 10px 10px 0 10px;
-        border-color: #c8a97e transparent transparent transparent;
+        border-color: #EABE5E transparent transparent transparent;
         opacity: 0;
       }
       &:hover {
-        background: #c09d6c;
+        background: #EABE5E;
         color: #fff;
       }
     }
@@ -76,7 +75,7 @@ app-header {
       -ms-transition: all 0.3s ease;
       transition: all 0.3s ease;
       border: 1px solid transparent;
-      background: #c8a97e;
+      background: #EABE5E;
     }
     .active:after {
       opacity: 1;
@@ -131,7 +130,7 @@ app-header {
 }
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
-  background: #c8a97e;
+  background: #EABE5E;
 }
 .nav-link.disabled {
   color: #6c757d;
@@ -171,7 +170,7 @@ app-header {
     margin-bottom: 4px;
   }
   .ftco-search .nav-pills .nav-link.active, .nav-link:hover, .nav-link:focus {
-    background: #c8a97e;
+    background: #EABE5E;
   }
 }
 

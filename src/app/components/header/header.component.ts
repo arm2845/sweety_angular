@@ -7,12 +7,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  isAuthUser: boolean = false;
+  isAuthUser: boolean | undefined;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.isAuthUser = !!localStorage.getItem('token');
   }
 
 }
