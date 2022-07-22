@@ -1,0 +1,23 @@
+import {Component, OnInit} from '@angular/core';
+import {Product} from "../../models/product";
+import {AuthService} from "../../../auth/services/auth.service";
+
+@Component({
+  selector: 'app-favourites',
+  templateUrl: './favourites.component.html',
+  styleUrls: ['./favourites.component.scss']
+})
+export class FavouritesComponent implements OnInit {
+  items: Product[] = [];
+
+  constructor(
+    private authService: AuthService,
+  ) {
+  }
+
+  ngOnInit(): void {
+    console.log(this.authService.authUser?.favourites)
+    this.items = this.authService.authUser?.favourites || [];
+  }
+
+}

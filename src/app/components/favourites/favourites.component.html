@@ -1,0 +1,6 @@
+<app-header></app-header>
+<div class="items-container">
+  <ng-container *ngFor="let item of items">
+    <app-product-single [product]="item"></app-product-single>
+  </ng-container>
+</div>

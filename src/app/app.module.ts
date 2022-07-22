@@ -14,6 +14,7 @@ import { CartComponent } from './components/cart/cart.component';
 import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
 import { ApiInterceptor } from "./interceptors/api.interceptor";
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ApiInterceptor } from "./interceptors/api.interceptor";
     FooterComponent,
     HeaderComponent,
     CartComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import {CartComponent} from "./components/cart/cart.component";
 import {LoginComponent} from "../auth/components/login/login.component";
 import {StartAuthComponent} from "../auth/components/start-auth/start-auth.component";
 import {RegisterComponent} from "../auth/components/register/register.component";
+import {FavouritesComponent} from "./components/favourites/favourites.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'favourites',
+    component: FavouritesComponent,
   },
   {
     path: 'auth',
