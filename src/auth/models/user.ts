@@ -1,4 +1,4 @@
-import { Product } from "../../app/models/product";
+import { Product } from "../../dashboard/models/product";
 
 export class User {
   id: number;

@@ -8,6 +8,8 @@ import { StartAuthComponent } from './components/start-auth/start-auth.component
 import {RouterModule} from "@angular/router";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "../app/interceptors/token.interceptor";
+import {AuthRoutingModule} from "./auth-routing.module";
+import {DashboardModule} from "../dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {TokenInterceptor} from "../app/interceptors/token.interceptor";
     BrowserModule,
     ReactiveFormsModule,
     RouterModule,
+    AuthRoutingModule,
+    DashboardModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

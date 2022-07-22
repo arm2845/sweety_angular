@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
       tap((res) => {
         const token = res.data.token;
         localStorage.setItem('token', token);
-        this.router.navigate(['/menu/1']);
+        this.router.navigate(['/dashboard/menu/1']);
       })
     )
       .subscribe();

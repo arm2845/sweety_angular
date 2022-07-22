@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
 import {Router} from "@angular/router";
-import {User} from "../../../auth/models/user";
 
 @Component({
   selector: 'app-header',
@@ -29,7 +28,7 @@ export class HeaderComponent implements OnInit {
     return  this.authService.logout().pipe(
       tap(() => {
         localStorage.removeItem('token');
-        this.router.navigate(['/menu/1']);
+        this.router.navigate(['/dashboard/menu/1']);
         window.location.reload();
       }),
     )

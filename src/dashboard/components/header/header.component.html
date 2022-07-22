@@ -5,24 +5,24 @@
     </span>
   </div>
   <div class="right-side">
-    <div class="header-item" routerLink="/menu/1">
+    <div class="header-item" routerLink="/dashboard/menu/1">
       <span class="icon-menu menu-icon"></span>
       <span class="menu-item-name">Menu</span>
     </div>
     <ng-container *ngIf="isAuthUser">
-      <div class="header-item" routerLink="/cart">
+      <div class="header-item" routerLink="/dashboard/cart">
         <span class="icon-cart menu-cart-icon">
           <span class="item-count">{{itemsInCart}}</span>
         </span>
         <span class="menu-item-name">Cart</span>
       </div>
-      <div class="header-item" routerLink="/favourites">
+      <div class="header-item" routerLink="/dashboard/favourites">
         <span class="icon-heart menu-icon"></span>
         <span class="menu-item-name">Favorites</span>
       </div>
     </ng-container>
     <ng-container *ngIf="!isAuthUser">
-      <div class="header-item" routerLink="/auth">
+      <div class="header-item" routerLink="/user/auth">
         <span class="icon-log-in menu-icon"></span>
         <span class="menu-item-name">Log in</span>
       </div>
