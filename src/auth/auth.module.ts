@@ -6,6 +6,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { RegisterComponent } from './components/register/register.component';
 import { StartAuthComponent } from './components/start-auth/start-auth.component';
 import {RouterModule} from "@angular/router";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {TokenInterceptor} from "../app/interceptors/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -19,5 +21,8 @@ import {RouterModule} from "@angular/router";
     ReactiveFormsModule,
     RouterModule,
   ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ]
 })
 export class AuthModule { }

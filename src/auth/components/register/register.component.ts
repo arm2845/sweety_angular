@@ -4,6 +4,7 @@ import {changePassVisibility} from "../../helpers/change-pass-visibility-helper"
 import { AuthService } from "../../services/auth.service";
 import { tap } from "rxjs";
 import { UserAuthData } from "../../interfaces/user-auth-data";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
   ) {
   }
 
@@ -42,6 +44,7 @@ export class RegisterComponent implements OnInit {
       tap((res) => {
         const token = res.data.token;
         localStorage.setItem('token', token);
+        this.router.navigate(['/menu/1']);
       })
     )
       .subscribe();

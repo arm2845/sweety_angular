@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
-import { User } from "../models/user";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { UserAuthData } from "../interfaces/user-auth-data";
-import { Product } from "../../app/models/product";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  // private authUser: User;
 
   constructor(
     private http: HttpClient,
