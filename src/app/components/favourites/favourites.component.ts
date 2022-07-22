@@ -16,7 +16,6 @@ export class FavouritesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.authService.authUser?.favourites)
     this.items = this.authService.authUser?.favourites || [];
   }
 

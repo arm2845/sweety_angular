@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
 import {Router} from "@angular/router";
+import {User} from "../../../auth/models/user";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
 
   isAuthUser: boolean | undefined;
+  itemsInCart: number | undefined;
 
   constructor(
     private authService: AuthService,
@@ -20,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAuthUser = !!localStorage.getItem('token');
+    this.itemsInCart = this.authService.authUser?.cart.length;
   }
 
   logOut(): Subscription {

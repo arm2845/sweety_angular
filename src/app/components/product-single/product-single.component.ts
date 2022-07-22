@@ -37,4 +37,9 @@ export class ProductSingleComponent implements OnInit {
     }
   }
 
+  addToCart(): Subscription {
+    return this.authService.addToCart(this.product.id)
+      .subscribe();
+  }
+
 }

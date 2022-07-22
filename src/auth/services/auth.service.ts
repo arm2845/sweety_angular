@@ -14,7 +14,6 @@ export class AuthService {
   constructor(
     private http: HttpClient,
   ) {
-    console.log('service constructor')
     this.getUser().pipe(
       tap((res) => this.authUser = res.data),
     )
@@ -43,6 +42,14 @@ export class AuthService {
 
   removeFromFavorites(productId: string): Observable<any> {
     return this.http.delete(`favourites/${productId}`);
+  }
+
+  addToCart(productId: string): Observable<any> {
+    return this.http.post(`cart/${productId}`, {});
+  }
+
+  removeFromCart(productId: number | undefined): Observable<any> {
+    return this.http.delete(`cart/${productId}`);
   }
 
 }
