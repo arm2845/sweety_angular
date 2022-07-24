@@ -1,29 +1,8 @@
 <div class="cart-container">
-  <ng-container *ngFor="let item of products">
-    <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-      <div class="menus d-sm-flex ftco-animate align-items-stretch">
-        <div class="menu-img">
-          <img class="item-img" src="../../../assets/images/breakfast-2.jpg">
-        </div>
-        <div class="name-container">
-          <span class="name"><h3>{{item.name_en | titlecase}}</h3></span>
-          <span class="icon-heart favorite-icon"></span>
-        </div>
-        <div class="quantity">
-          <span class="count">
-            <span class="icon-minus rounded-icon"></span>
-            <span>1</span>
-            <span class="icon-plus rounded-icon"></span>
-          </span>
-        </div>
-        <div class="total-price">
-          <span class="price-title">Total price</span>
-          <span class="price">{{item.price}} AMD</span>
-        </div>
-        <div class="icon">
-          <span class="icon-bin remove-icon" (click)="removeFromCart(item.id)"></span>
-        </div>
-      </div>
-    </div>
-  </ng-container>
+  <div class="header">My cart</div>
+  <div class="items-container">
+    <ng-container *ngFor="let item of products">
+      <app-cart-single-item [product]="item" (itemDeleted)=deleteItemFromCart($event)></app-cart-single-item>
+    </ng-container>
+  </div>
 </div>

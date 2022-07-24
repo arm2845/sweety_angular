@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Subscription} from "rxjs";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Subscription, tap} from "rxjs";
 import {AuthService} from "../../../auth/services/auth.service";
 import {Product} from "../../models/product";
 
@@ -16,12 +16,12 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.products = this.authService.authUser?.cart || [];
+    this.products = this.authService.authUser?.cart.items || [];
   }
 
-  removeFromCart(productId: number): Subscription {
-    return this.authService.removeFromCart(productId)
-      .subscribe();
+  deleteItemFromCart(product: Product) {
+    let index = this.products.findIndex(item => item.id == product.id);
+    this.products.splice(index, 1);
   }
 
 }

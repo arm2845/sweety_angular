@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
-import {Subscription, tap} from "rxjs";
-import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
+import {parseObj} from "../../../app/helpers/json.helper";
+import {User} from "../../../auth/models/user";
 
 @Component({
   selector: 'app-header',
@@ -9,29 +10,25 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  authUser: User | undefined;
   isAuthUser: boolean | undefined;
   itemsInCart: number | undefined;
 
   constructor(
     private authService: AuthService,
-    private router: Router,
   ) {
   }
 
   ngOnInit(): void {
     this.isAuthUser = !!localStorage.getItem('token');
-    this.itemsInCart = this.authService.authUser?.cart.length;
+    this.authUser = parseObj(localStorage.getItem('user'));
+    this.itemsInCart = this.authUser?.cart.total_count;
+    console.log(this.itemsInCart)
+    console.log(localStorage)
   }
 
   logOut(): Subscription {
-    return  this.authService.logout().pipe(
-      tap(() => {
-        localStorage.removeItem('token');
-        this.router.navigate(['/dashboard/menu/1']);
-        window.location.reload();
-      }),
-    )
+    return this.authService.logout()
       .subscribe();
   }
 

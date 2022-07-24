@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
+import {Product} from "../../models/product";
 
 @Component({
   selector: 'app-product-single',
@@ -9,6 +10,7 @@ import {Subscription, tap} from "rxjs";
 })
 export class ProductSingleComponent implements OnInit {
   @Input() product: any;
+  @Output() favoriteStateChanged = new EventEmitter<any>();
   isFavorite: boolean | undefined;
 
   constructor(
@@ -26,19 +28,31 @@ export class ProductSingleComponent implements OnInit {
   changeFavoriteState(): Subscription {
     if (this.isFavorite) {
       return this.authService.removeFromFavorites(this.product.id).pipe(
-        tap(() => this.isFavorite = false),
+        tap(() => {
+          this.isFavorite = false;
+          this.favoriteStateChanged?.emit(this.product);
+        }),
       )
         .subscribe();
     } else {
       return this.authService.addToFavorites(this.product.id).pipe(
-        tap(() => this.isFavorite = true),
+        tap(() => {
+          this.isFavorite = true;
+          this.favoriteStateChanged?.emit(this.product);
+        }),
       )
         .subscribe();
     }
   }
 
   addToCart(): Subscription {
-    return this.authService.addToCart(this.product.id)
+    return this.authService.addToCart(this.product.id).pipe(
+      tap(() => {
+        this.authService.authUser?.cart.items.push(this.product);
+        // @ts-ignore
+        this.authService.authUser?.cart.total_count += 1;
+      })
+    )
       .subscribe();
   }
 

@@ -4,7 +4,9 @@
 <!--      ngFor for products-->
       <div class="row no-gutters d-flex align-items-stretch">
         <ng-container *ngFor="let product of products">
-          <app-product-single [product]="product"></app-product-single>
+          <app-product-single [product]="product"
+                              (favoriteStateChanged)="changeFavoriteState($event)"
+          ></app-product-single>
         </ng-container>
       </div>
     </div>
