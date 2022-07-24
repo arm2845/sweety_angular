@@ -20,7 +20,7 @@ export class ProductListingComponent implements OnInit {
     }
 
     changeFavoriteState(data: Product): void {
-        let index = this.authService.authUser?.favourites.findIndex(item => item.id == data.id);
+        let index = this.authService.authUser?.favourites.findIndex((item: { id: number; }) => item.id == data.id);
         // @ts-ignore
         index == -1 ? this.authService.authUser?.favourites.push(data) : this.authService.authUser?.favourites.splice(index, 1);
     }

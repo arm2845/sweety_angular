@@ -1,38 +1,40 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
+import {Observable, switchMap, tap} from "rxjs";
 import {UserAuthData} from "../interfaces/user-auth-data";
 import {User} from "../models/user";
 import {Router} from "@angular/router";
-import {stringifyObj} from "../../app/helpers/json.helper";
+import {parseObj, stringifyObj} from "../../app/helpers/json.helper";
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    authUser: User | undefined;
 
     constructor(
         private http: HttpClient,
         private router: Router,
-    ) {
-        this.getUser().subscribe();
+    ) {}
+
+    get authUser(): User {
+        return parseObj(localStorage.getItem('user'));
     }
 
     getUser(): Observable<any> {
-        return this.http.get('user').pipe(
-            tap((res: any) => {
-                this.authUser = res.data;
-                localStorage.setItem('user', stringifyObj(res.data));
-            })
-        )
+        return this.http.get('user');
     }
 
     register(data: UserAuthData): Observable<any> {
         return this.http.post(`register`, data).pipe(
             tap((res: any) => {
                 this.setTokenInLocalStorage(res);
+            }),
+            switchMap(() => {
+                return this.getUser();
+            }),
+            tap((res: any) => {
+                this.setUserInLocalStorage(res.data);
                 this.navigateToHomePage();
             }),
         );
@@ -42,6 +44,12 @@ export class AuthService {
         return this.http.post(`login`, data).pipe(
             tap((res: any) => {
                 this.setTokenInLocalStorage(res);
+            }),
+            switchMap(() => {
+                return this.getUser();
+            }),
+            tap((res: any) => {
+                this.setUserInLocalStorage(res.data);
                 this.navigateToHomePage();
             }),
         );
@@ -49,8 +57,9 @@ export class AuthService {
 
     logout(): Observable<any> {
         return this.http.delete(`logout`).pipe(
-            tap((res: any) => {
-                this.removeTokenFromLocalStorage(res);
+            tap(() => {
+                this.removeTokenFromLocalStorage();
+                this.removeUserFromLocalStorage();
                 this.navigateToHomePage();
             }),
         )
@@ -77,13 +86,24 @@ export class AuthService {
         localStorage.setItem('token', token);
     }
 
-    private removeTokenFromLocalStorage(res: any) {
-        const token = res.data.token;
-        localStorage.setItem('token', token);
+    private removeTokenFromLocalStorage() {
+        localStorage.removeItem('token');
     }
 
     private navigateToHomePage() {
-        this.router.navigate(['/dashboard/menu/1']);
+        this.router.navigate(['/dashboard/menu/1'])
+            .then(() => {
+                window.location.reload();
+            },
+        )
+    }
+
+    private removeUserFromLocalStorage(): void {
+        localStorage.removeItem('user');
+    }
+
+    private setUserInLocalStorage(data: any): void {
+        localStorage.setItem('user', stringifyObj(data));
     }
 
 }

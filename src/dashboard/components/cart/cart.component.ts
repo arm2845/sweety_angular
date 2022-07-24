@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Product} from "../../models/product";
+import {User} from "../../../auth/models/user";
 
 @Component({
     selector: 'app-cart',
@@ -9,6 +10,7 @@ import {Product} from "../../models/product";
 })
 export class CartComponent implements OnInit {
     products: Product[] = [];
+    authUser: User | any;
 
     constructor(
         private authService: AuthService,
@@ -16,7 +18,8 @@ export class CartComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.products = this.authService.authUser?.cart.items || [];
+        this.authUser = this.authService.authUser;
+        this.products = this.authUser.cart.items || [];
     }
 
     deleteItemFromCart(product: Product) {

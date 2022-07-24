@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
-import {Subscription} from "rxjs";
-import {parseObj} from "../../../app/helpers/json.helper";
+import {Subscription, tap} from "rxjs";
 import {User} from "../../../auth/models/user";
 
 @Component({
@@ -11,7 +10,6 @@ import {User} from "../../../auth/models/user";
 })
 export class HeaderComponent implements OnInit {
     authUser: User | undefined;
-    isAuthUser: boolean | undefined;
     itemsInCart: number | undefined;
 
     constructor(
@@ -20,11 +18,8 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.isAuthUser = !!localStorage.getItem('token');
-        this.authUser = parseObj(localStorage.getItem('user'));
+        this.authUser = this.authService.authUser;
         this.itemsInCart = this.authUser?.cart.total_count;
-        console.log(this.itemsInCart)
-        console.log(localStorage)
     }
 
     logOut(): Subscription {

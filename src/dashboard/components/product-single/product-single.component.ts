@@ -19,7 +19,7 @@ export class ProductSingleComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.authService.authUser) {
-            if (this.authService.authUser?.favourites?.findIndex(item => item.id == this.product.id) != -1) {
+            if (this.authService.authUser?.favourites?.findIndex((item: { id: any; }) => item.id == this.product.id) != -1) {
                 this.isFavorite = true;
             }
         }

@@ -9,7 +9,7 @@
             <span class="icon-menu menu-icon"></span>
             <span class="menu-item-name">Menu</span>
         </div>
-        <ng-container *ngIf="isAuthUser">
+        <ng-container *ngIf="authUser">
             <div class="header-item" routerLink="/dashboard/cart">
         <span class="icon-cart menu-cart-icon">
           <span class="item-count">{{itemsInCart}}</span>
@@ -21,13 +21,13 @@
                 <span class="menu-item-name">Favorites</span>
             </div>
         </ng-container>
-        <ng-container *ngIf="!isAuthUser">
+        <ng-container *ngIf="!authUser">
             <div class="header-item" routerLink="/user/auth">
                 <span class="icon-log-in menu-icon"></span>
                 <span class="menu-item-name">Log in</span>
             </div>
         </ng-container>
-        <ng-container *ngIf="isAuthUser">
+        <ng-container *ngIf="authUser">
             <div (click)="logOut()" class="header-item">
                 <span class="icon-log-out menu-icon"></span>
                 <span class="menu-item-name">Log out</span>

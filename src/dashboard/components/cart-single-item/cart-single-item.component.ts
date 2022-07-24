@@ -20,7 +20,7 @@ export class CartSingleItemComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.authService.authUser) {
-            if (this.authService.authUser?.favourites?.findIndex(item => item.id == this.product.id) != -1) {
+            if (this.authService.authUser?.favourites?.findIndex((item: { id: any; }) => item.id == this.product.id) != -1) {
                 this.isFavorite = true;
             }
         }
@@ -40,7 +40,7 @@ export class CartSingleItemComponent implements OnInit {
             return this.authService.removeFromFavorites(this.product.id).pipe(
                 tap(() => {
                     this.isFavorite = false;
-                    let index = this.authService.authUser?.favourites.findIndex(item => item.id == this.product.id);
+                    let index = this.authService.authUser?.favourites.findIndex((item: { id: any; }) => item.id == this.product.id);
                     // @ts-ignore
                     this.authService.authUser?.favourites.splice(index, 1);
                 }),
