@@ -11,13 +11,13 @@
         <div class="quantity">
           <span class="count">
             <span class="icon-minus rounded-icon"></span>
-            <span>1</span>
+            <span>{{product.count}}</span>
             <span class="icon-plus rounded-icon"></span>
           </span>
         </div>
         <div class="total-price">
             <span class="price-title">Total price</span>
-            <span class="price">{{product.price}} AMD</span>
+            <span class="price">{{product.price * product.count}} AMD</span>
         </div>
         <div class="icon">
             <span (click)="removeFromCart()" class="icon-bin remove-icon"></span>

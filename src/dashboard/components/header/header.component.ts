@@ -9,7 +9,7 @@ import {User} from "../../../auth/models/user";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    authUser: User | undefined;
+    authUser: boolean | undefined;
     itemsInCart: number | undefined;
 
     constructor(
@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.authUser = this.authService.authUser;
-        this.itemsInCart = this.authUser?.cart.total_count;
+        this.authUser = !!localStorage.getItem('user');
+        this.itemsInCart = this.authService.authUser?.cart.total_count;
     }
 
     logOut(): Subscription {

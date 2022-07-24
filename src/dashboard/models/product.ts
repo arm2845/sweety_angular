@@ -11,6 +11,7 @@ export class Product {
     ingredients: string;
     price: number;
     url: string;
+    count: number;
 
     constructor(data: any) {
         this.name = data.name;
@@ -25,5 +26,6 @@ export class Product {
         this.name_hy = data.name_hy;
         this.name_ru = data.name_ru;
         this.id = data.id;
+        this.count = data.count;
     }
 }

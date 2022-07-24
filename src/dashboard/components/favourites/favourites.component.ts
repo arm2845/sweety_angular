@@ -19,4 +19,9 @@ export class FavouritesComponent implements OnInit {
         this.items = this.authService.authUser?.favourites || [];
     }
 
+    changeFavoriteState(product: Product) {
+        const index = this.items.findIndex(item => item.id == product.id);
+        this.items.splice(index, 1);
+    }
+
 }

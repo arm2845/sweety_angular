@@ -1,7 +1,11 @@
 <div class="main-container">
     <div class="header">My favourites</div>
     <div class="items-container">
-        <app-product-listing [products]="items"></app-product-listing>
+        <ng-container *ngFor="let product of items">
+            <app-product-single (favoriteStateChanged)="changeFavoriteState($event)"
+                                [product]="product"
+            ></app-product-single>
+        </ng-container>
     </div>
 </div>
 
