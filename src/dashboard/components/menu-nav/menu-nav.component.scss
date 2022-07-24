@@ -1,179 +1,191 @@
 app-product-listing {
-  width: 100%;
+    width: 100%;
 }
 
 .ftco-section {
-  padding: 120px 0 40px 0;
-  position: relative;
+    padding: 120px 0 40px 0;
+    position: relative;
 }
 
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin: 0 35px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 35px;
 }
 
 .ftco-search {
-  position: relative;
-  width: 100%;
-  display: block;
-  .nav-link-wrap {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  .nav-pills {
+    position: relative;
     width: 100%;
     display: block;
-    p {
-      margin-bottom: 0;
+
+    .nav-link-wrap {
+        width: 100%;
+        margin-bottom: 30px;
     }
-    .nav-link {
-      padding: 10px !important;
-      margin-bottom: 0;
-      color: #000000;
-      font-size: 20px;
-      font-weight: 600;
-      position: relative;
-      display: inline-block;
-      border: 1px solid transparent;
-      background: #fff;
-      width: 16.6%;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      border-radius: 10px;
-      &:after {
-        position: absolute;
-        bottom: -10px;
-        left: 0;
-        right: 0;
-        width: 0;
-        content: '';
-        height: 0;
-        margin: 0 auto;
-        border-style: solid;
-        border-width: 10px 10px 0 10px;
-        border-color: #EABE5E transparent transparent transparent;
-        opacity: 0;
-      }
-      &:hover {
-        background: #EABE5E;
-        color: #fff;
-      }
+
+    .nav-pills {
+        width: 100%;
+        display: block;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .nav-link {
+            padding: 10px !important;
+            margin-bottom: 0;
+            color: #000000;
+            font-size: 20px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            border: 1px solid transparent;
+            background: #fff;
+            width: 16.6%;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            border-radius: 10px;
+
+            &:after {
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                right: 0;
+                width: 0;
+                content: '';
+                height: 0;
+                margin: 0 auto;
+                border-style: solid;
+                border-width: 10px 10px 0 10px;
+                border-color: #EABE5E transparent transparent transparent;
+                opacity: 0;
+            }
+
+            &:hover {
+                background: #EABE5E;
+                color: #fff;
+            }
+        }
+
+        :active, .active {
+            color: #fff;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            -webkit-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            background: #EABE5E;
+        }
+
+        .active:after {
+            opacity: 1;
+        }
     }
-    :active, .active {
-      color: #fff;
-      -moz-transition: all 0.3s ease;
-      -o-transition: all 0.3s ease;
-      -webkit-transition: all 0.3s ease;
-      -ms-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-      background: #EABE5E;
-    }
-    .active:after {
-      opacity: 1;
-    }
-  }
 }
 
 .ftco-search .tab-content {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-  margin-top: 15px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    margin-top: 15px;
 }
 
 .col-md-12 {
-  position: relative;
-  width: 100% !important;
-  padding-right: 15px;
-  padding-left: 15px;
+    position: relative;
+    width: 100% !important;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 }
 
 .nav-pills {
-  .nav-link {
-    border-radius: 0.25rem;
-  }
+    .nav-link {
+        border-radius: 0.25rem;
+    }
 }
+
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #007bff;
+    color: #fff;
+    background-color: #007bff;
 }
 
 .text-center {
-  text-align: center !important;
+    text-align: center !important;
 }
 
 .nav-link {
-  display: block;
-  padding: 0.5rem 1rem;
+    display: block;
+    padding: 0.5rem 1rem;
 }
+
 .nav-link:hover, .nav-link:focus {
-  text-decoration: none;
-  background: #EABE5E;
+    text-decoration: none;
+    background: #EABE5E;
 }
+
 .nav-link.disabled {
-  color: #6c757d;
-  pointer-events: none;
-  cursor: default;
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
 }
 
 @media (max-width: 992px) {
-  .ftco-search {
-    .nav-pills {
-      .nav-link {
-        font-size: 16px;
-      }
+    .ftco-search {
+        .nav-pills {
+            .nav-link {
+                font-size: 16px;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: 790px) {
-  .ftco-search {
-    .nav-pills {
-      .nav-link {
-        font-size: 15px;
-      }
+    .ftco-search {
+        .nav-pills {
+            .nav-link {
+                font-size: 15px;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: 768px) {
-  .ftco-search .nav-pills .nav-link.active:after {
-    opacity: 0;
-  }
+    .ftco-search .nav-pills .nav-link.active:after {
+        opacity: 0;
+    }
 }
+
 @media (max-width: 768px) {
-  .ftco-search .nav-pills .nav-link {
-    width: 100%;
-    background: #f6f1e9;
-    margin-bottom: 4px;
-  }
-  .ftco-search .nav-pills .nav-link.active, .nav-link:hover, .nav-link:focus {
-    background: #EABE5E;
-  }
+    .ftco-search .nav-pills .nav-link {
+        width: 100%;
+        background: #f6f1e9;
+        margin-bottom: 4px;
+    }
+    .ftco-search .nav-pills .nav-link.active, .nav-link:hover, .nav-link:focus {
+        background: #EABE5E;
+    }
 }
 
 
 @media (min-width: 768px) {
-  .col-md-12 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+    .col-md-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }

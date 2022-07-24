@@ -1,8 +1,8 @@
 <div class="cart-container">
-  <div class="header">My cart</div>
-  <div class="items-container">
-    <ng-container *ngFor="let item of products">
-      <app-cart-single-item [product]="item" (itemDeleted)=deleteItemFromCart($event)></app-cart-single-item>
-    </ng-container>
-  </div>
+    <div class="header">My cart</div>
+    <div class="items-container">
+        <ng-container *ngFor="let item of products">
+            <app-cart-single-item (itemDeleted)=deleteItemFromCart($event) [product]="item"></app-cart-single-item>
+        </ng-container>
+    </div>
 </div>

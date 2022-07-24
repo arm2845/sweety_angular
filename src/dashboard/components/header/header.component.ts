@@ -5,31 +5,31 @@ import {parseObj} from "../../../app/helpers/json.helper";
 import {User} from "../../../auth/models/user";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  authUser: User | undefined;
-  isAuthUser: boolean | undefined;
-  itemsInCart: number | undefined;
+    authUser: User | undefined;
+    isAuthUser: boolean | undefined;
+    itemsInCart: number | undefined;
 
-  constructor(
-    private authService: AuthService,
-  ) {
-  }
+    constructor(
+        private authService: AuthService,
+    ) {
+    }
 
-  ngOnInit(): void {
-    this.isAuthUser = !!localStorage.getItem('token');
-    this.authUser = parseObj(localStorage.getItem('user'));
-    this.itemsInCart = this.authUser?.cart.total_count;
-    console.log(this.itemsInCart)
-    console.log(localStorage)
-  }
+    ngOnInit(): void {
+        this.isAuthUser = !!localStorage.getItem('token');
+        this.authUser = parseObj(localStorage.getItem('user'));
+        this.itemsInCart = this.authUser?.cart.total_count;
+        console.log(this.itemsInCart)
+        console.log(localStorage)
+    }
 
-  logOut(): Subscription {
-    return this.authService.logout()
-      .subscribe();
-  }
+    logOut(): Subscription {
+        return this.authService.logout()
+            .subscribe();
+    }
 
 }

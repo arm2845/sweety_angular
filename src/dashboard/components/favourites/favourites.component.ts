@@ -3,20 +3,20 @@ import {Product} from "../../models/product";
 import {AuthService} from "../../../auth/services/auth.service";
 
 @Component({
-  selector: 'app-favourites',
-  templateUrl: './favourites.component.html',
-  styleUrls: ['./favourites.component.scss']
+    selector: 'app-favourites',
+    templateUrl: './favourites.component.html',
+    styleUrls: ['./favourites.component.scss']
 })
 export class FavouritesComponent implements OnInit {
-  items: Product[] = [];
+    items: Product[] = [];
 
-  constructor(
-    private authService: AuthService,
-  ) {
-  }
+    constructor(
+        private authService: AuthService,
+    ) {
+    }
 
-  ngOnInit(): void {
-    this.items = this.authService.authUser?.favourites || [];
-  }
+    ngOnInit(): void {
+        this.items = this.authService.authUser?.favourites || [];
+    }
 
 }

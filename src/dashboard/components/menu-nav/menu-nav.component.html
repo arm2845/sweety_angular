@@ -1,18 +1,22 @@
 <section class="ftco-section">
-  <div class="container">
-    <div class="ftco-search">
-      <div class="row">
-        <div class="col-md-12 nav-link-wrap">
-          <div class="nav nav-pills d-flex text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <ng-container *ngFor="let category of productCategories">
-              <a [class.active]="category.selected" class="nav-link ftco-animate" data-toggle="pill" role="tab"
-                 [routerLink]="['/dashboard/menu', category.id]" (click)="selectCategory(category)">{{category.name_en | titlecase}}</a>
-            </ng-container>
-          </div>
+    <div class="container">
+        <div class="ftco-search">
+            <div class="row">
+                <div class="col-md-12 nav-link-wrap">
+                    <div aria-orientation="vertical" class="nav nav-pills d-flex text-center" id="v-pills-tab"
+                         role="tablist">
+                        <ng-container *ngFor="let category of productCategories">
+                            <a (click)="selectCategory(category)" [class.active]="category.selected"
+                               [routerLink]="['/dashboard/menu', category.id]"
+                               class="nav-link ftco-animate"
+                               data-toggle="pill"
+                               role="tab">{{category.name_en | titlecase}}</a>
+                        </ng-container>
+                    </div>
+                </div>
+                <app-product-listing [products]="products"></app-product-listing>
+            </div>
         </div>
-        <app-product-listing [products]="products"></app-product-listing>
-      </div>
     </div>
-  </div>
 </section>
 <app-footer></app-footer>

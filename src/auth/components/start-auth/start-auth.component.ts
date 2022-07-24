@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-start-auth',
-  templateUrl: './start-auth.component.html',
-  styleUrls: ['./start-auth.component.scss']
+    selector: 'app-start-auth',
+    templateUrl: './start-auth.component.html',
+    styleUrls: ['./start-auth.component.scss']
 })
 export class StartAuthComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

@@ -1,6 +1,6 @@
 export interface UserAuthData {
-  username: string;
-  phone?: string;
-  password: string;
-  password_confirmation?: string;
+    username: string;
+    phone?: string;
+    password: string;
+    password_confirmation?: string;
 }

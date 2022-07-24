@@ -1,21 +1,21 @@
 <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
-  <div class="menus d-sm-flex ftco-animate align-items-stretch">
-    <div class="menu-img img" style="background-image: url(../../../assets/images/breakfast-2.jpg);"></div>
-    <div class="text d-flex align-items-center">
-      <div class="right-side">
-        <div>
-          <div class="one-half">
-            <span><h3>{{product.name_en | titlecase}}</h3></span>
-            <span (click)="changeFavoriteState()"
-                  class="icon-heart favorite-icon" [class.filled-icon]="isFavorite"></span>
-          </div>
-          <div class="one-forth">
-            <span class="price">{{product.price}} AMD</span>
-          </div>
+    <div class="menus d-sm-flex ftco-animate align-items-stretch">
+        <div class="menu-img img" style="background-image: url(../../../assets/images/breakfast-2.jpg);"></div>
+        <div class="text d-flex align-items-center">
+            <div class="right-side">
+                <div>
+                    <div class="one-half">
+                        <span><h3>{{product.name_en | titlecase}}</h3></span>
+                        <span (click)="changeFavoriteState()"
+                              [class.filled-icon]="isFavorite" class="icon-heart favorite-icon"></span>
+                    </div>
+                    <div class="one-forth">
+                        <span class="price">{{product.price}} AMD</span>
+                    </div>
+                </div>
+                <p class="desc-text">{{product.desc_en}}</p>
+                <p><a (click)="addToCart()" class="btn btn-primary">Add to Cart</a></p>
+            </div>
         </div>
-        <p class="desc-text">{{product.desc_en}}</p>
-        <p><a class="btn btn-primary" (click)="addToCart()">Add to Cart</a></p>
-      </div>
     </div>
-  </div>
 </div>

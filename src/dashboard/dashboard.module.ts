@@ -9,30 +9,30 @@ import {ProductListingComponent} from "./components/product-listing/product-list
 import {ProductSingleComponent} from "./components/product-single/product-single.component";
 import {DashboardRoutingModule} from "./dashboard-routing.module";
 import {MainService} from "./services/main.service";
-import { CartSingleItemComponent } from './components/cart-single-item/cart-single-item.component';
+import {CartSingleItemComponent} from './components/cart-single-item/cart-single-item.component';
 
 
 @NgModule({
-  declarations: [
-    CartComponent,
-    FavouritesComponent,
-    FooterComponent,
-    HeaderComponent,
-    MenuNavComponent,
-    ProductListingComponent,
-    ProductSingleComponent,
-    CartSingleItemComponent,
-  ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule
-  ],
-  exports: [
-    HeaderComponent,
-  ],
-  providers: [
-    MainService,
-  ]
+    declarations: [
+        CartComponent,
+        FavouritesComponent,
+        FooterComponent,
+        HeaderComponent,
+        MenuNavComponent,
+        ProductListingComponent,
+        ProductSingleComponent,
+        CartSingleItemComponent,
+    ],
+    imports: [
+        CommonModule,
+        DashboardRoutingModule
+    ],
+    exports: [
+        HeaderComponent,
+    ],
+    providers: [
+        MainService,
+    ]
 })
 export class DashboardModule {
 }

@@ -1,17 +1,18 @@
 <div class="login-main-container">
-  <div class="image-container">
-    <img class="login-image" src="../../../assets/images/illustrations/login-ill.png">
-  </div>
-  <div class="form-container">
-    <form class="form" [formGroup]="loginForm">
-      <label class="login-label" for="username">Name</label>
-      <input id="username" class="input-row" type="text" formControlName="username" placeholder="Name">
-      <div class="password-container">
-        <label class="login-label" for="password">Password</label>
-        <input id="password" class="input-row" type="password" formControlName="password" placeholder="********">
-        <span (click)="showHidePass($event, 'password')" class="icon-hide-pass pass-icon"></span>
-      </div>
-      <button class="submit-button button-filled" type="submit" (click)="login()">Login</button>
-    </form>
-  </div>
+    <div class="image-container">
+        <img class="login-image" src="../../../assets/images/illustrations/login-ill.png">
+    </div>
+    <div class="form-container">
+        <form [formGroup]="loginForm" class="form">
+            <label class="login-label" for="username">Name</label>
+            <input class="input-row" formControlName="username" id="username" placeholder="Name" type="text">
+            <div class="password-container">
+                <label class="login-label" for="password">Password</label>
+                <input class="input-row" formControlName="password" id="password" placeholder="********"
+                       type="password">
+                <span (click)="showHidePass($event, 'password')" class="icon-hide-pass pass-icon"></span>
+            </div>
+            <button (click)="login()" class="submit-button button-filled" type="submit">Login</button>
+        </form>
+    </div>
 </div>

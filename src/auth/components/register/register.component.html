@@ -1,24 +1,26 @@
 <div class="login-main-container">
-  <div class="image-container">
-    <img class="login-image" src="../../../assets/images/illustrations/register-ill.png">
-  </div>
-  <div class="form-container">
-    <form class="form" [formGroup]="registerForm">
-      <label class="login-label" for="username">Name</label>
-      <input id="username" class="input-row" type="text" formControlName="username" placeholder="Name">
-      <label class="login-label" for="phone">Phone number</label>
-      <input id="phone" class="input-row" type="text" formControlName="phone" placeholder="+374 ( )">
-      <div class="password-container">
-        <label class="login-label" for="password1">Password</label>
-        <input id="password1" class="input-row" type="password" formControlName="password" placeholder="********">
-        <span (click)="showHidePass($event, 'password1')" class="icon-hide-pass pass-icon"></span>
-      </div>
-      <div class="password-container">
-        <label class="login-label" for="password2">Confirm password</label>
-        <input id="password2" class="input-row" type="password" formControlName="password_confirmation" placeholder="********">
-        <span (click)="showHidePass($event, 'password2')" class="icon-hide-pass pass-icon"></span>
-      </div>
-      <button class="submit-button button-filled" type="submit" (click)="registerUser()">Register</button>
-    </form>
-  </div>
+    <div class="image-container">
+        <img class="login-image" src="../../../assets/images/illustrations/register-ill.png">
+    </div>
+    <div class="form-container">
+        <form [formGroup]="registerForm" class="form">
+            <label class="login-label" for="username">Name</label>
+            <input class="input-row" formControlName="username" id="username" placeholder="Name" type="text">
+            <label class="login-label" for="phone">Phone number</label>
+            <input class="input-row" formControlName="phone" id="phone" placeholder="+374 ( )" type="text">
+            <div class="password-container">
+                <label class="login-label" for="password1">Password</label>
+                <input class="input-row" formControlName="password" id="password1" placeholder="********"
+                       type="password">
+                <span (click)="showHidePass($event, 'password1')" class="icon-hide-pass pass-icon"></span>
+            </div>
+            <div class="password-container">
+                <label class="login-label" for="password2">Confirm password</label>
+                <input class="input-row" formControlName="password_confirmation" id="password2" placeholder="********"
+                       type="password">
+                <span (click)="showHidePass($event, 'password2')" class="icon-hide-pass pass-icon"></span>
+            </div>
+            <button (click)="registerUser()" class="submit-button button-filled" type="submit">Register</button>
+        </form>
+    </div>
 </div>
