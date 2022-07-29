@@ -1,40 +1,38 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, switchMap, tap} from "rxjs";
+import {Observable, tap} from "rxjs";
 import {UserAuthData} from "../interfaces/user-auth-data";
 import {User} from "../models/user";
 import {Router} from "@angular/router";
-import {parseObj, stringifyObj} from "../../app/helpers/json.helper";
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
+    authUser: User | any;
 
     constructor(
         private http: HttpClient,
         private router: Router,
     ) {}
 
-    get authUser(): User {
-        return parseObj(localStorage.getItem('user'));
-    }
-
     getUser(): Observable<any> {
         return this.http.get('user');
+    }
+
+    getCart(): Observable<any> {
+        return this.http.get('cart');
+    }
+
+    getFavourites(): Observable<any> {
+        return this.http.get('favourites');
     }
 
     register(data: UserAuthData): Observable<any> {
         return this.http.post(`register`, data).pipe(
             tap((res: any) => {
                 this.setTokenInLocalStorage(res);
-            }),
-            switchMap(() => {
-                return this.getUser();
-            }),
-            tap((res: any) => {
-                this.setUserInLocalStorage(res.data);
                 this.navigateToHomePage();
             }),
         );
@@ -44,12 +42,6 @@ export class AuthService {
         return this.http.post(`login`, data).pipe(
             tap((res: any) => {
                 this.setTokenInLocalStorage(res);
-            }),
-            switchMap(() => {
-                return this.getUser();
-            }),
-            tap((res: any) => {
-                this.setUserInLocalStorage(res.data);
                 this.navigateToHomePage();
             }),
         );
@@ -59,7 +51,6 @@ export class AuthService {
         return this.http.delete(`logout`).pipe(
             tap(() => {
                 this.removeTokenFromLocalStorage();
-                this.removeUserFromLocalStorage();
                 this.navigateToHomePage();
             }),
         )
@@ -81,29 +72,21 @@ export class AuthService {
         return this.http.delete(`cart/${productId}`);
     }
 
-    private setTokenInLocalStorage(res: any) {
+    private setTokenInLocalStorage(res: any): void {
         const token = res.data.token;
         localStorage.setItem('token', token);
     }
 
-    private removeTokenFromLocalStorage() {
+    private removeTokenFromLocalStorage(): void {
         localStorage.removeItem('token');
     }
 
-    private navigateToHomePage() {
+    private navigateToHomePage(): void {
         this.router.navigate(['/dashboard/menu/1'])
             .then(() => {
                 window.location.reload();
             },
         )
-    }
-
-    private removeUserFromLocalStorage(): void {
-        localStorage.removeItem('user');
-    }
-
-    private setUserInLocalStorage(data: any): void {
-        localStorage.setItem('user', stringifyObj(data));
     }
 
 }

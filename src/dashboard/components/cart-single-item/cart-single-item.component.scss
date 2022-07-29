@@ -5,7 +5,6 @@
 .menus {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between;
     width: 100%;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -19,7 +18,7 @@
     padding: 20px;
 
     .menu-img {
-        width: 16%;
+        width: 20%;
         border-radius: 5px 0 0 5px;
         display: flex;
         align-items: center;
@@ -33,6 +32,7 @@
     .name-container {
         display: flex;
         align-items: center;
+        width: 30%;
 
         h3 {
             font-size: 20px;
@@ -50,10 +50,13 @@
     }
 
     .quantity {
+        width: 10%;
         .count {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            .number-container {
+                padding: 0 10px;
+            }
 
             .rounded-icon {
                 cursor: pointer;
@@ -62,6 +65,7 @@
     }
 
     .total-price {
+        width: 30%;
         .price-title {
             margin-right: 20px;
         }
@@ -80,6 +84,7 @@
     }
 
     .icon {
+        width: 10%;
         .remove-icon {
             font-size: 20px;
             color: #dedada;

@@ -12,6 +12,7 @@ export class Product {
     price: number;
     url: string;
     count: number;
+    isFavorite?: boolean;
 
     constructor(data: any) {
         this.name = data.name;

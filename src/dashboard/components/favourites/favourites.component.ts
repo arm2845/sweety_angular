@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "../../models/product";
 import {AuthService} from "../../../auth/services/auth.service";
+import {Subscription, tap} from "rxjs";
 
 @Component({
     selector: 'app-favourites',
@@ -8,7 +9,7 @@ import {AuthService} from "../../../auth/services/auth.service";
     styleUrls: ['./favourites.component.scss']
 })
 export class FavouritesComponent implements OnInit {
-    items: Product[] = [];
+    favourites: Product[] = [];
 
     constructor(
         private authService: AuthService,
@@ -16,12 +17,21 @@ export class FavouritesComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.items = this.authService.authUser?.favourites || [];
+        this.getFavourites();
+    }
+
+    getFavourites(): Subscription {
+        return this.authService.getFavourites().pipe(
+            tap((res: any) => {
+                this.favourites = res.data.items;
+            }),
+        )
+            .subscribe()
     }
 
     changeFavoriteState(product: Product) {
-        const index = this.items.findIndex(item => item.id == product.id);
-        this.items.splice(index, 1);
+        const index = this.favourites.findIndex(item => item.id == product.id);
+        this.favourites.splice(index, 1);
     }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Product} from "../../models/product";
-import {User} from "../../../auth/models/user";
+import {Subscription, tap} from "rxjs";
 
 @Component({
     selector: 'app-cart',
@@ -10,7 +10,6 @@ import {User} from "../../../auth/models/user";
 })
 export class CartComponent implements OnInit {
     products: Product[] = [];
-    authUser: User | any;
 
     constructor(
         private authService: AuthService,
@@ -18,8 +17,16 @@ export class CartComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.authUser = this.authService.authUser;
-        this.products = this.authUser.cart.items || [];
+        this.getCart();
+    }
+
+    getCart(): Subscription {
+        return this.authService.getCart().pipe(
+            tap((res: any) => {
+                this.products = res.data.items;
+            }),
+        )
+            .subscribe()
     }
 
     deleteItemFromCart(product: Product) {

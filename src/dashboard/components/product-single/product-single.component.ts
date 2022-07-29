@@ -46,13 +46,7 @@ export class ProductSingleComponent implements OnInit {
     }
 
     addToCart(): Subscription {
-        return this.authService.addToCart(this.product.id).pipe(
-            tap(() => {
-                this.authService.authUser?.cart.items.push(this.product);
-                // @ts-ignore
-                this.authService.authUser?.cart.total_count += 1;
-            })
-        )
+        return this.authService.addToCart(this.product.id)
             .subscribe();
     }
 

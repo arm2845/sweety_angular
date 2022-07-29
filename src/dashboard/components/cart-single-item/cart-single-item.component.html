@@ -10,9 +10,9 @@
         </div>
         <div class="quantity">
           <span class="count">
-            <span class="icon-minus rounded-icon"></span>
-            <span>{{product.count}}</span>
-            <span class="icon-plus rounded-icon"></span>
+            <span class="icon-minus rounded-icon" (click)="increase()"></span>
+            <span class="number-container">{{product.count}}</span>
+            <span class="icon-plus rounded-icon" (click)="decrease()"></span>
           </span>
         </div>
         <div class="total-price">

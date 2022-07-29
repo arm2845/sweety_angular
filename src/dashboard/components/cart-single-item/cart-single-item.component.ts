@@ -18,13 +18,7 @@ export class CartSingleItemComponent implements OnInit {
     ) {
     }
 
-    ngOnInit(): void {
-        if (this.authService.authUser) {
-            if (this.authService.authUser?.favourites?.findIndex((item: { id: any; }) => item.id == this.product.id) != -1) {
-                this.isFavorite = true;
-            }
-        }
-    }
+    ngOnInit(): void {}
 
     removeFromCart(): Subscription {
         return this.authService.removeFromCart(this.product.id).pipe(
@@ -55,6 +49,14 @@ export class CartSingleItemComponent implements OnInit {
             )
                 .subscribe();
         }
+    }
+
+    increase(): void {
+        this.product.count > 1 ? this.product.count-- : this.removeFromCart();
+    }
+
+    decrease(): void {
+        this.product.count++;
     }
 
 }
