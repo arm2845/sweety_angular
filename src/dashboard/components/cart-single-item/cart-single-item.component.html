@@ -1,25 +1,25 @@
 <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
-        <div class="menu-img">
+        <div class="menu-img single-row">
             <img class="item-img" src="../../../assets/images/breakfast-2.jpg">
         </div>
-        <div class="name-container">
+        <div class="name-container single-row">
             <span class="name"><h3>{{product.name_en | titlecase}}</h3></span>
             <span (click)="changeFavoriteState()" [class.filled-icon]="isFavorite"
                   class="icon-heart favorite-icon"></span>
         </div>
-        <div class="quantity">
+        <div class="quantity single-row">
           <span class="count">
             <span class="icon-minus rounded-icon" (click)="increase()"></span>
             <span class="number-container">{{product.count}}</span>
             <span class="icon-plus rounded-icon" (click)="decrease()"></span>
           </span>
         </div>
-        <div class="total-price">
+        <div class="total-price single-row">
             <span class="price-title">Total price</span>
             <span class="price">{{product.price * product.count}} AMD</span>
         </div>
-        <div class="icon">
+        <div class="icon single-row">
             <span (click)="removeFromCart()" class="icon-bin remove-icon"></span>
         </div>
     </div>

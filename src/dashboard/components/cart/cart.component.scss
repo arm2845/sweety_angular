@@ -12,6 +12,31 @@
     }
 
     .items-container {
-        margin-top: 55px;
+        margin: 55px 0 0 15px;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .cart-container {
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 55px -15px 0 15px;
+        }
+    }
+    app-cart-single-item {
+        display: contents;
+        margin: 0 10px;
+    }
+}
+
+
+@media (max-width: 650px) {
+    .cart-container {
+        .items-container {
+            margin: 55px 0 0 15px;
+        }
     }
 }

@@ -65,6 +65,8 @@
     }
 
     .total-price {
+        display: flex;
+        align-items: center;
         width: 30%;
         .price-title {
             margin-right: 20px;
@@ -104,16 +106,46 @@ h1, h2, h3, h4, h5,
     color: #d62974 !important;
 }
 
+@media (max-width: 900px) {
+    .col-md-12 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .menus {
+        flex-direction: column;
+        width: 96%;
+        .single-row {
+            width: auto;
+            margin-bottom: 15px;
+        }
+        .menu-img {
+            height: auto;
+            .item-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
 @media (max-width: 768px) {
     .menus {
         .text {
             width: 100%;
         }
+    }
+}
 
+@media (max-width: 650px) {
+    .menus {
+        width: 100%;
         .menu-img {
-            width: 100%;
-            height: 230px;
+            width: 200px;
         }
+    }
+    .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
 
