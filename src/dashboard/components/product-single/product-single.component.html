@@ -7,7 +7,7 @@
                     <div class="one-half">
                         <span><h3>{{product.name_en | titlecase}}</h3></span>
                         <span (click)="changeFavoriteState()"
-                              [class.filled-icon]="isFavorite" class="icon-heart favorite-icon"></span>
+                              [class.filled-icon]="product.is_favourite" class="icon-heart favorite-icon"></span>
                     </div>
                     <div class="one-forth">
                         <span class="price">{{product.price}} AMD</span>

@@ -56,19 +56,19 @@ export class AuthService {
         )
     }
 
-    addToFavorites(productId: string): Observable<any> {
+    addToFavorites(productId: number): Observable<any> {
         return this.http.post(`favourites/${productId}`, {});
     }
 
-    removeFromFavorites(productId: string): Observable<any> {
+    removeFromFavorites(productId: number): Observable<any> {
         return this.http.delete(`favourites/${productId}`);
     }
 
-    addToCart(productId: string): Observable<any> {
+    addToCart(productId: number): Observable<any> {
         return this.http.post(`cart/${productId}`, {});
     }
 
-    removeFromCart(productId: number | undefined): Observable<any> {
+    removeFromCart(productId: number): Observable<any> {
         return this.http.delete(`cart/${productId}`);
     }
 

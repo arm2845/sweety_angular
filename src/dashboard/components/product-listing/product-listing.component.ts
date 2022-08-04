@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../models/product";
-import {AuthService} from "../../../auth/services/auth.service";
 
 @Component({
     selector: 'app-product-listing',
@@ -11,18 +10,15 @@ export class ProductListingComponent implements OnInit {
 
     @Input() products: Product[] = [];
 
-    constructor(
-        private authService: AuthService,
-    ) {
+    constructor() {
     }
 
     ngOnInit(): void {
     }
 
     changeFavoriteState(data: Product): void {
-        let index = this.authService.authUser?.favourites.findIndex((item: { id: number; }) => item.id == data.id);
-        // @ts-ignore
-        index == -1 ? this.authService.authUser?.favourites.push(data) : this.authService.authUser?.favourites.splice(index, 1);
+        let index = this.products.findIndex(item => item.id == data.id);
+        index == -1 ? this.products.push(data) : this.products.splice(index, 1);
     }
 
 }

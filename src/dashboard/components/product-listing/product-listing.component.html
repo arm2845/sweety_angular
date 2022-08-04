@@ -1,7 +1,6 @@
 <div class="col-md-12 tab-wrap">
     <div class="tab-content" id="v-pills-tabContent">
         <div aria-labelledby="day-1-tab" class="tab-pane fade show active" id="v-pills-1" role="tabpanel">
-            <!--      ngFor for products-->
             <div class="row no-gutters d-flex align-items-stretch">
                 <ng-container *ngFor="let product of products">
                     <app-product-single (favoriteStateChanged)="changeFavoriteState($event)"

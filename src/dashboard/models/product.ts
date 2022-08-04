@@ -1,32 +1,29 @@
 export class Product {
-    category_id?: number;
-    desc_en?: string;
-    desc_hy?: string;
-    desc_ru?: string;
+    id: number;
+    category_id: number;
     name_en?: string;
     name_hy?: string;
     name_ru?: string;
-    id: number;
-    name: string;
-    ingredients: string;
+    desc_en?: string;
+    desc_hy?: string;
+    desc_ru?: string;
     price: number;
-    url: string;
-    count: number;
-    isFavorite?: boolean;
+    count_in_cart: number;
+    is_favourite: boolean;
+    is_in_cart: boolean;
 
     constructor(data: any) {
-        this.name = data.name;
-        this.ingredients = data.ingredients;
-        this.price = data.price;
-        this.url = data.url;
+        this.id = data.id;
         this.category_id = data.category_id;
-        this.desc_en = data.desc_en;
-        this.desc_hy = data.desc_hy;
-        this.desc_ru = data.desc_ru;
         this.name_en = data.name_en;
         this.name_hy = data.name_hy;
         this.name_ru = data.name_ru;
-        this.id = data.id;
-        this.count = data.count;
+        this.desc_en = data.desc_en;
+        this.desc_hy = data.desc_hy;
+        this.desc_ru = data.desc_ru;
+        this.price = data.price;
+        this.count_in_cart = data.count_in_cart;
+        this.is_favourite = data.is_favourite;
+        this.is_in_cart = data.is_in_cart;
     }
 }

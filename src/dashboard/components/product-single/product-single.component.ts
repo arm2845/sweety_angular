@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
+import {Product} from "../../models/product";
 
 @Component({
     selector: 'app-product-single',
@@ -8,28 +9,21 @@ import {Subscription, tap} from "rxjs";
     styleUrls: ['./product-single.component.scss']
 })
 export class ProductSingleComponent implements OnInit {
-    @Input() product: any;
-    @Output() favoriteStateChanged = new EventEmitter<any>();
-    isFavorite: boolean | undefined;
+    @Input() product: Product;
+    @Output() favoriteStateChanged = new EventEmitter();
 
     constructor(
         private authService: AuthService,
     ) {
     }
 
-    ngOnInit(): void {
-        if (this.authService.authUser) {
-            if (this.authService.authUser?.favourites?.findIndex((item: { id: any; }) => item.id == this.product.id) != -1) {
-                this.isFavorite = true;
-            }
-        }
-    }
+    ngOnInit(): void {}
 
     changeFavoriteState(): Subscription {
-        if (this.isFavorite) {
+        if (this.product.is_favourite) {
             return this.authService.removeFromFavorites(this.product.id).pipe(
                 tap(() => {
-                    this.isFavorite = false;
+                    this.product.is_favourite = false;
                     this.favoriteStateChanged?.emit(this.product);
                 }),
             )
@@ -37,7 +31,7 @@ export class ProductSingleComponent implements OnInit {
         } else {
             return this.authService.addToFavorites(this.product.id).pipe(
                 tap(() => {
-                    this.isFavorite = true;
+                    this.product.is_favourite = true;
                     this.favoriteStateChanged?.emit(this.product);
                 }),
             )
