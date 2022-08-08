@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
     providedIn: 'root'
 })
 export class AuthService {
-    authUser: User | any;
+    authUser: User;
 
     constructor(
         private http: HttpClient,
@@ -70,6 +70,10 @@ export class AuthService {
 
     removeFromCart(productId: number): Observable<any> {
         return this.http.delete(`cart/${productId}`);
+    }
+
+    changeCountInCart(productId: number, data: {count: number}): Observable<any> {
+        return this.http.patch(`cart/${productId}`, data);
     }
 
     private setTokenInLocalStorage(res: any): void {

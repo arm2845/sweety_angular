@@ -9,9 +9,8 @@ import {AuthService} from "../../../auth/services/auth.service";
     styleUrls: ['./cart-single-item.component.scss']
 })
 export class CartSingleItemComponent implements OnInit {
-    @Input() product: Product | any;
+    @Input() product: Product;
     @Output() itemDeleted = new EventEmitter;
-    isFavorite: boolean | undefined;
 
     constructor(
         private authService: AuthService,
@@ -30,33 +29,38 @@ export class CartSingleItemComponent implements OnInit {
     }
 
     changeFavoriteState() {
-        if (this.isFavorite) {
+        if (this.product.is_favourite) {
             return this.authService.removeFromFavorites(this.product.id).pipe(
-                tap(() => {
-                    this.isFavorite = false;
-                    let index = this.authService.authUser?.favourites.findIndex((item: { id: any; }) => item.id == this.product.id);
-                    // @ts-ignore
-                    this.authService.authUser?.favourites.splice(index, 1);
-                }),
+                tap(() => this.product.is_favourite = false),
             )
                 .subscribe();
         } else {
             return this.authService.addToFavorites(this.product.id).pipe(
-                tap(() => {
-                    this.isFavorite = true;
-                    this.authService.authUser?.favourites.push(this.product);
-                }),
+                tap(() => this.product.is_favourite = true),
             )
                 .subscribe();
         }
     }
 
     increase(): void {
-        this.product.count > 1 ? this.product.count-- : this.removeFromCart();
+        const data = {
+            count: this.product.count_in_cart + 1,
+        }
+        this.changeCountInCart(data);
     }
 
     decrease(): void {
-        this.product.count++;
+        const data = {
+            count: this.product.count_in_cart - 1,
+        }
+        this.product.count_in_cart > 1 ? this.changeCountInCart(data) : this.removeFromCart();
+    }
+
+    changeCountInCart(data: {count: number}): Subscription {
+        return this.authService.changeCountInCart(this.product.id, data).pipe(
+            tap((res) => this.product.count_in_cart = res.data.count_in_cart),
+        )
+            .subscribe();
     }
 
 }

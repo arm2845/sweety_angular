@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {changePassVisibility} from "../../helpers/change-pass-visibility-helper";
 import {AuthService} from "../../services/auth.service";
 import {UserAuthData} from "../../interfaces/user-auth-data";
@@ -11,7 +11,7 @@ import {UserAuthData} from "../../interfaces/user-auth-data";
 })
 export class LoginComponent implements OnInit {
 
-    loginForm: any;
+    loginForm: FormGroup;
 
     constructor(
         private fb: FormBuilder,
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         this.initLoginForm();
     }
 
-    showHidePass(event: any, id: string): void {
+    showHidePass(event: Event, id: string): void {
         changePassVisibility(event.target, id);
     }
 
@@ -40,10 +40,7 @@ export class LoginComponent implements OnInit {
     }
 
     private getLoginFormData(): UserAuthData {
-        return {
-            username: this.loginForm.controls.username.value,
-            password: this.loginForm.controls.password.value,
-        }
+        return this.loginForm.getRawValue();
     }
 
 }

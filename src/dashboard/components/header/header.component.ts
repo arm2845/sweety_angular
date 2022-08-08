@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
-import {User} from "../../../auth/models/user";
 
 @Component({
     selector: 'app-header',
@@ -9,7 +8,7 @@ import {User} from "../../../auth/models/user";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    isAuthUser: boolean | undefined;
+    isAuthUser: boolean;
     itemsInCart = 0;
 
     constructor(
