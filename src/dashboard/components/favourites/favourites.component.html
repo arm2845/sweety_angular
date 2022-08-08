@@ -2,7 +2,9 @@
     <div class="header">My favourites</div>
     <div class="items-container">
         <ng-container *ngFor="let product of favourites">
-            <app-product-single [product]="product"></app-product-single>
+            <app-product-single [product]="product"
+                                [pageOption]="pageOptions.favourites"
+                                (removeFromFavorites)="remove($event)"></app-product-single>
         </ng-container>
     </div>
 </div>

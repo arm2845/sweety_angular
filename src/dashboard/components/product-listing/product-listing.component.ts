@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Product} from "../../models/product";
+import {ProductSingleOptions} from "../../constants/product-single-options";
 
 @Component({
     selector: 'app-product-listing',
@@ -10,15 +11,12 @@ export class ProductListingComponent implements OnInit {
 
     @Input() products: Product[] = [];
 
+    pageOptions = ProductSingleOptions;
+
     constructor() {
     }
 
     ngOnInit(): void {
-    }
-
-    changeFavoriteState(data: Product): void {
-        let index = this.products.findIndex(item => item.id == data.id);
-        index == -1 ? this.products.push(data) : this.products.splice(index, 1);
     }
 
 }

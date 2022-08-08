@@ -3,9 +3,8 @@
         <div aria-labelledby="day-1-tab" class="tab-pane fade show active" id="v-pills-1" role="tabpanel">
             <div class="row no-gutters d-flex align-items-stretch">
                 <ng-container *ngFor="let product of products">
-                    <app-product-single (favoriteStateChanged)="changeFavoriteState($event)"
-                                        [product]="product"
-                    ></app-product-single>
+                    <app-product-single [product]="product"
+                                        [pageOption]="pageOptions.listing"></app-product-single>
                 </ng-container>
             </div>
         </div>

@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
 import {Product} from "../../models/product";
+import {ProductSingleOptions} from "../../constants/product-single-options";
 
 @Component({
     selector: 'app-product-single',
@@ -10,7 +11,8 @@ import {Product} from "../../models/product";
 })
 export class ProductSingleComponent implements OnInit {
     @Input() product: Product;
-    @Output() favoriteStateChanged = new EventEmitter();
+    @Input() pageOption: number;
+    @Output() removeFromFavorites = new EventEmitter();
 
     constructor(
         private authService: AuthService,
@@ -24,7 +26,9 @@ export class ProductSingleComponent implements OnInit {
             return this.authService.removeFromFavorites(this.product.id).pipe(
                 tap(() => {
                     this.product.is_favourite = false;
-                    this.favoriteStateChanged?.emit(this.product);
+                    if (this.pageOption === ProductSingleOptions.favourites) {
+                        this.removeFromFavorites?.emit(this.product);
+                    }
                 }),
             )
                 .subscribe();
@@ -32,7 +36,6 @@ export class ProductSingleComponent implements OnInit {
             return this.authService.addToFavorites(this.product.id).pipe(
                 tap(() => {
                     this.product.is_favourite = true;
-                    this.favoriteStateChanged?.emit(this.product);
                 }),
             )
                 .subscribe();
