@@ -26,4 +26,8 @@ export class Product {
         this.is_favourite = data.is_favourite;
         this.is_in_cart = data.is_in_cart;
     }
+
+    public static transform(data: any): Product {
+        return new Product(data);
+    }
 }
