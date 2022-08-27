@@ -60,6 +60,11 @@
 
             .rounded-icon {
                 cursor: pointer;
+                &.disabled {
+                    pointer-events: none;
+                    cursor: none;
+                    opacity: 20%;
+                }
             }
         }
     }

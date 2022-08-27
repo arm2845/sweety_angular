@@ -53,7 +53,7 @@ export class CartSingleItemComponent implements OnInit {
         const data = {
             count: this.product.count_in_cart - 1,
         }
-        this.product.count_in_cart > 1 ? this.changeCountInCart(data) : this.removeFromCart();
+        this.changeCountInCart(data);
     }
 
     changeCountInCart(data: {count: number}): Subscription {

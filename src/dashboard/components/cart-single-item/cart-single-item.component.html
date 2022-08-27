@@ -10,7 +10,8 @@
         </div>
         <div class="quantity single-row">
           <span class="count">
-            <span class="icon-minus rounded-icon" (click)="decrease()"></span>
+            <span [class.disabled]="product.count_in_cart === 1"
+                  class="icon-minus rounded-icon" (click)="decrease()"></span>
             <span class="number-container">{{product.count_in_cart}}</span>
             <span class="icon-plus rounded-icon" (click)="increase()"></span>
           </span>
