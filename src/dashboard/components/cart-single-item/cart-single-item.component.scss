@@ -159,15 +159,42 @@ h1, h2, h3, h4, h5,
 
 @media (max-width: 576px) {
     .col-md-12 {
-        height: 450px;
+        height: 375px;
+        justify-content: center;
     }
     .menus {
+        width: 300px;
+        padding: 0;
         .menu-img {
+            padding-top: 10px;
+            margin: 0 auto;
             border-radius: 5px 5px 0 0;
+            width: auto;
+            .item-img {
+                border-radius: 5px;
+                width: 150px;
+                height: 100%;
+            }
+        }
+        .name-container {
+            padding-top: 10px;
+            .name {
+                h3 {
+                    font-size: 16px;
+                }
+            }
+        }
+        .total-price {
+            .price-title, .price {
+                font-size: 16px;
+            }
         }
 
         .text {
             border-radius: 0 0 5px 5px;
+        }
+        .single-row {
+            margin: 0;
         }
     }
 }
