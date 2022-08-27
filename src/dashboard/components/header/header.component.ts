@@ -9,7 +9,10 @@ import {Subscription, tap} from "rxjs";
 })
 export class HeaderComponent implements OnInit {
     isAuthUser: boolean;
-    itemsInCart = 0;
+
+    get itemsInCart(): number {
+        return this.authService.getCartCount();
+    }
 
     constructor(
         private authService: AuthService,
@@ -26,10 +29,10 @@ export class HeaderComponent implements OnInit {
     getCart(): Subscription {
         return this.authService.getCart().pipe(
             tap((res: any) => {
-                this.itemsInCart = res.data.total_count;
+                localStorage.setItem('cartCount', res.data.total_count);
             }),
         )
-            .subscribe()
+            .subscribe();
     }
 
     logOut(): Subscription {

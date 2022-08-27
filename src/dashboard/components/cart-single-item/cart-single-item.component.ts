@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from "../../models/product";
 import {Subscription, tap} from "rxjs";
 import {AuthService} from "../../../auth/services/auth.service";
+import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -23,6 +24,7 @@ export class CartSingleItemComponent implements OnInit {
         return this.authService.removeFromCart(this.product.id).pipe(
             tap(() => {
                 this.itemDeleted.emit(this.product);
+                updateCartCount(false, this.product.count_in_cart);
             })
         )
             .subscribe();
@@ -45,6 +47,7 @@ export class CartSingleItemComponent implements OnInit {
     increase(): void {
         const data = {
             count: this.product.count_in_cart + 1,
+            increase: true,
         }
         this.changeCountInCart(data);
     }
@@ -52,13 +55,17 @@ export class CartSingleItemComponent implements OnInit {
     decrease(): void {
         const data = {
             count: this.product.count_in_cart - 1,
+            increase: false,
         }
         this.changeCountInCart(data);
     }
 
-    changeCountInCart(data: {count: number}): Subscription {
+    changeCountInCart(data: {count: number, increase: boolean}): Subscription {
         return this.authService.changeCountInCart(this.product.id, data).pipe(
-            tap((res) => this.product.count_in_cart = res.data.count_in_cart),
+            tap((res) => {
+                this.product.count_in_cart = res.data.count_in_cart;
+                updateCartCount(data.increase);
+            }),
         )
             .subscribe();
     }

@@ -29,6 +29,10 @@ export class AuthService {
         return this.http.get('favourites');
     }
 
+    getCartCount(): number {
+        return Number(localStorage.getItem('cartCount'));
+    }
+
     register(data: UserAuthData): Observable<any> {
         return this.http.post(`register`, data).pipe(
             tap((res: any) => {

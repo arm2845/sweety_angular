@@ -3,6 +3,7 @@ import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
 import {Product} from "../../models/product";
 import {ProductSingleOptions} from "../../constants/product-single-options";
+import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 
 @Component({
     selector: 'app-product-single',
@@ -43,7 +44,9 @@ export class ProductSingleComponent implements OnInit {
     }
 
     addToCart(): Subscription {
-        return this.authService.addToCart(this.product.id)
+        return this.authService.addToCart(this.product.id).pipe(
+            tap(() => updateCartCount(true)),
+        )
             .subscribe();
     }
 
