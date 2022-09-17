@@ -1,0 +1,45 @@
+<mat-dialog-content>
+    <div class="header">
+        <span class="name">{{selectedProduct.name_en | titlecase}}</span>
+        <span class="price">{{selectedProduct.price}} AMD</span>
+    </div>
+    <div class="description">
+        Please choose options for add-ons
+    </div>
+    <div class="single-option">
+        <div class="option-name">Sugar</div>
+        <div class="options">
+            <span class="one-forth"
+                  [class.selected]="selectedSugarOption === sugarOptions.without"
+                  (click)="setSugarOption(sugarOptions.without)">Without</span>
+            <span class="one-forth"
+                  [class.selected]="selectedSugarOption === sugarOptions.normal"
+                  (click)="setSugarOption(sugarOptions.normal)">Normal</span>
+            <span class="one-forth"
+                  [class.selected]="selectedSugarOption === sugarOptions.medium"
+                  (click)="setSugarOption(sugarOptions.medium)">Medium</span>
+            <span class="one-forth"
+                  [class.selected]="selectedSugarOption === sugarOptions.sweet"
+                  (click)="setSugarOption(sugarOptions.sweet)">Sweet</span>
+        </div>
+    </div>
+    <div class="single-option">
+        <div class="option-name">Add on</div>
+        <div class="options">
+            <span class="one-third selected"
+                  [class.selected]="selectedAddingOption === addingOptions.without"
+                  (click)="setAddingOption(addingOptions.without)">Without</span>
+            <span class="one-third"
+                  [class.selected]="selectedAddingOption === addingOptions.milk"
+                  (click)="setAddingOption(addingOptions.milk)">Milk</span>
+            <span class="one-third"
+                  [class.selected]="selectedAddingOption === addingOptions.iceCream"
+                  (click)="setAddingOption(addingOptions.iceCream)">Ice Cream</span>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-primary" [class.disabled]="!selectedSugarOption || !selectedAddingOption"
+            mat-button [mat-dialog-close]="addOnData">Add to Cart</button>
+    <button class="btn btn-white" mat-button [mat-dialog-close]="false">Discard</button>
+</mat-dialog-actions>

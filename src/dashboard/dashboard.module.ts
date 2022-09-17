@@ -10,6 +10,9 @@ import {ProductSingleComponent} from "./components/product-single/product-single
 import {DashboardRoutingModule} from "./dashboard-routing.module";
 import {MainService} from "./services/main.service";
 import {CartSingleItemComponent} from './components/cart-single-item/cart-single-item.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {AddOnsComponent} from "./components/add-ons/add-ons.component";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -22,10 +25,13 @@ import {CartSingleItemComponent} from './components/cart-single-item/cart-single
         ProductListingComponent,
         ProductSingleComponent,
         CartSingleItemComponent,
+        AddOnsComponent,
     ],
     imports: [
         CommonModule,
-        DashboardRoutingModule
+        DashboardRoutingModule,
+        MatDialogModule,
+        MatButtonModule,
     ],
     exports: [
         HeaderComponent,

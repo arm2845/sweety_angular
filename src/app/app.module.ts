@@ -8,6 +8,7 @@ import {AuthModule} from "../auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {ApiInterceptor} from "./interceptors/api.interceptor";
 import {DashboardModule} from "../dashboard/dashboard.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import {DashboardModule} from "../dashboard/dashboard.module";
         AuthModule,
         RouterModule,
         DashboardModule,
+        BrowserAnimationsModule,
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true}

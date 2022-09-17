@@ -4,6 +4,8 @@ import {Subscription, tap} from "rxjs";
 import {Product} from "../../models/product";
 import {ProductSingleOptions} from "../../constants/product-single-options";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
+import {MatDialog} from "@angular/material/dialog";
+import {AddOnsComponent} from "../add-ons/add-ons.component";
 
 @Component({
     selector: 'app-product-single',
@@ -17,6 +19,7 @@ export class ProductSingleComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
+        public dialog: MatDialog,
     ) {
     }
 
@@ -46,6 +49,25 @@ export class ProductSingleComponent implements OnInit {
     addToCart(): Subscription {
         return this.authService.addToCart(this.product.id).pipe(
             tap(() => updateCartCount(true)),
+        )
+            .subscribe();
+    }
+
+    openDialog(product: Product) {
+        let dialogRef = this.dialog.open(AddOnsComponent, {
+            maxWidth: '90vh',
+            width: '400px',
+            height: '342px',
+            data: {
+                product: product
+            },
+        });
+        dialogRef.afterClosed().pipe(
+            tap((result) => {
+                if (result) {
+                    this.addToCart();
+                }
+            })
         )
             .subscribe();
     }
