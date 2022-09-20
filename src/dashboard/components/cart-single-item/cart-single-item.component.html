@@ -5,13 +5,11 @@
         </div>
         <div class="name-container single-row">
             <span class="name"><h3>{{product.name_en | titlecase}}</h3></span>
-            <span (click)="changeFavoriteState()" [class.filled-icon]="product.is_favourite"
-                  class="icon-heart favorite-icon"></span>
         </div>
         <div class="quantity single-row">
           <span class="count">
             <span [class.disabled]="product.count_in_cart === 1"
-                  class="icon-minus rounded-icon" (click)="decrease()"></span>
+                  class="icon-minus1 rounded-icon" (click)="decrease()"></span>
             <span class="number-container">{{product.count_in_cart}}</span>
             <span class="icon-plus rounded-icon" (click)="increase()"></span>
           </span>

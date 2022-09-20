@@ -30,20 +30,6 @@ export class CartSingleItemComponent implements OnInit {
             .subscribe();
     }
 
-    changeFavoriteState() {
-        if (this.product.is_favourite) {
-            return this.authService.removeFromFavorites(this.product.id).pipe(
-                tap(() => this.product.is_favourite = false),
-            )
-                .subscribe();
-        } else {
-            return this.authService.addToFavorites(this.product.id).pipe(
-                tap(() => this.product.is_favourite = true),
-            )
-                .subscribe();
-        }
-    }
-
     increase(): void {
         const data = {
             count: this.product.count_in_cart + 1,
