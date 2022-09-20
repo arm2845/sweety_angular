@@ -1,7 +1,7 @@
 <mat-dialog-content>
     <div class="header">
         <span class="name">{{selectedProduct.name_en | titlecase}}</span>
-        <span class="price">{{selectedProduct.price}} AMD</span>
+        <span class="price">{{selectedProduct.price * quantity}} AMD</span>
     </div>
     <div class="description">
         Please choose options for add-ons
