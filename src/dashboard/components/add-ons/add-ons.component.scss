@@ -1,3 +1,9 @@
+::ng-deep {
+    mat-dialog-container {
+        background-color: #f2f2f0 !important;
+    }
+}
+
 mat-dialog-actions {
     justify-content: space-evenly;
     .btn {
@@ -41,6 +47,7 @@ mat-dialog-content {
                 border: 1px solid #e6e6e6;
                 text-align: center;
                 cursor: pointer;
+                background-color: #ffffff;
                 &.selected {
                     background-color: #EABE5E;
                     color: #ffffff;
@@ -49,6 +56,40 @@ mat-dialog-content {
             .one-third {
                 @extend .one-forth;
                 width: 30%;
+            }
+        }
+        .quantity-container {
+            display: flex;
+            .icon {
+                width: 30px;
+                cursor: pointer;
+                font-size: 18px;
+                height: 30px;
+                line-height: 30px;
+            }
+            span {
+                border: 1px solid #e6e6e6;
+                display: inline-block;
+                text-align: center;
+                background-color: #ffffff;
+            }
+            .minus {
+                @extend .icon;
+                border-radius: 15px 0 0 15px;
+                &.disabled {
+                    color: rgba(0, 0, 0, 0.2);
+                    pointer-events: none;
+                }
+            }
+            .count {
+                width: 40px;
+                border-right: none;
+                border-left: none;
+                font-size: 14px;
+            }
+            .plus {
+                @extend .icon;
+                border-radius: 0 15px 15px 0;
             }
         }
     }

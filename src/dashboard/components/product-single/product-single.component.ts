@@ -57,7 +57,7 @@ export class ProductSingleComponent implements OnInit {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '400px',
-            height: '342px',
+            height: '420px',
             data: {
                 product: product
             },

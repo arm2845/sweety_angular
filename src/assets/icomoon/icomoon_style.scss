@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?7tbktp');
-  src:  url('fonts/icomoon.eot?7tbktp#iefix') format('embedded-opentype'),
-  url('fonts/icomoon.ttf?7tbktp') format('truetype'),
-  url('fonts/icomoon.woff?7tbktp') format('woff'),
-  url('fonts/icomoon.svg?7tbktp#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?319ka9');
+  src:  url('fonts/icomoon.eot?319ka9#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?319ka9') format('truetype'),
+  url('fonts/icomoon.woff?319ka9') format('woff'),
+  url('fonts/icomoon.svg?319ka9#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,17 +25,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-minus-simple:before {
+  content: "\e904";
+}
+.icon-plus-simple:before {
+  content: "\e905";
+}
+.icon-minus1:before {
+  content: "\e900";
+}
+.icon-plus:before {
+  content: "\e901";
+}
 .icon-show-pass:before {
   content: "\e902";
 }
 .icon-hide-pass:before {
   content: "\e903";
-}
-.icon-minus:before {
-  content: "\e900";
-}
-.icon-plus:before {
-  content: "\e901";
 }
 .icon-twitter:before {
   content: "\ea96";

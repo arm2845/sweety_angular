@@ -37,9 +37,18 @@
                   (click)="setAddingOption(addingOptions.iceCream)">Ice Cream</span>
         </div>
     </div>
+    <div class="single-option">
+        <div class="option-name">Quantity</div>
+        <div class="quantity-container">
+            <span class="icon-minus-simple minus" [class.disabled]="quantity <= minAllowedQuantity"
+                  (click)="decrease()"></span>
+            <span class="count">{{quantity}}</span>
+            <span class="icon-plus-simple plus" (click)="increase()"></span>
+        </div>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
     <button class="btn btn-primary" [class.disabled]="!selectedSugarOption || !selectedAddingOption"
-            mat-button [mat-dialog-close]="addOnData">Add to Cart</button>
+            mat-button [mat-dialog-close]="productAdditionalData">Add to Cart</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">Discard</button>
 </mat-dialog-actions>
