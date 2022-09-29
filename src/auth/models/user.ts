@@ -1,4 +1,4 @@
-import {Product} from "../../dashboard/models/product";
+import {MenuProduct} from "../../dashboard/models/menu-product";
 import {Cart} from "./cart";
 
 export class User {
@@ -7,7 +7,7 @@ export class User {
     phone: string;
     role: string;
     cart: Cart;
-    favourites: Product[];
+    favourites: MenuProduct[];
 
     constructor(data: any) {
         this.id = data.id;

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductCategory} from "../../models/product-category";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Product} from "../../models/product";
+import {MenuProduct} from "../../models/menu-product";
 import {MainService} from "../../services/main.service";
 import {tap} from "rxjs";
 
@@ -12,7 +12,7 @@ import {tap} from "rxjs";
 })
 export class MenuNavComponent implements OnInit {
     productCategories: ProductCategory[] = [];
-    products: Product[] = [];
+    products: MenuProduct[] = [];
     selectedTab = 1;
 
     constructor(

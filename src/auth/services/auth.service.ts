@@ -4,7 +4,7 @@ import {Observable, tap} from "rxjs";
 import {UserAuthData} from "../interfaces/user-auth-data";
 import {User} from "../models/user";
 import {Router} from "@angular/router";
-
+import {ProductAdditionalData} from "../../dashboard/interfaces/product-additional-data";
 
 @Injectable({
     providedIn: 'root'
@@ -68,8 +68,8 @@ export class AuthService {
         return this.http.delete(`favourites/${productId}`);
     }
 
-    addToCart(productId: number): Observable<any> {
-        return this.http.post(`cart/${productId}`, {});
+    addToCart(productId: number, data: ProductAdditionalData): Observable<any> {
+        return this.http.post(`cart/${productId}`, data);
     }
 
     removeFromCart(productId: number): Observable<any> {

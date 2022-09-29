@@ -1,11 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
-import {Product} from "../../models/product";
+import {MenuProduct} from "../../models/menu-product";
 import {ProductSingleOptions} from "../../constants/product-single-options";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {MatDialog} from "@angular/material/dialog";
 import {AddOnsComponent} from "../add-ons/add-ons.component";
+import {ProductAdditionalData} from "../../interfaces/product-additional-data";
 
 @Component({
     selector: 'app-product-single',
@@ -13,7 +14,7 @@ import {AddOnsComponent} from "../add-ons/add-ons.component";
     styleUrls: ['./product-single.component.scss']
 })
 export class ProductSingleComponent implements OnInit {
-    @Input() product: Product;
+    @Input() product: MenuProduct;
     @Input() pageOption: number;
     @Output() removeFromFavorites = new EventEmitter();
 
@@ -46,14 +47,14 @@ export class ProductSingleComponent implements OnInit {
         }
     }
 
-    addToCart(): Subscription {
-        return this.authService.addToCart(this.product.id).pipe(
-            tap(() => updateCartCount(true)),
+    addToCart(data: ProductAdditionalData): Subscription {
+        return this.authService.addToCart(this.product.id, data).pipe(
+            tap(() => updateCartCount(true, data.count)),
         )
             .subscribe();
     }
 
-    openDialog(product: Product) {
+    openDialog(product: MenuProduct) {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '400px',
@@ -65,7 +66,7 @@ export class ProductSingleComponent implements OnInit {
         dialogRef.afterClosed().pipe(
             tap((result) => {
                 if (result) {
-                    this.addToCart();
+                    this.addToCart(result);
                 }
             })
         )

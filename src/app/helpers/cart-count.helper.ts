@@ -1,5 +1,5 @@
-export function updateCartCount(increase: boolean, value?: number) {
+export function updateCartCount(increase: boolean, value: number) {
     let current_value = Number(localStorage.getItem('cartCount'));
-    const updated_value = value ? current_value - value : (increase ? current_value + 1 : current_value - 1);
+    const updated_value = increase ? current_value + value : current_value - value;
     localStorage.setItem('cartCount', String(updated_value));
 }

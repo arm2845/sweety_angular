@@ -1,5 +1,5 @@
 export interface ProductAdditionalData {
+    adding_id?: number,
     sugar?: number,
-    adding?: number,
-    quantity?: number,
+    count: number,
 }

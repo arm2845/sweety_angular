@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     getCart(): Subscription {
         return this.authService.getCart().pipe(
             tap((res: any) => {
-                localStorage.setItem('cartCount', res.data.total_count);
+                localStorage.setItem('cartCount', res.meta.total_count);
             }),
         )
             .subscribe();

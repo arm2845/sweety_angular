@@ -1,7 +1,7 @@
-import {Product} from "../../dashboard/models/product";
+import {MenuProduct} from "../../dashboard/models/menu-product";
 
 export class Cart {
-    items: Product[];
+    items: MenuProduct[];
     total_amount: number;
     total_count: number;
 

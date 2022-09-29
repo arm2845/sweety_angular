@@ -1,4 +1,4 @@
-import {Product} from "./product";
+import {MenuProduct} from "./menu-product";
 
 export class ProductCategory {
     id: number;
@@ -6,7 +6,7 @@ export class ProductCategory {
     name_hy?: string;
     name_ru?: string;
     selected?: boolean;
-    items: Product[];
+    items: MenuProduct[];
 
     constructor(data: any) {
         const mainData = data.data;
@@ -14,7 +14,7 @@ export class ProductCategory {
         this.name_en = mainData.name_en;
         this.name_hy = mainData.name_hy;
         this.name_ru = mainData.name_ru;
-        this.items = mainData.items.forEach((item: Product) => Product.transform(item));
+        this.items = mainData.items.forEach((item: MenuProduct) => MenuProduct.transform(item));
         this.selected = false;
     }
 }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from "../../models/product";
+import {MenuProduct} from "../../models/menu-product";
 import {ProductSingleOptions} from "../../constants/product-single-options";
 
 @Component({
@@ -9,7 +9,7 @@ import {ProductSingleOptions} from "../../constants/product-single-options";
 })
 export class ProductListingComponent implements OnInit {
 
-    @Input() products: Product[] = [];
+    @Input() products: MenuProduct[] = [];
 
     pageOptions = ProductSingleOptions;
 

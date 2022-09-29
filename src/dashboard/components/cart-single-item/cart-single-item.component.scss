@@ -62,11 +62,11 @@
         }
     }
 
-    .total-price {
+    .add-on-data-single {
         display: flex;
         align-items: center;
         width: 30%;
-        .price-title {
+        .text-title {
             margin-right: 20px;
         }
 
@@ -81,14 +81,23 @@
             -ms-transition: all 0.3s ease;
             transition: all 0.3s ease;
         }
+        .add-on-text {
+            @extend .price;
+            color: #333333;
+            font-weight: normal;
+        }
     }
 
     .icon {
         width: 10%;
         .remove-icon {
             font-size: 20px;
-            color: #dedada;
+            color: #969595;
             cursor: pointer;
+        }
+        .edit-icon {
+            @extend .remove-icon;
+            margin-right: 15px;
         }
     }
 }
@@ -157,7 +166,7 @@ h1, h2, h3, h4, h5,
 
 @media (max-width: 576px) {
     .col-md-12 {
-        height: 375px;
+        height: 440px;
         justify-content: center;
     }
     .menus {
@@ -178,12 +187,12 @@ h1, h2, h3, h4, h5,
             padding-top: 10px;
             .name {
                 h3 {
-                    font-size: 16px;
+                    font-size: 18px;
                 }
             }
         }
-        .total-price {
-            .price-title, .price {
+        .add-on-data-single {
+            .text-title, .price {
                 font-size: 16px;
             }
         }

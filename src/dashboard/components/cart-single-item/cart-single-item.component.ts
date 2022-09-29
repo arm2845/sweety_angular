@@ -1,8 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Product} from "../../models/product";
 import {Subscription, tap} from "rxjs";
 import {AuthService} from "../../../auth/services/auth.service";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
+import {AddOnsComponent} from "../add-ons/add-ons.component";
+import {MatDialog} from "@angular/material/dialog";
+import {CartItem} from "../../models/cart-item";
+import {SugarOptions, SugarOptionsData} from "../../constants/add-on-data";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -10,48 +13,45 @@ import {updateCartCount} from "../../../app/helpers/cart-count.helper";
     styleUrls: ['./cart-single-item.component.scss']
 })
 export class CartSingleItemComponent implements OnInit {
-    @Input() product: Product;
+    @Input() product: CartItem;
     @Output() itemDeleted = new EventEmitter;
+    sugarOption: string;
 
     constructor(
         private authService: AuthService,
+        public dialog: MatDialog,
     ) {
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.sugarOption = SugarOptionsData.find(item => item.id === this.product.sugar).name;
+    }
 
-    removeFromCart(): Subscription {
-        return this.authService.removeFromCart(this.product.id).pipe(
-            tap(() => {
-                this.itemDeleted.emit(this.product);
-                updateCartCount(false, this.product.count_in_cart);
+    openDialog(product: CartItem) {
+        let dialogRef = this.dialog.open(AddOnsComponent, {
+            maxWidth: '90vh',
+            width: '400px',
+            height: '420px',
+            data: {
+                product: product
+            },
+        });
+        dialogRef.afterClosed().pipe(
+            tap((result) => {
+                if (result) {
+                    console.log(result)
+                }
             })
         )
             .subscribe();
     }
 
-    increase(): void {
-        const data = {
-            count: this.product.count_in_cart + 1,
-            increase: true,
-        }
-        this.changeCountInCart(data);
-    }
-
-    decrease(): void {
-        const data = {
-            count: this.product.count_in_cart - 1,
-            increase: false,
-        }
-        this.changeCountInCart(data);
-    }
-
-    changeCountInCart(data: {count: number, increase: boolean}): Subscription {
-        return this.authService.changeCountInCart(this.product.id, data).pipe(
-            tap((res) => {
-                this.product.count_in_cart = res.data.count_in_cart;
-                updateCartCount(data.increase);
-            }),
+    removeFromCart(): Subscription {
+        return this.authService.removeFromCart(this.product.id).pipe(
+            tap(() => {
+                this.itemDeleted.emit(this.product);
+                updateCartCount(false, this.product.count);
+            })
         )
             .subscribe();
     }
