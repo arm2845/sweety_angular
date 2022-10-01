@@ -3,7 +3,7 @@ import {ProductCategory} from "../../models/product-category";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MenuProduct} from "../../models/menu-product";
 import {MainService} from "../../services/main.service";
-import {tap} from "rxjs";
+import {finalize, tap} from "rxjs";
 
 @Component({
     selector: 'app-menu-nav',
@@ -14,6 +14,7 @@ export class MenuNavComponent implements OnInit {
     productCategories: ProductCategory[] = [];
     products: MenuProduct[] = [];
     selectedTab = 1;
+    isLoading = true;
 
     constructor(
         private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class MenuNavComponent implements OnInit {
             tap((categories: any) => this.productCategories = categories.data),
             tap(() => this.setCategoryAsSelected()),
             tap((categories: any) => this.products = categories.data[0].items),
+            finalize(() => this.isLoading = false),
         )
             .subscribe();
     }

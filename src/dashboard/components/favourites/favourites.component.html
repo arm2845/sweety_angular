@@ -1,6 +1,6 @@
 <div class="main-container">
     <div class="header">My favourites</div>
-    <div class="items-container">
+    <div class="items-container" *ngIf="!isLoading; else loader">
         <ng-container *ngFor="let product of favourites">
             <app-product-single [product]="product"
                                 [pageOption]="pageOptions.favourites"
@@ -8,3 +8,6 @@
         </ng-container>
     </div>
 </div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

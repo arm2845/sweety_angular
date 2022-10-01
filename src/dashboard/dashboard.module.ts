@@ -14,6 +14,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {AddOnsComponent} from "./components/add-ons/add-ons.component";
 import {MatButtonModule} from "@angular/material/button";
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
         CartSingleItemComponent,
         AddOnsComponent,
         ConfirmationModalComponent,
+        LoaderComponent,
     ],
     imports: [
         CommonModule,

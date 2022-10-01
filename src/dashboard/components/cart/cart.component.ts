@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
-import {Subscription, tap} from "rxjs";
+import {finalize, Subscription, tap} from "rxjs";
 import {CartItem} from "../../models/cart-item";
 
 @Component({
@@ -10,6 +10,7 @@ import {CartItem} from "../../models/cart-item";
 })
 export class CartComponent implements OnInit {
     products: CartItem[] = [];
+    isLoading = true;
 
     constructor(
         private authService: AuthService,
@@ -25,6 +26,7 @@ export class CartComponent implements OnInit {
             tap((res: any) => {
                 this.products = res.data;
             }),
+            finalize(() => this.isLoading = false),
         )
             .subscribe()
     }

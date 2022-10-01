@@ -1,16 +1,21 @@
 <div class="cart-container">
     <div class="header">My cart</div>
-    <div class="items-container">
-        <ng-container *ngFor="let item of products">
-            <app-cart-single-item (itemDeleted)=deleteItemFromCart($event)
-                                  (cartUpdated)="getCart()"
-                                  [product]="item"></app-cart-single-item>
-        </ng-container>
-    </div>
-    <div class="text-container">
-        <textarea #comment></textarea>
-    </div>
-    <div class="button-container">
-        <button class="btn btn-primary" (click)="confirmOrder(comment.value)">Confirm Order</button>
-    </div>
+    <ng-container *ngIf="!isLoading; else loader">
+        <div class="items-container">
+            <ng-container *ngFor="let item of products">
+                <app-cart-single-item (itemDeleted)=deleteItemFromCart($event)
+                                      (cartUpdated)="getCart()"
+                                      [product]="item"></app-cart-single-item>
+            </ng-container>
+        </div>
+        <div class="text-container">
+            <textarea #comment></textarea>
+        </div>
+        <div class="button-container">
+            <button class="btn btn-primary" (click)="confirmOrder(comment.value)">Confirm Order</button>
+        </div>
+    </ng-container>
 </div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>

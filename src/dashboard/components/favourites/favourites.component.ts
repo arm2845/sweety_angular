@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuProduct} from "../../models/menu-product";
 import {AuthService} from "../../../auth/services/auth.service";
-import {Subscription, tap} from "rxjs";
+import {finalize, Subscription, tap} from "rxjs";
 import {ProductSingleOptions} from "../../constants/product-single-options";
 
 @Component({
@@ -11,8 +11,8 @@ import {ProductSingleOptions} from "../../constants/product-single-options";
 })
 export class FavouritesComponent implements OnInit {
     favourites: MenuProduct[] = [];
-
     pageOptions = ProductSingleOptions;
+    isLoading = true;
 
     constructor(
         private authService: AuthService,
@@ -28,6 +28,7 @@ export class FavouritesComponent implements OnInit {
             tap((res: any) => {
                 this.favourites = res.data.items;
             }),
+            finalize(() => this.isLoading = false),
         )
             .subscribe()
     }
