@@ -1,15 +1,13 @@
 export const SugarOptions = {
     without: 1,
-    normal: 2,
-    medium: 3,
-    sweet: 4,
+    medium: 2,
+    sweet: 3,
 }
 
 export const AddingOptions = {
-    without: 1,
-    milk: 2,
-    iceCream: 3,
-    nutella: 4,
+    milk: 1,
+    iceCream: 2,
+    nutella: 3,
 }
 
 export const SugarOptionsData = [
@@ -19,14 +17,10 @@ export const SugarOptionsData = [
     },
     {
         id: 2,
-        name: 'normal',
-    },
-    {
-        id: 3,
         name: 'medium',
     },
     {
-        id: 4,
+        id: 3,
         name: 'sweet',
     },
 ]

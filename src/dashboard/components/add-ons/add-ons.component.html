@@ -9,16 +9,13 @@
     <div class="single-option">
         <div class="option-name">Sugar</div>
         <div class="options">
-            <span class="one-forth"
+            <span class="one-third"
                   [class.selected]="selectedSugarOption === sugarOptions.without"
                   (click)="setSugarOption(sugarOptions.without)">Without</span>
-            <span class="one-forth"
-                  [class.selected]="selectedSugarOption === sugarOptions.normal"
-                  (click)="setSugarOption(sugarOptions.normal)">Normal</span>
-            <span class="one-forth"
+            <span class="one-third"
                   [class.selected]="selectedSugarOption === sugarOptions.medium"
                   (click)="setSugarOption(sugarOptions.medium)">Medium</span>
-            <span class="one-forth"
+            <span class="one-third"
                   [class.selected]="selectedSugarOption === sugarOptions.sweet"
                   (click)="setSugarOption(sugarOptions.sweet)">Sweet</span>
         </div>
@@ -26,16 +23,13 @@
     <div class="single-option">
         <div class="option-name">Add on</div>
         <div class="options">
-            <span class="one-forth selected"
-                  [class.selected]="selectedAddingOption === addingOptions.without"
-                  (click)="setAddingOption(addingOptions.without)">Without</span>
-            <span class="one-forth"
+            <span class="one-third"
                   [class.selected]="selectedAddingOption === addingOptions.milk"
                   (click)="setAddingOption(addingOptions.milk)">Milk</span>
-            <span class="one-forth"
+            <span class="one-third"
                   [class.selected]="selectedAddingOption === addingOptions.iceCream"
                   (click)="setAddingOption(addingOptions.iceCream)">Ice Cream</span>
-            <span class="one-forth"
+            <span class="one-third"
                   [class.selected]="selectedAddingOption === addingOptions.nutella"
                   (click)="setAddingOption(addingOptions.nutella)">Nutella</span>
         </div>
