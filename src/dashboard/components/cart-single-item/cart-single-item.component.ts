@@ -16,6 +16,7 @@ import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
 export class CartSingleItemComponent implements OnInit {
     @Input() product: CartItem;
     @Output() itemDeleted = new EventEmitter;
+    @Output() cartUpdated = new EventEmitter;
     sugarOption: string;
     addings: string;
 
@@ -51,7 +52,9 @@ export class CartSingleItemComponent implements OnInit {
     }
 
     updateCartItem(requestData: any): Subscription {
-        return this.authService.updateCartItem(requestData.id, requestData.data)
+        return this.authService.updateCartItem(requestData.id, requestData.data).pipe(
+            tap(() => this.cartUpdated.emit()),
+        )
             .subscribe();
     }
 

@@ -34,4 +34,8 @@ export class CartComponent implements OnInit {
         this.products.splice(index, 1);
     }
 
+    confirmOrder(comment: string) {
+        console.log(comment);
+    }
+
 }
