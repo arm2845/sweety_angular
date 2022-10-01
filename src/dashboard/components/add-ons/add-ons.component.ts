@@ -12,17 +12,24 @@ import {ProductWithAddOn} from "../../interfaces/product-with-add-on";
 export class AddOnsComponent implements OnInit {
     product: ProductWithAddOn;
     selectedSugarOption: number;
-    selectedAddingOption: number;
+    selectedAddingOptions: number[];
     readonly minAllowedQuantity = 1;
     readonly sugarOptions = SugarOptions;
     readonly addingOptions = AddingOptions;
 
     get productAdditionalData(): ProductAdditionalData {
-        return  {
-            adding_id: this.selectedAddingOption,
+        return {
+            adding_ids: this.selectedAddingOptions,
             sugar: this.selectedSugarOption,
             count: this.product.count,
         };
+    }
+
+    get createdOrUpdatedProductData() {
+        return {
+            id: this.product.id,
+            data: this.productAdditionalData,
+        }
     }
 
     constructor(
@@ -33,16 +40,17 @@ export class AddOnsComponent implements OnInit {
     ngOnInit(): void {
         this.product = this.getProductData();
         this.selectedSugarOption = this.product.sugar;
-        this.selectedAddingOption = this.product.adding?.id;
+        this.selectedAddingOptions = this.product.addings;
     }
 
     getProductData(): ProductWithAddOn {
         return {
+            id: this.data.product.id,
             name_en: this.data.product.name_en || this.data.product?.item.name_en,
             price: this.data.product.price || this.data.product?.item.price,
             count: this.data.product.count || 1,
             sugar: this.data.product?.sugar || null,
-            adding: this.data.product?.adding || null,
+            addings: this.data.product?.adding_ids || [],
         };
     }
 
@@ -51,7 +59,8 @@ export class AddOnsComponent implements OnInit {
     }
 
     setAddingOption(id: number) {
-        this.selectedAddingOption = id;
+        const index = this.selectedAddingOptions.indexOf(id);
+        index === -1 ? this.selectedAddingOptions.push(id) : this.selectedAddingOptions.splice(index, 1);
     }
 
     increase(): void {

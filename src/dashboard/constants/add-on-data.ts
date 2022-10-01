@@ -24,3 +24,18 @@ export const SugarOptionsData = [
         name: 'sweet',
     },
 ]
+
+export const AddOnOptionsData = [
+    {
+        id: 1,
+        name: 'Milk',
+    },
+    {
+        id: 2,
+        name: 'Ice cream',
+    },
+    {
+        id: 3,
+        name: 'Nutella',
+    },
+]

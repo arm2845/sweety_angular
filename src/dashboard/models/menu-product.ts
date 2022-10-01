@@ -1,13 +1,15 @@
+import {Adding} from "./adding";
+
 export class MenuProduct {
     id: number;
     category_id: number;
     price: number;
-    name_en?: string;
-    name_hy?: string;
-    name_ru?: string;
+    name_en: string;
+    name_hy: string;
+    name_ru: string;
     is_favourite: boolean;
     hasSugar: boolean;
-    addings: number[];
+    addings: Adding[];
 
     constructor(data: any) {
         this.id = data.id;

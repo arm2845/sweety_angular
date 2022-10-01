@@ -60,13 +60,14 @@ export class ProductSingleComponent implements OnInit {
             width: '400px',
             height: '420px',
             data: {
-                product: product
+                product: product,
+                confirm_button_name: 'Add to Cart',
             },
         });
         dialogRef.afterClosed().pipe(
             tap((result) => {
                 if (result) {
-                    this.addToCart(result);
+                    this.addToCart(result.data);
                 }
             })
         )

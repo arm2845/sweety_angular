@@ -72,8 +72,12 @@ export class AuthService {
         return this.http.post(`cart/${productId}`, data);
     }
 
-    removeFromCart(productId: number): Observable<any> {
-        return this.http.delete(`cart/${productId}`);
+    updateCartItem(id: number, data: ProductAdditionalData): Observable<any> {
+        return this.http.patch(`cart/${id}`, data);
+    }
+
+    removeFromCart(id: number): Observable<any> {
+        return this.http.delete(`cart/${id}`);
     }
 
     changeCountInCart(productId: number, data: {count: number}): Observable<any> {

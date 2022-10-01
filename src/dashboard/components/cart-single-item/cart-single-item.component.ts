@@ -5,7 +5,8 @@ import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {AddOnsComponent} from "../add-ons/add-ons.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
-import {SugarOptions, SugarOptionsData} from "../../constants/add-on-data";
+import {SugarOptionsData} from "../../constants/add-on-data";
+import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -16,6 +17,7 @@ export class CartSingleItemComponent implements OnInit {
     @Input() product: CartItem;
     @Output() itemDeleted = new EventEmitter;
     sugarOption: string;
+    addings: string;
 
     constructor(
         private authService: AuthService,
@@ -25,6 +27,7 @@ export class CartSingleItemComponent implements OnInit {
 
     ngOnInit(): void {
         this.sugarOption = SugarOptionsData.find(item => item.id === this.product.sugar).name;
+        this.addings = getAddOnsAsString(this.product.adding_ids);
     }
 
     openDialog(product: CartItem) {
@@ -33,16 +36,22 @@ export class CartSingleItemComponent implements OnInit {
             width: '400px',
             height: '420px',
             data: {
-                product: product
+                product: product,
+                confirm_button_name: 'Save',
             },
         });
         dialogRef.afterClosed().pipe(
             tap((result) => {
                 if (result) {
-                    console.log(result)
+                    this.updateCartItem(result);
                 }
             })
         )
+            .subscribe();
+    }
+
+    updateCartItem(requestData: any): Subscription {
+        return this.authService.updateCartItem(requestData.id, requestData.data)
             .subscribe();
     }
 
