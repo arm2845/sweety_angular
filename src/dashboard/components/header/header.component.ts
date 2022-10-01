@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
+import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
     selector: 'app-header',
@@ -16,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
+        public dialog: MatDialog,
     ) {
     }
 
@@ -37,6 +40,24 @@ export class HeaderComponent implements OnInit {
 
     logOut(): Subscription {
         return this.authService.logout()
+            .subscribe();
+    }
+
+    openConfirmationModal() {
+        let dialogRef = this.dialog.open(ConfirmationModalComponent, {
+            width: '300px',
+            height: '200px',
+            data: {
+                message: 'you want to logout'
+            }
+        });
+        dialogRef.afterClosed().pipe(
+            tap((result) => {
+                if (result) {
+                    this.logOut();
+                }
+            })
+        )
             .subscribe();
     }
 

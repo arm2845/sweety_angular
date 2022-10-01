@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
 import {SugarOptionsData} from "../../constants/add-on-data";
 import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
+import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -31,7 +32,7 @@ export class CartSingleItemComponent implements OnInit {
         this.addings = getAddOnsAsString(this.product.adding_ids);
     }
 
-    openDialog(product: CartItem) {
+    openAddOnModal(product: CartItem) {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '400px',
@@ -45,6 +46,24 @@ export class CartSingleItemComponent implements OnInit {
             tap((result) => {
                 if (result) {
                     this.updateCartItem(result);
+                }
+            })
+        )
+            .subscribe();
+    }
+
+    openConfirmationModal() {
+        let dialogRef = this.dialog.open(ConfirmationModalComponent, {
+            width: '300px',
+            height: '200px',
+            data: {
+                message: 'you want to delete this item'
+            }
+        });
+        dialogRef.afterClosed().pipe(
+            tap((result) => {
+                if (result) {
+                    this.removeFromCart();
                 }
             })
         )

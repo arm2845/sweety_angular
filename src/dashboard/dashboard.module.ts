@@ -13,6 +13,7 @@ import {CartSingleItemComponent} from './components/cart-single-item/cart-single
 import {MatDialogModule} from "@angular/material/dialog";
 import {AddOnsComponent} from "./components/add-ons/add-ons.component";
 import {MatButtonModule} from "@angular/material/button";
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatButtonModule} from "@angular/material/button";
         ProductSingleComponent,
         CartSingleItemComponent,
         AddOnsComponent,
+        ConfirmationModalComponent,
     ],
     imports: [
         CommonModule,
