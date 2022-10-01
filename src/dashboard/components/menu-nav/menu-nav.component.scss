@@ -5,6 +5,14 @@ app-product-listing {
 .ftco-section {
     padding: 120px 0 40px 0;
     position: relative;
+    .up-icon {
+        font-size: 32px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        margin: 0 15px 15px 0;
+    }
 }
 
 .container {

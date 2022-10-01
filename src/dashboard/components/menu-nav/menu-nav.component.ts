@@ -61,4 +61,9 @@ export class MenuNavComponent implements OnInit {
         this.products = this.productCategories[index].items;
     }
 
+    goToTheTop(): void {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
 }
