@@ -2,10 +2,12 @@
     <div class="header">My cart</div>
     <ng-container *ngIf="!isLoading; else loader">
         <div class="items-container">
-            <ng-container *ngFor="let item of products">
-                <app-cart-single-item (itemDeleted)=deleteItemFromCart($event)
-                                      (cartUpdated)="getCart()"
-                                      [product]="item"></app-cart-single-item>
+            <ng-container *ngIf="products.length; else noData">
+                <ng-container *ngFor="let item of products">
+                    <app-cart-single-item (itemDeleted)=deleteItemFromCart($event)
+                                          (cartUpdated)="updateCartData($event)"
+                                          [product]="item"></app-cart-single-item>
+                </ng-container>
             </ng-container>
         </div>
         <ng-container *ngIf="products.length">
@@ -20,4 +22,9 @@
 </div>
 <ng-template #loader>
     <app-loader></app-loader>
+</ng-template>
+<ng-template #noData>
+    <div class="no-data-text">
+        There are no items to show.
+    </div>
 </ng-template>

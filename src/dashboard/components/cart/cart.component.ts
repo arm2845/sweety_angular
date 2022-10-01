@@ -40,4 +40,8 @@ export class CartComponent implements OnInit {
         console.log(comment);
     }
 
+    updateCartData(res: any): void {
+        this.products = res.data;
+    }
+
 }

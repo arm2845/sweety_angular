@@ -32,6 +32,12 @@
     }
 }
 
+.no-data-text {
+    margin: 0 auto;
+    font-size: 20px;
+    color: #969595;
+}
+
 @media (max-width: 900px) {
     .cart-container {
         .items-container {
@@ -45,7 +51,6 @@
         margin: 0 10px;
     }
 }
-
 
 @media (max-width: 650px) {
     .cart-container {

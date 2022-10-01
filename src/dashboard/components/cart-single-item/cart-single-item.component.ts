@@ -72,7 +72,7 @@ export class CartSingleItemComponent implements OnInit {
 
     updateCartItem(requestData: any): Subscription {
         return this.authService.updateCartItem(requestData.id, requestData.data).pipe(
-            tap(() => this.cartUpdated.emit()),
+            tap((res) => this.cartUpdated.emit(res.data)),
         )
             .subscribe();
     }
