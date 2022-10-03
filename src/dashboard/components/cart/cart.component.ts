@@ -10,6 +10,7 @@ import {CartItem} from "../../models/cart-item";
 })
 export class CartComponent implements OnInit {
     products: CartItem[] = [];
+    cartIsEmpty: boolean;
     isLoading = true;
 
     constructor(
@@ -25,6 +26,7 @@ export class CartComponent implements OnInit {
         return this.authService.getCart().pipe(
             tap((res: any) => {
                 this.products = res.data;
+                this.updateCartState();
             }),
             finalize(() => this.isLoading = false),
         )
@@ -34,14 +36,20 @@ export class CartComponent implements OnInit {
     deleteItemFromCart(product: CartItem) {
         let index = this.products.findIndex((item) => item.id == product.id);
         this.products.splice(index, 1);
+        this.updateCartState();
     }
 
     confirmOrder(comment: string) {
         console.log(comment);
     }
 
-    updateCartData(res: any): void {
-        this.products = res.data;
+    updateCartData(res: CartItem[]): void {
+        this.products = res;
+        this.updateCartState();
+    }
+
+    private updateCartState(): void {
+        this.cartIsEmpty = !this.products.length;
     }
 
 }

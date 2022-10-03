@@ -2,7 +2,7 @@
     <div class="header">My cart</div>
     <ng-container *ngIf="!isLoading; else loader">
         <div class="items-container">
-            <ng-container *ngIf="products.length; else noData">
+            <ng-container *ngIf="!cartIsEmpty; else noData">
                 <ng-container *ngFor="let item of products">
                     <app-cart-single-item (itemDeleted)=deleteItemFromCart($event)
                                           (cartUpdated)="updateCartData($event)"
@@ -10,7 +10,7 @@
                 </ng-container>
             </ng-container>
         </div>
-        <ng-container *ngIf="products.length">
+        <ng-container *ngIf="!cartIsEmpty">
             <div class="text-container">
                 <textarea placeholder="Leave your comment here ..." #comment></textarea>
             </div>
