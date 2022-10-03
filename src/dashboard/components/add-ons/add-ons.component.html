@@ -1,7 +1,7 @@
 <mat-dialog-content>
     <div class="header">
         <span class="name">{{product.name_en | titlecase}}</span>
-        <span class="price">{{product.price * product.count}} AMD</span>
+        <span class="price">{{(product.price + addingPrice) * product.count}} AMD</span>
     </div>
     <div class="description">
         Please choose options for add-ons
@@ -25,13 +25,13 @@
         <div class="options">
             <span class="one-third"
                   [class.selected]="selectedAddingOptions.includes(addingOptions.milk)"
-                  (click)="setAddingOption(addingOptions.milk)">Milk</span>
+                  (click)="setAddingOptionAndUpdatePrice(addingOptions.milk)">Milk</span>
             <span class="one-third"
                   [class.selected]="selectedAddingOptions.includes(addingOptions.iceCream)"
-                  (click)="setAddingOption(addingOptions.iceCream)">Ice Cream</span>
+                  (click)="setAddingOptionAndUpdatePrice(addingOptions.iceCream)">Ice Cream</span>
             <span class="one-third"
                   [class.selected]="selectedAddingOptions.includes(addingOptions.nutella)"
-                  (click)="setAddingOption(addingOptions.nutella)">Nutella</span>
+                  (click)="setAddingOptionAndUpdatePrice(addingOptions.nutella)">Nutella</span>
         </div>
     </div>
     <div class="single-option">

@@ -1,3 +1,6 @@
+export const doubleAddingPrice = 400;
+export const tripleAddingPrice = 600;
+
 export const SugarOptions = {
     without: 1,
     medium: 2,
@@ -29,13 +32,16 @@ export const AddOnOptionsData = [
     {
         id: 1,
         name: 'Milk',
+        price: 200,
     },
     {
         id: 2,
         name: 'Ice cream',
+        price: 200,
     },
     {
         id: 3,
         name: 'Nutella',
+        price: 400,
     },
 ]

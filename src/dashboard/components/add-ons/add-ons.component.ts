@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ProductAdditionalData} from "../../interfaces/product-additional-data";
 import {AddingOptions, SugarOptions} from "../../constants/add-on-data";
 import {ProductWithAddOn} from "../../interfaces/product-with-add-on";
+import {getAddOnPrice} from "../../../app/helpers/addOns.helper";
 
 @Component({
     selector: 'app-add-ons',
@@ -13,6 +14,7 @@ export class AddOnsComponent implements OnInit {
     product: ProductWithAddOn;
     selectedSugarOption: number;
     selectedAddingOptions: number[];
+    addingPrice: number;
     readonly minAllowedQuantity = 1;
     readonly sugarOptions = SugarOptions;
     readonly addingOptions = AddingOptions;
@@ -41,16 +43,18 @@ export class AddOnsComponent implements OnInit {
         this.product = this.getProductData();
         this.selectedSugarOption = this.product.sugar;
         this.selectedAddingOptions = this.product.addings;
+        this.addingPrice = this.product.adding_price;
     }
 
     getProductData(): ProductWithAddOn {
         return {
             id: this.data.product.id,
             name_en: this.data.product.name_en || this.data.product?.item.name_en,
-            price: this.data.product.price || this.data.product?.item.price,
+            price: this.data.product?.item?.price || this.data.product.price,
             count: this.data.product.count || 1,
             sugar: this.data.product?.sugar || null,
             addings: this.data.product?.adding_ids || [],
+            adding_price: this.data.product?.adding_price || 0,
         };
     }
 
@@ -58,9 +62,10 @@ export class AddOnsComponent implements OnInit {
         this.selectedSugarOption = id;
     }
 
-    setAddingOption(id: number) {
+    setAddingOptionAndUpdatePrice(id: number) {
         const index = this.selectedAddingOptions.indexOf(id);
         index === -1 ? this.selectedAddingOptions.push(id) : this.selectedAddingOptions.splice(index, 1);
+        this.addingPrice = getAddOnPrice(this.product.addings);
     }
 
     increase(): void {

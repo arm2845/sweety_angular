@@ -5,4 +5,5 @@ export interface ProductWithAddOn {
     count: number;
     sugar?: number;
     addings?: number[];
+    adding_price: number;
 }
