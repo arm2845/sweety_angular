@@ -1,3 +1,9 @@
+app-cart-single-item {
+    display: flex;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
 .cart-container {
     display: inline-block;
     width: 100%;
@@ -12,9 +18,9 @@
     }
 
     .items-container {
+        display: flex;
+        flex-wrap: wrap;
         margin: 55px 0 0 15px;
-        flex: 0 0 100%;
-        max-width: 100%;
     }
     .button-container {
         text-align: right;

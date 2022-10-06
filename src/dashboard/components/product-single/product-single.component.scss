@@ -43,15 +43,17 @@
         }
 
         .one-half {
-            h3 {
+            .name {
                 font-size: 20px;
                 font-weight: 600;
                 display: inline-block;
+                line-height: 1.5;
+                color: #333333;
             }
 
             .favorite-icon {
-                margin: 6px 0 0 20px;
-                font-size: 20px;
+                margin: 4px 0 0 20px;
+                font-size: 24px;
                 color: #dedada;
                 float: right;
                 cursor: pointer;
@@ -79,13 +81,6 @@
     }
 }
 
-h1, h2, h3, h4, h5,
-.h1, .h2, .h3, .h4, .h5 {
-    line-height: 1.5;
-    color: #333333;
-    font-weight: 400;
-}
-
 .filled-icon {
     color: #d62974 !important;
 }
@@ -109,14 +104,11 @@ h1, h2, h3, h4, h5,
 }
 
 @media (max-width: 576px) {
-    .col-lg-6 {
-        height: 200px;
-    }
     .menus {
         .menu-img {
             border-radius: 5px 5px 0 0;
             .image {
-                width: 150px;
+                width: 200px;
             }
         }
         .text {
@@ -129,12 +121,12 @@ h1, h2, h3, h4, h5,
 
 @media (max-width: 530px) {
     .col-lg-6 {
-        height: 360px;
+        height: 430px;
         justify-content: center;
     }
     .menus {
         flex-direction: column;
-        width: 300px;
+        width: 360px;
         .menu-img {
             margin: 0 auto;
             padding-top: 10px;
@@ -150,18 +142,18 @@ h1, h2, h3, h4, h5,
                 margin: 10px 0 0 0;
             }
             .one-half {
-                h3 {
-                    font-size: 16px;
+                .name {
+                    font-size: 18px;
                     margin: 0;
                 }
             }
             .one-forth {
                 .price {
-                    font-size: 16px;
+                    font-size: 20px;
                 }
             }
             .btn {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     }

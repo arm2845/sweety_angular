@@ -1,30 +1,36 @@
 <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
-        <div class="menu-img single-row">
-            <img class="item-img" src="../../../assets/images/mojito.jpg">
+        <div class="menu-img img">
+            <img class="image" src="assets/images/mojito.jpg" alt="">
         </div>
-        <div class="name-container single-row">
-            <span class="name"><h3>{{product.item.name_en | titlecase}}</h3></span>
-        </div>
-        <div class="add-on-data-single single-row">
-            <span class="text-title">Sugar</span>
-            <span class="add-on-text">{{sugarOption | titlecase}}</span>
-        </div>
-        <div class="add-on-data-single single-row" *ngIf="addings.length">
-            <span class="text-title">Add on</span>
-            <span class="add-on-text">{{addings}}</span>
-        </div>
-        <div class="add-on-data-single single-row">
-            <span class="text-title">Quantity</span>
-            <span class="add-on-text">{{product.count}}</span>
-        </div>
-        <div class="add-on-data-single single-row">
-            <span class="text-title">Total price</span>
-            <span class="price">{{product.price * product.count}} AMD</span>
-        </div>
-        <div class="icon single-row">
-            <span (click)="openAddOnModal(product)" class="icon-edit edit-icon"></span>
-            <span (click)="openConfirmationModal()" class="icon-bin remove-icon"></span>
+        <div class="text-container align-items-center">
+            <div class="right-side">
+                <div>
+                    <div class="add-on-data-single single-row centered">
+                        <span class="name">{{product.item.name_en | titlecase}}</span>
+                    </div>
+                    <div class="add-on-data-single single-row">
+                        <span class="text-title">Sugar</span>
+                        <span class="add-on-text">{{sugarOption | titlecase}}</span>
+                    </div>
+                    <div class="add-on-data-single single-row" *ngIf="addings.length">
+                        <span class="text-title">Add on</span>
+                        <span class="add-on-text">{{addings}}</span>
+                    </div>
+                    <div class="add-on-data-single single-row">
+                        <span class="text-title">Quantity</span>
+                        <span class="add-on-text">{{product.count}}</span>
+                    </div>
+                    <div class="add-on-data-single single-row">
+                        <span class="text-title">Total price</span>
+                        <span class="price">{{product.price * product.count}} AMD</span>
+                    </div>
+                    <div class="icon single-row">
+                        <span (click)="openAddOnModal(product)" class="icon-edit edit-icon"></span>
+                        <span (click)="openConfirmationModal()" class="icon-bin remove-icon"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
