@@ -15,6 +15,8 @@ import {AddOnsComponent} from "./components/add-ons/add-ons.component";
 import {MatButtonModule} from "@angular/material/button";
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { OrderComponent } from './components/order/order.component';
+import { OrderCheckoutComponent } from './components/order-checkout/order-checkout.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { LoaderComponent } from './components/loader/loader.component';
         AddOnsComponent,
         ConfirmationModalComponent,
         LoaderComponent,
+        OrderComponent,
+        OrderCheckoutComponent,
     ],
     imports: [
         CommonModule,

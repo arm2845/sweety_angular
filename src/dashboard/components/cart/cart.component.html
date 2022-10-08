@@ -11,11 +11,9 @@
             </ng-container>
         </div>
         <ng-container *ngIf="!cartIsEmpty">
-            <div class="text-container">
-                <textarea placeholder="Leave your comment here ..." #comment></textarea>
-            </div>
+            <div class="total-amount">Total amount: <span class="price">{{total_price}} AMD</span></div>
             <div class="button-container">
-                <button class="btn btn-primary" (click)="confirmOrder(comment.value)">Confirm Order</button>
+                <button class="btn btn-primary" (click)="confirmOrder()">Make Order</button>
             </div>
         </ng-container>
     </ng-container>

@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {MenuNavComponent} from "./components/menu-nav/menu-nav.component";
 import {CartComponent} from "./components/cart/cart.component";
 import {FavouritesComponent} from "./components/favourites/favourites.component";
+import {OrderComponent} from "./components/order/order.component";
 
 const routes: Routes = [
     {
@@ -16,6 +17,10 @@ const routes: Routes = [
             {
                 path: 'cart',
                 component: CartComponent,
+            },
+            {
+                path: 'order',
+                component: OrderComponent,
             },
             {
                 path: 'favourites',
