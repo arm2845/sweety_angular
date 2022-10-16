@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../../auth/services/auth.service";
 import {finalize, Subscription, tap} from "rxjs";
 import {SugarOptionsData} from "../../constants/add-on-data";
 import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
+import {OrderService} from "../../services/order.service";
 
 @Component({
     selector: 'app-order',
@@ -14,7 +14,7 @@ export class OrderComponent implements OnInit {
     orders: any = [];
 
     constructor(
-        private authService: AuthService,
+        private orderService: OrderService,
     ) {
     }
 
@@ -31,7 +31,7 @@ export class OrderComponent implements OnInit {
     }
 
     private getOrders(): Subscription {
-        return this.authService.getOrders().pipe(
+        return this.orderService.getOrders().pipe(
             tap((res) => this.orders = res.data),
             finalize(() => this.isLoading = false),
         )

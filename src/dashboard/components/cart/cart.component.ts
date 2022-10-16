@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../../auth/services/auth.service";
 import {finalize, Subscription, tap} from "rxjs";
 import {CartItem} from "../../models/cart-item";
 import {MatDialog} from "@angular/material/dialog";
-import {OrderCheckoutComponent} from "../order-checkout/order-checkout.component";
+import {OrderCheckoutComponent} from "../../../modals/components/order-checkout/order-checkout.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OrderData} from "../../interfaces/order-data";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
+import {CartService} from "../../services/cart.service";
+import {OrderService} from "../../services/order.service";
 
 @Component({
     selector: 'app-cart',
@@ -21,7 +22,8 @@ export class CartComponent implements OnInit {
 
     constructor(
         public dialog: MatDialog,
-        private authService: AuthService,
+        private cartService: CartService,
+        private orderService: OrderService,
         private route: ActivatedRoute,
         private router: Router,
     ) {
@@ -32,7 +34,7 @@ export class CartComponent implements OnInit {
     }
 
     getCart(): Subscription {
-        return this.authService.getCart().pipe(
+        return this.cartService.getCart().pipe(
             tap((res: any) => {
                 this.products = res.data;
                 this.total_price = res.meta.total_price;
@@ -80,7 +82,7 @@ export class CartComponent implements OnInit {
     }
 
     private placeOrder(data: OrderData): Subscription {
-        return this.authService.placeOrder(data).pipe(
+        return this.orderService.placeOrder(data).pipe(
             tap(() => updateCartCount(false, Number(localStorage.getItem('cartCount')))),
             tap(() => this.router.navigateByUrl('dashboard/order')),
         )

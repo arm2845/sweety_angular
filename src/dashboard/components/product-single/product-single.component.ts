@@ -5,8 +5,9 @@ import {MenuProduct} from "../../models/menu-product";
 import {ProductSingleOptions} from "../../constants/product-single-options";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {MatDialog} from "@angular/material/dialog";
-import {AddOnsComponent} from "../add-ons/add-ons.component";
+import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
 import {ProductAdditionalData} from "../../interfaces/product-additional-data";
+import {CartService} from "../../services/cart.service";
 
 @Component({
     selector: 'app-product-single',
@@ -20,6 +21,7 @@ export class ProductSingleComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
+        private cartService: CartService,
         public dialog: MatDialog,
     ) {
     }
@@ -48,7 +50,7 @@ export class ProductSingleComponent implements OnInit {
     }
 
     addToCart(data: ProductAdditionalData): Subscription {
-        return this.authService.addToCart(this.product.id, data).pipe(
+        return this.cartService.addToCart(this.product.id, data).pipe(
             tap(() => updateCartCount(true, data.count)),
         )
             .subscribe();

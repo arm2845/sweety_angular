@@ -1,13 +1,13 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Subscription, tap} from "rxjs";
-import {AuthService} from "../../../auth/services/auth.service";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
-import {AddOnsComponent} from "../add-ons/add-ons.component";
+import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
 import {SugarOptionsData} from "../../constants/add-on-data";
 import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
-import {ConfirmationModalComponent} from "../confirmation-modal/confirmation-modal.component";
+import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
+import {CartService} from "../../services/cart.service";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -22,7 +22,7 @@ export class CartSingleItemComponent implements OnInit {
     addings: string;
 
     constructor(
-        private authService: AuthService,
+        private cartService: CartService,
         public dialog: MatDialog,
     ) {
     }
@@ -71,14 +71,14 @@ export class CartSingleItemComponent implements OnInit {
     }
 
     updateCartItem(requestData: any): Subscription {
-        return this.authService.updateCartItem(requestData.id, requestData.data).pipe(
+        return this.cartService.updateCartItem(requestData.id, requestData.data).pipe(
             tap((res) => this.cartUpdated.emit(res)),
         )
             .subscribe();
     }
 
     removeFromCart(): Subscription {
-        return this.authService.removeFromCart(this.product.id).pipe(
+        return this.cartService.removeFromCart(this.product.id).pipe(
             tap(() => {
                 this.itemDeleted.emit(this.product);
                 updateCartCount(false, this.product.count);

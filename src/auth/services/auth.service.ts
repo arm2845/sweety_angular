@@ -4,8 +4,6 @@ import {Observable, tap} from "rxjs";
 import {UserAuthData} from "../interfaces/user-auth-data";
 import {User} from "../models/user";
 import {Router} from "@angular/router";
-import {ProductAdditionalData} from "../../dashboard/interfaces/product-additional-data";
-import {OrderData} from "../../dashboard/interfaces/order-data";
 
 @Injectable({
     providedIn: 'root'
@@ -20,18 +18,6 @@ export class AuthService {
 
     getUser(): Observable<any> {
         return this.http.get('user');
-    }
-
-    getCart(): Observable<any> {
-        return this.http.get('cart');
-    }
-
-    getFavourites(): Observable<any> {
-        return this.http.get('favourites');
-    }
-
-    getCartCount(): number {
-        return Number(localStorage.getItem('cartCount'));
     }
 
     register(data: UserAuthData): Observable<any> {
@@ -61,28 +47,16 @@ export class AuthService {
         )
     }
 
+    getFavourites(): Observable<any> {
+        return this.http.get('favourites');
+    }
+
     addToFavorites(productId: number): Observable<any> {
         return this.http.post(`favourites/${productId}`, {});
     }
 
     removeFromFavorites(productId: number): Observable<any> {
         return this.http.delete(`favourites/${productId}`);
-    }
-
-    addToCart(productId: number, data: ProductAdditionalData): Observable<any> {
-        return this.http.post(`cart/${productId}`, data);
-    }
-
-    updateCartItem(id: number, data: ProductAdditionalData): Observable<any> {
-        return this.http.patch(`cart/${id}`, data);
-    }
-
-    removeFromCart(id: number): Observable<any> {
-        return this.http.delete(`cart/${id}`);
-    }
-
-    changeCountInCart(productId: number, data: {count: number}): Observable<any> {
-        return this.http.patch(`cart/${productId}`, data);
     }
 
     private setTokenInLocalStorage(res: any): void {
@@ -100,14 +74,6 @@ export class AuthService {
                 window.location.reload();
             },
         )
-    }
-
-    getOrders(): Observable<any> {
-        return this.http.get('orders');
-    }
-
-    placeOrder(data: OrderData): Observable<any> {
-        return this.http.post('orders', data);
     }
 
 }

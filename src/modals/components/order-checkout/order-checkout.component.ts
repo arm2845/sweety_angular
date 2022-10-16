@@ -1,7 +1,7 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {OrderData} from "../../interfaces/order-data";
-import {PaymentTypesData} from "../../constants/payment-types";
+import {OrderData} from "../../../dashboard/interfaces/order-data";
+import {PaymentTypesData} from "../../../dashboard/constants/payment-types";
 
 @Component({
     selector: 'app-order-checkout',

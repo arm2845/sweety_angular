@@ -1,8 +1,8 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {ProductAdditionalData} from "../../interfaces/product-additional-data";
-import {AddingOptions, SugarOptions} from "../../constants/add-on-data";
-import {ProductWithAddOn} from "../../interfaces/product-with-add-on";
+import {ProductAdditionalData} from "../../../dashboard/interfaces/product-additional-data";
+import {AddingOptions, SugarOptions} from "../../../dashboard/constants/add-on-data";
+import {ProductWithAddOn} from "../../../dashboard/interfaces/product-with-add-on";
 import {getAddOnPrice} from "../../../app/helpers/addOns.helper";
 
 @Component({
