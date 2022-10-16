@@ -16,7 +16,7 @@ export class OrderCheckoutComponent implements OnInit {
     get orderData(): OrderData {
         return {
             payment_type: this.selectedPaymentType,
-            comment: this.textarea.nativeElement.value,
+            note: this.textarea.nativeElement.value,
         }
     }
 

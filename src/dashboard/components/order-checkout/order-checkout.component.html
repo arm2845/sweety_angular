@@ -11,7 +11,7 @@
             </div>
         </ng-container>
     </div>
-    <div class="header">Comment</div>
+    <div class="header">Notes</div>
     <div class="comment-container">
         <textarea placeholder="type here ..." #comment></textarea>
     </div>
@@ -19,6 +19,7 @@
     <div class="total-text">Total amount: <span class="data">{{data.total_price}} AMD</span></div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button class="btn btn-primary" mat-button [mat-dialog-close]="orderData">Confirm</button>
+    <button class="btn btn-primary" mat-button [mat-dialog-close]="orderData"
+            [disabled]="!selectedPaymentType">Confirm</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">Discard</button>
 </mat-dialog-actions>

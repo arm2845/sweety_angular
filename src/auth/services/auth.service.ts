@@ -5,6 +5,7 @@ import {UserAuthData} from "../interfaces/user-auth-data";
 import {User} from "../models/user";
 import {Router} from "@angular/router";
 import {ProductAdditionalData} from "../../dashboard/interfaces/product-additional-data";
+import {OrderData} from "../../dashboard/interfaces/order-data";
 
 @Injectable({
     providedIn: 'root'
@@ -99,6 +100,14 @@ export class AuthService {
                 window.location.reload();
             },
         )
+    }
+
+    getOrders(): Observable<any> {
+        return this.http.get('orders');
+    }
+
+    placeOrder(data: OrderData): Observable<any> {
+        return this.http.post('orders', data);
     }
 
 }

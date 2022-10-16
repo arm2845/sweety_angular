@@ -4,6 +4,9 @@ import {finalize, Subscription, tap} from "rxjs";
 import {CartItem} from "../../models/cart-item";
 import {MatDialog} from "@angular/material/dialog";
 import {OrderCheckoutComponent} from "../order-checkout/order-checkout.component";
+import {ActivatedRoute, Router} from "@angular/router";
+import {OrderData} from "../../interfaces/order-data";
+import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 
 @Component({
     selector: 'app-cart',
@@ -17,8 +20,10 @@ export class CartComponent implements OnInit {
     total_price: number;
 
     constructor(
-        private authService: AuthService,
         public dialog: MatDialog,
+        private authService: AuthService,
+        private route: ActivatedRoute,
+        private router: Router,
     ) {
     }
 
@@ -57,7 +62,7 @@ export class CartComponent implements OnInit {
         dialogRef.afterClosed().pipe(
             tap((result) => {
                 if (result) {
-                    console.log(result)
+                    this.placeOrder(result);
                 }
             })
         )
@@ -72,6 +77,14 @@ export class CartComponent implements OnInit {
 
     private updateCartState(): void {
         this.cartIsEmpty = !this.products.length;
+    }
+
+    private placeOrder(data: OrderData): Subscription {
+        return this.authService.placeOrder(data).pipe(
+            tap(() => updateCartCount(false, Number(localStorage.getItem('cartCount')))),
+            tap(() => this.router.navigateByUrl('dashboard/order')),
+        )
+            .subscribe();
     }
 
 }

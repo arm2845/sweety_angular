@@ -1,1 +1,42 @@
-<p>order works!</p>
+<div class="main-container">
+    <div class="header">My orders</div>
+    <ng-container *ngIf="!isLoading; else loader">
+        <div class="items-container">
+            <ng-container *ngIf="orders.length; else noData">
+                <ng-container *ngFor="let order of orders; let i = index">
+                    <div class="order-container">
+                        <div class="title">Order {{i + 1}}</div>
+                        <ng-container *ngFor="let item of order.items">
+                            <div class="single-item">
+                                <div class="image">
+                                    <img src="assets/images/mojito.jpg" alt="">
+                                </div>
+                                <div class="info">
+                                    <div class="name">{{item.name_en | titlecase}}</div>
+                                    <div *ngIf="item.hasSugar" class="sub-name">
+                                        Sugar: {{getSugarOption(item.order_options.sugar) | titlecase}}</div>
+                                    <div *ngIf="item.order_options.adding_ids.length" class="sub-name">
+                                        Addings: {{getAddOns(item.order_options.adding_ids)}}</div>
+                                    <div class="quantity">x {{item.order_options.count}}</div>
+                                </div>
+                                <div class="price">{{item.price}} AMD</div>
+                            </div>
+                        </ng-container>
+                        <div class="total-info">
+                            <span>Total</span>
+                            <span class="price">{{order.price}} AMD</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
+<ng-template #noData>
+    <div class="no-data-text">
+        There are no orders to show.
+    </div>
+</ng-template>

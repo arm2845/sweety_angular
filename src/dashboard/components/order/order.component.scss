@@ -1,0 +1,91 @@
+.main-container {
+    display: inline-block;
+    width: 100%;
+    padding: 120px 50px 50px 50px;
+
+    .items-container {
+        margin: 0 0 20px 15px;
+        .order-container {
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 0 10px -10px 10px;
+                border-bottom: 1px solid #e6e6e6;
+            }
+            .single-item {
+                display: flex;
+                align-items: center;
+                margin: 10px;
+                padding: 10px 0;
+                font-size: 20px;
+                border-bottom: 1px solid #e6e6e6;
+                .name {
+                    font-weight: bold;
+                    color: #EABE5E;
+                }
+                .sub-name {
+                    font-size: 16px;
+                    line-height: 24px;
+                    max-width: 110px;
+                }
+                .image {
+                    margin-right: 60px;
+                    img {
+                        height: 160px;
+                        width: auto;
+                    }
+                }
+                .price {
+                    align-self: end;
+                    margin-left: auto;
+                }
+            }
+            .total-info {
+                font-size: 24px;
+                display: flex;
+                justify-content: space-between;
+                padding: 5px 10px;
+                font-weight: bold;
+                .price {
+                    color: #EABE5E;
+                }
+            }
+        }
+
+    }
+
+    .header {
+        margin: 0 0 55px 15px;
+        font-size: 26px;
+        text-transform: capitalize;
+        font-weight: 600;
+        border-bottom: 1px solid #666666;
+    }
+}
+
+.no-data-text {
+    margin: 0 auto;
+    font-size: 20px;
+    color: #969595;
+}
+
+
+@media (max-width: 768px) {
+    .main-container {
+        .items-container {
+            .order-container {
+                .single-item {
+                    .image {
+                        margin-right: 20px;
+                        img {
+                            height: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
