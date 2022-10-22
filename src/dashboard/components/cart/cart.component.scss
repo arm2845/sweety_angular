@@ -10,7 +10,6 @@ app-cart-single-item {
     padding: 120px 50px 50px 50px;
 
     .header {
-        margin-left: 15px;
         font-size: 26px;
         text-transform: capitalize;
         font-weight: 600;
@@ -20,14 +19,10 @@ app-cart-single-item {
     .items-container {
         display: flex;
         flex-wrap: wrap;
-        margin: 55px 0 0 15px;
-    }
-    .button-container {
-        text-align: right;
+        margin: 55px -10px 0 -10px;
     }
     .total-amount {
         font-size: 20px;
-        text-align: right;
         margin-bottom: 15px;
         .price {
             margin-left: 20px;
@@ -49,7 +44,7 @@ app-cart-single-item {
         .items-container {
             display: flex;
             flex-wrap: wrap;
-            margin: 55px -15px 0 15px;
+            margin: 55px 0 0 0;
         }
     }
     app-cart-single-item {
@@ -58,10 +53,19 @@ app-cart-single-item {
     }
 }
 
+@media (max-width: 768px) {
+    .cart-container {
+        padding: 120px 20px 50px 20px;
+        .items-container {
+            margin: 55px 0 0 0;
+        }
+    }
+}
+
 @media (max-width: 650px) {
     .cart-container {
         .items-container {
-            margin: 55px 0 0 15px;
+            margin: 55px 0 0 0;
         }
     }
 }

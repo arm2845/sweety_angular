@@ -4,7 +4,7 @@
     padding: 120px 50px 50px 50px;
 
     .items-container {
-        margin: 0 0 20px 15px;
+        margin-bottom: 20px;
         .order-container {
             border: 1px solid #e6e6e6;
             border-radius: 5px;
@@ -58,7 +58,7 @@
     }
 
     .header {
-        margin: 0 0 55px 15px;
+        margin-bottom: 55px;
         font-size: 26px;
         text-transform: capitalize;
         font-weight: 600;
@@ -75,6 +75,7 @@
 
 @media (max-width: 768px) {
     .main-container {
+        padding: 120px 20px 50px 20px;
         .items-container {
             .order-container {
                 .single-item {

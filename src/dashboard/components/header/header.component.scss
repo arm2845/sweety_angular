@@ -22,7 +22,7 @@
         width: 50%;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         height: 80px;
 
         .header-item {
@@ -31,7 +31,7 @@
             cursor: pointer;
 
             .menu-icon {
-                padding-right: 10px;
+                padding-right: 5px;
             }
             .order {
                 font-size: 20px;
@@ -60,17 +60,18 @@
 @media (max-width: 1000px) {
     .header-main-container {
         .left-side {
-            width: 40%;
+            width: 30%;
         }
 
         .right-side {
-            width: 60%;
+            width: 70%;
         }
     }
 }
 
 @media (max-width: 768px) {
     .header-main-container {
+        padding: 0 20px;
         .left-side {
             display: none;
         }

@@ -175,6 +175,9 @@ app-product-listing {
     .ftco-search .nav-pills .nav-link.active:after {
         opacity: 0;
     }
+    .container {
+        margin: 0 5px;
+    }
 }
 
 @media (max-width: 768px) {

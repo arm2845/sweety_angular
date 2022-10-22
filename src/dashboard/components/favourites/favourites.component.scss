@@ -1,12 +1,17 @@
+app-product-single {
+    display: contents;
+}
+
 .main-container {
-    padding: 120px 35px 50px 35px;
+    padding: 120px 50px 50px 50px;
 
     .items-container {
-        margin-top: 55px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 55px -10px 0 -10px;
     }
 
     .header {
-        margin-left: 15px;
         font-size: 26px;
         text-transform: capitalize;
         font-weight: 600;
@@ -18,4 +23,10 @@
     text-align: center;
     font-size: 20px;
     color: #969595;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 120px 20px 50px 20px;
+    }
 }
