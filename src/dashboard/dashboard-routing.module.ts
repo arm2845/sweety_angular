@@ -31,6 +31,10 @@ const routes: Routes = [
                 redirectTo: 'menu/1',
             }
         ]
+    },
+    {
+        path: '**',
+        redirectTo: 'dashboard/menu/1',
     }
 ];
 
