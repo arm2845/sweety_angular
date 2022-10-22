@@ -8,6 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
 import {ProductAdditionalData} from "../../interfaces/product-additional-data";
 import {CartService} from "../../services/cart.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-product-single',
@@ -23,12 +24,17 @@ export class ProductSingleComponent implements OnInit {
         private authService: AuthService,
         private cartService: CartService,
         public dialog: MatDialog,
+        private router: Router,
     ) {
     }
 
     ngOnInit(): void {}
 
-    changeFavoriteState(): Subscription {
+    changeFavoriteState(): Subscription | void {
+        if (!localStorage.getItem('token')) {
+            this.navigateToLoginPage();
+            return;
+        }
         if (this.product.is_favourite) {
             return this.authService.removeFromFavorites(this.product.id).pipe(
                 tap(() => {
@@ -57,9 +63,13 @@ export class ProductSingleComponent implements OnInit {
     }
 
     openDialog(product: MenuProduct) {
+        if (!localStorage.getItem('token')) {
+            this.navigateToLoginPage();
+            return;
+        }
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
-            width: '400px',
+            width: '340px',
             height: '420px',
             data: {
                 product: product,
@@ -74,6 +84,10 @@ export class ProductSingleComponent implements OnInit {
             })
         )
             .subscribe();
+    }
+
+    private navigateToLoginPage(): void {
+        this.router.navigate(['/user/auth']);
     }
 
 }
