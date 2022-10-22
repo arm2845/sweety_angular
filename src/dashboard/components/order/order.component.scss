@@ -9,11 +9,26 @@
             border: 1px solid #e6e6e6;
             border-radius: 5px;
             margin-bottom: 20px;
-            .title {
-                font-size: 24px;
-                font-weight: bold;
-                margin: 0 10px -10px 10px;
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 border-bottom: 1px solid #e6e6e6;
+                margin: 0 10px -10px 10px;
+                .title {
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+                .status {
+                    padding: 5px;
+                    border-radius: 20px;
+                    width: 90px;
+                    height: 30px;
+                    color: #ffffff;
+                    border: none;
+                    text-transform: uppercase;
+                    pointer-events: none;
+                }
             }
             .single-item {
                 display: flex;
@@ -52,6 +67,12 @@
                     color: #EABE5E;
                 }
             }
+            .payment-type {
+                @extend .total-info;
+                padding: 0 10px;
+                font-size: 16px;
+                line-height: 16px;
+            }
         }
 
     }
@@ -66,9 +87,9 @@
 }
 
 .no-data-text {
-    margin: 0 auto;
     font-size: 20px;
     color: #969595;
+    text-align: center;
 }
 
 
@@ -94,8 +115,22 @@
     .main-container {
         .items-container {
             .order-container {
-                .title, .total-info {
+                .total-info {
                     font-size: 20px;
+                }
+                .payment-type {
+                    font-size: 12px;
+                    line-height: 14px;
+                }
+                .header {
+                    .title {
+                        font-size: 20px;
+                    }
+                    .status {
+                        width: 80px;
+                        height: 24px;
+                        font-size: 12px;
+                    }
                 }
                 .single-item {
                     .info {

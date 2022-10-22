@@ -92,5 +92,9 @@ mat-dialog-content {
                 border-radius: 0 15px 15px 0;
             }
         }
+        &.disabled {
+            opacity: 50%;
+            pointer-events: none;
+        }
     }
 }

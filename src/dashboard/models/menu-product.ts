@@ -8,7 +8,7 @@ export class MenuProduct {
     name_hy: string;
     name_ru: string;
     is_favourite: boolean;
-    hasSugar: boolean;
+    has_sugar: boolean;
     addings: Adding[];
 
     constructor(data: any) {
@@ -19,7 +19,7 @@ export class MenuProduct {
         this.name_hy = data.name_hy;
         this.name_ru = data.name_ru;
         this.is_favourite = data.is_favourite;
-        this.hasSugar = data.hasSugar;
+        this.has_sugar = data.has_sugar;
         this.addings = data.addings;
     }
 

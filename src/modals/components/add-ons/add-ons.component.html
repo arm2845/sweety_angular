@@ -4,9 +4,9 @@
         <span class="price">{{(product.price + addingPrice) * product.count}} AMD</span>
     </div>
     <div class="description">
-        Please choose options for add-ons
+        Please choose desired options
     </div>
-    <div class="single-option">
+    <div [class.disabled]="!product.has_sugar" class="single-option">
         <div class="option-name">Sugar</div>
         <div class="options">
             <span class="one-third"

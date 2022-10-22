@@ -13,9 +13,9 @@
                         <span class="text-title">Sugar</span>
                         <span class="add-on-text">{{sugarOption | titlecase}}</span>
                     </div>
-                    <div class="add-on-data-single single-row" *ngIf="addings.length">
+                    <div class="add-on-data-single single-row">
                         <span class="text-title">Add on</span>
-                        <span class="add-on-text">{{addings}}</span>
+                        <span class="add-on-text">{{addings || '-'}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
                         <span class="text-title">Quantity</span>

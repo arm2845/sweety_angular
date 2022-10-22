@@ -5,7 +5,11 @@
             <ng-container *ngIf="orders.length; else noData">
                 <ng-container *ngFor="let order of orders; let i = index">
                     <div class="order-container">
-                        <div class="title">Order {{i + 1}}</div>
+                        <div class="header">
+                            <div class="title">Order {{i + 1}}</div>
+                            <button [ngStyle]="{backgroundColor : getStatusColor(order.status)}" class="status">
+                                {{getOrderStatus(order.status)}}</button>
+                        </div>
                         <ng-container *ngFor="let item of order.items">
                             <div class="single-item">
                                 <div class="image">
@@ -13,15 +17,18 @@
                                 </div>
                                 <div class="info">
                                     <div class="name">{{item.name_en | titlecase}}</div>
-                                    <div *ngIf="item.hasSugar" class="sub-name">
+                                    <div *ngIf="item.has_sugar" class="sub-name">
                                         Sugar: {{getSugarOption(item.order_options.sugar) | titlecase}}</div>
-                                    <div *ngIf="item.order_options.adding_ids.length" class="sub-name">
-                                        Addings: {{getAddOns(item.order_options.adding_ids)}}</div>
+                                    <div class="sub-name">
+                                        Add on: {{getAddOns(item.order_options.adding_ids) || '-'}}</div>
                                     <div class="quantity">x {{item.order_options.count}}</div>
                                 </div>
                                 <div class="price">{{item.order_options.price}} AMD</div>
                             </div>
                         </ng-container>
+                        <div class="payment-type">
+                            Payment type: {{getPaymentType(order.payment_type)}}
+                        </div>
                         <div class="total-info">
                             <span>Total</span>
                             <span class="price">{{order.price}} AMD</span>

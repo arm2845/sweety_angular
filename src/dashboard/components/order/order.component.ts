@@ -3,6 +3,8 @@ import {finalize, Subscription, tap} from "rxjs";
 import {SugarOptionsData} from "../../constants/add-on-data";
 import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
 import {OrderService} from "../../services/order.service";
+import {OrderStatusesData} from "../../constants/order-statuses";
+import {PaymentTypesData} from "../../constants/payment-types";
 
 @Component({
     selector: 'app-order',
@@ -28,6 +30,18 @@ export class OrderComponent implements OnInit {
 
     getAddOns(ids: number[]): string {
         return getAddOnsAsString(ids);
+    }
+
+    getOrderStatus(status: number): string {
+        return OrderStatusesData.find(item => item.id === status).name;
+    }
+
+    getStatusColor(status: number): string {
+        return OrderStatusesData.find(item => item.id === status).color;
+    }
+
+    getPaymentType(id: number): string {
+        return PaymentTypesData.find(item => item.id === id).name;
     }
 
     private getOrders(): Subscription {

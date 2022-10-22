@@ -53,6 +53,7 @@ export class AddOnsComponent implements OnInit {
             price: this.data.product?.item?.price || this.data.product.price,
             count: this.data.product.count || 1,
             sugar: this.data.product?.sugar || null,
+            has_sugar: this.data.product.has_sugar || this.data.product?.item.has_sugar,
             addings: this.data.product?.adding_ids || [],
             adding_price: this.data.product?.adding_price || 0,
         };
