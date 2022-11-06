@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable, tap} from "rxjs";
+import {Observable, switchMap, tap} from "rxjs";
 import {UserAuthData} from "../interfaces/user-auth-data";
 import {User} from "../models/user";
 import {Router} from "@angular/router";
@@ -16,6 +16,10 @@ export class AuthService {
         private router: Router,
     ) {}
 
+    getAuthUser(): string {
+        return localStorage.getItem('user');
+    }
+
     getUser(): Observable<any> {
         return this.http.get('user');
     }
@@ -24,6 +28,12 @@ export class AuthService {
         return this.http.post(`register`, data).pipe(
             tap((res: any) => {
                 this.setTokenInLocalStorage(res);
+            }),
+            switchMap(() => {
+                return this.getUser();
+            }),
+            tap((res) => {
+                this.setUserInLocalStorage(res.data);
                 this.navigateToHomePage();
             }),
         );
@@ -33,6 +43,12 @@ export class AuthService {
         return this.http.post(`login`, data).pipe(
             tap((res: any) => {
                 this.setTokenInLocalStorage(res);
+            }),
+            switchMap(() => {
+                return this.getUser();
+            }),
+            tap((res) => {
+                this.setUserInLocalStorage(res.data);
                 this.navigateToHomePage();
             }),
         );
@@ -42,6 +58,7 @@ export class AuthService {
         return this.http.delete(`logout`).pipe(
             tap(() => {
                 this.removeTokenFromLocalStorage();
+                this.removeUserFromLocalStorage();
                 this.navigateToHomePage();
             }),
         )
@@ -59,6 +76,11 @@ export class AuthService {
         return this.http.delete(`favourites/${productId}`);
     }
 
+    private setUserInLocalStorage(user: User): void {
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('userType', String(user.type));
+    }
+
     private setTokenInLocalStorage(res: any): void {
         const token = res.data.token;
         localStorage.setItem('token', token);
@@ -68,12 +90,13 @@ export class AuthService {
         localStorage.removeItem('token');
     }
 
+    private removeUserFromLocalStorage(): void {
+        localStorage.removeItem('user');
+        localStorage.removeItem('userType');
+    }
+
     private navigateToHomePage(): void {
         this.router.navigate(['/dashboard/menu/1'])
-            .then(() => {
-                window.location.reload();
-            },
-        )
     }
 
 }

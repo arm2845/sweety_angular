@@ -10,6 +10,7 @@ export class MenuProduct {
     is_favourite: boolean;
     has_sugar: boolean;
     addings: Adding[];
+    order_options?: any;
 
     constructor(data: any) {
         this.id = data.id;
@@ -21,9 +22,18 @@ export class MenuProduct {
         this.is_favourite = data.is_favourite;
         this.has_sugar = data.has_sugar;
         this.addings = data.addings;
+        this.order_options = data.order_options;
     }
 
     public static transform(data: any): MenuProduct {
         return new MenuProduct(data);
+    }
+
+    public static transformCollection(data: any): MenuProduct[] {
+        let items = [];
+        for (let item in data) {
+            items.push(new MenuProduct(item));
+        }
+        return items;
     }
 }

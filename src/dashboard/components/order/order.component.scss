@@ -29,6 +29,21 @@
                     text-transform: uppercase;
                     pointer-events: none;
                 }
+                .status-large {
+                    @extend .status;
+                    cursor: pointer;
+                    pointer-events: auto;
+                    &:first-child {
+                        margin-right: 10px;
+                    }
+                }
+                .status-big {
+                    @extend .status-large;
+                    width: 140px;
+                    &:first-child {
+                        margin-right: 0;
+                    }
+                }
             }
             .single-item {
                 display: flex;
@@ -130,6 +145,9 @@
                         width: 80px;
                         height: 24px;
                         font-size: 12px;
+                    }
+                    .status-big {
+                        width: 124px;
                     }
                 }
                 .single-item {

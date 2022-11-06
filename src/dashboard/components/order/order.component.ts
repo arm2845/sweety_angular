@@ -3,8 +3,11 @@ import {finalize, Subscription, tap} from "rxjs";
 import {SugarOptionsData} from "../../constants/add-on-data";
 import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
 import {OrderService} from "../../services/order.service";
-import {OrderStatusesData} from "../../constants/order-statuses";
+import {OrderStatuses, OrderStatusesData} from "../../constants/order-statuses";
 import {PaymentTypesData} from "../../constants/payment-types";
+import {Order} from "../../models/order";
+import {UserTypes} from "../../../auth/constants/user-types";
+import {User} from "../../../auth/models/user";
 
 @Component({
     selector: 'app-order',
@@ -13,7 +16,11 @@ import {PaymentTypesData} from "../../constants/payment-types";
 })
 export class OrderComponent implements OnInit {
     isLoading = true;
-    orders: any = [];
+    orders: Order[] = [];
+    userType: number;
+    userTypes = UserTypes;
+
+    readonly orderStatuses = OrderStatuses;
 
     constructor(
         private orderService: OrderService,
@@ -21,7 +28,15 @@ export class OrderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getOrders();
+        this.userType = Number(localStorage.getItem('userType'));
+        // this.getOrders();
+        this.orderService.getServerSentEvent('http://resto.3spiders.com/api/recent-orders').pipe(
+            tap((res: any) => {
+                this.orders = res;
+                this.isLoading = false;
+            })
+        )
+            .subscribe();
     }
 
     getSugarOption(id: number): string {
@@ -42,6 +57,37 @@ export class OrderComponent implements OnInit {
 
     getPaymentType(id: number): string {
         return PaymentTypesData.find(item => item.id === id).name;
+    }
+
+    acceptOrder(orderId: number): Subscription {
+        return this.orderService.updateOrderStatus(orderId, {
+            status: OrderStatuses.accepted
+        }).pipe(
+            tap((data) => this.updateOrderStatus(orderId, data.data.status)),
+        )
+            .subscribe();
+    }
+
+    rejectOrder(orderId: number): Subscription {
+        return this.orderService.updateOrderStatus(orderId, {
+            status: OrderStatuses.rejected
+        }).pipe(
+            tap((data) => this.updateOrderStatus(orderId, data.data.status)),
+        )
+            .subscribe();
+    }
+
+    closeOrder(orderId: number): Subscription {
+        return this.orderService.updateOrderStatus(orderId, {
+            status: OrderStatuses.given
+        }).pipe(
+            tap((data) => this.updateOrderStatus(orderId, data.data.status)),
+        )
+            .subscribe();
+    }
+
+    updateOrderStatus(orderId: number, status: number): void {
+        this.orders.find(item => item.id === orderId).status = status;
     }
 
     private getOrders(): Subscription {

@@ -11,10 +11,13 @@ import {CartService} from "../../services/cart.service";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-    isAuthUser: boolean;
 
     get itemsInCart(): number {
         return this.cartService.getCartCount();
+    }
+
+    get authUser(): string {
+        return this.authService.getAuthUser();
     }
 
     constructor(
@@ -25,8 +28,7 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.isAuthUser = !!localStorage.getItem('token');
-        if (this.isAuthUser) {
+        if (this.authUser) {
             this.getCart();
         }
     }

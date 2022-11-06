@@ -1,20 +1,17 @@
-import {MenuProduct} from "../../dashboard/models/menu-product";
-import {Cart} from "./cart";
+import {UserTypes} from "../constants/user-types";
 
 export class User {
     id: number;
     username: string;
     phone: string;
     role: string;
-    cart: Cart;
-    favourites: MenuProduct[];
+    type: UserTypes;
 
     constructor(data: any) {
         this.id = data.id;
         this.username = data.username;
         this.phone = data.phone;
         this.role = data.role;
-        this.cart = Cart.transform(data.cart);
-        this.favourites = data.favourites;
+        this.type = data.type;
     }
 }

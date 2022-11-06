@@ -7,8 +7,36 @@
                     <div class="order-container">
                         <div class="header">
                             <div class="title">Order {{i + 1}}</div>
-                            <button [ngStyle]="{backgroundColor : getStatusColor(order.status)}" class="status">
-                                {{getOrderStatus(order.status)}}</button>
+                            <ng-container *ngIf="userType === userTypes.admin; else defaultStatusTpl">
+                                <ng-container [ngSwitch]="order.status">
+                                    <div *ngSwitchCase="orderStatuses.pending" class="admin-buttons">
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.accepted)}"
+                                                class="status-large" (click)="acceptOrder(order.id)">Accept</button>
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.rejected)}"
+                                                class="status-large" (click)="rejectOrder(order.id)">Reject</button>
+                                    </div>
+                                    <div *ngSwitchCase="orderStatuses.accepted" class="admin-buttons">
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.accepted)}"
+                                                class="status-big" (click)="closeOrder(order.id)">Close Order</button>
+                                    </div>
+                                    <div *ngSwitchCase="orderStatuses.rejected" class="admin-buttons">
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.rejected)}"
+                                                class="status">Rejected</button>
+                                    </div>
+                                    <div *ngSwitchCase="orderStatuses.paid" class="admin-buttons">
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.paid)}"
+                                                class="status-big" (click)="closeOrder(order.id)">Close Paid Order</button>
+                                    </div>
+                                    <div *ngSwitchCase="orderStatuses.given" class="admin-buttons">
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.given)}"
+                                                class="status">Given</button>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                            <ng-template #defaultStatusTpl>
+                                <button [ngStyle]="{backgroundColor : getStatusColor(order.status)}" class="status">
+                                    {{getOrderStatus(order.status)}}</button>
+                            </ng-template>
                         </div>
                         <ng-container *ngFor="let item of order.items">
                             <div class="single-item">
