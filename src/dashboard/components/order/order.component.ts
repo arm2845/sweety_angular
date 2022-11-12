@@ -7,7 +7,6 @@ import {OrderStatuses, OrderStatusesData} from "../../constants/order-statuses";
 import {PaymentTypesData} from "../../constants/payment-types";
 import {Order} from "../../models/order";
 import {UserTypes} from "../../../auth/constants/user-types";
-import {User} from "../../../auth/models/user";
 
 @Component({
     selector: 'app-order',

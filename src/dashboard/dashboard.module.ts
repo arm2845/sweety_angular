@@ -12,6 +12,7 @@ import {MainService} from "./services/main.service";
 import {CartSingleItemComponent} from './components/cart-single-item/cart-single-item.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { OrderComponent } from './components/order/order.component';
+import { IngredientsComponent } from './components/ingredients/ingredients.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { OrderComponent } from './components/order/order.component';
         CartSingleItemComponent,
         LoaderComponent,
         OrderComponent,
+        IngredientsComponent,
     ],
     imports: [
         CommonModule,

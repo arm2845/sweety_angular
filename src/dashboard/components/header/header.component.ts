@@ -4,6 +4,7 @@ import {Subscription, tap} from "rxjs";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CartService} from "../../services/cart.service";
+import {UserTypes} from "../../../auth/constants/user-types";
 
 @Component({
     selector: 'app-header',
@@ -11,6 +12,9 @@ import {CartService} from "../../services/cart.service";
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+    userType: number;
+    userTypes = UserTypes;
 
     get itemsInCart(): number {
         return this.cartService.getCartCount();
@@ -29,6 +33,7 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.authUser) {
+            this.userType = Number(localStorage.getItem('userType'));
             this.getCart();
         }
     }

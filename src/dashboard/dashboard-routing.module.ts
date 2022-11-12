@@ -5,6 +5,7 @@ import {MenuNavComponent} from "./components/menu-nav/menu-nav.component";
 import {CartComponent} from "./components/cart/cart.component";
 import {FavouritesComponent} from "./components/favourites/favourites.component";
 import {OrderComponent} from "./components/order/order.component";
+import {IngredientsComponent} from "./components/ingredients/ingredients.component";
 
 const routes: Routes = [
     {
@@ -25,6 +26,10 @@ const routes: Routes = [
             {
                 path: 'favourites',
                 component: FavouritesComponent,
+            },
+            {
+                path: 'ingredients',
+                component: IngredientsComponent,
             },
             {
                 path: '**',
