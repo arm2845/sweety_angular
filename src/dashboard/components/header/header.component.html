@@ -21,7 +21,7 @@
                 <span class="menu-item-name">Favourites</span>
             </div>
         </ng-container>
-        <ng-container *ngIf="userType === userTypes.admin">
+        <ng-container *ngIf="authUser && userType === userTypes.admin">
             <div class="header-item" routerLink="/dashboard/ingredients">
                 <span class="icon-products menu-icon"></span>
                 <span class="menu-item-name">Products</span>

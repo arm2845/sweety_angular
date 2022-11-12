@@ -1,6 +1,6 @@
 <div class="main-container">
     <div class="header">Products in the stock</div>
-    <div class="table-container">
+    <div class="table-container" *ngIf="!isLoading; else loader">
         <div class="table-cell table-header">Name</div>
         <div class="table-cell table-header">Category</div>
         <div class="table-cell table-header">Current state</div>
@@ -26,4 +26,7 @@
             </div>
         </ng-container>
     </div>
+    <ng-template #loader>
+        <app-loader></app-loader>
+    </ng-template>
 </div>

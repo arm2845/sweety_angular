@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Ingredient} from "../../models/ingredient";
-import {Subscription, tap} from "rxjs";
+import {finalize, Subscription, tap} from "rxjs";
 import {IngredientsService} from "../../services/ingredients.service";
 import {IngredientCategoriesData} from "../../constants/ingredient-categories";
 
@@ -12,6 +12,7 @@ import {IngredientCategoriesData} from "../../constants/ingredient-categories";
 export class IngredientsComponent implements OnInit {
 
     ingredients: Ingredient[];
+    isLoading = true;
 
     constructor(
         private ingredientsService: IngredientsService,
@@ -39,6 +40,7 @@ export class IngredientsComponent implements OnInit {
     private getIngredients(): Subscription {
         return this.ingredientsService.getIngredients().pipe(
             tap((res) => this.ingredients = res.data),
+            finalize(() => this.isLoading = false),
         )
             .subscribe();
     }

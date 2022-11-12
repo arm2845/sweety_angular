@@ -24,6 +24,11 @@ export class AuthService {
         return this.http.get('user');
     }
 
+    getUserType(): number {
+        const user = JSON.parse(localStorage.getItem('user'));
+        return user.type;
+    }
+
     register(data: UserAuthData): Observable<any> {
         return this.http.post(`register`, data).pipe(
             tap((res: any) => {

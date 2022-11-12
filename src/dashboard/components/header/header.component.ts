@@ -13,7 +13,6 @@ import {UserTypes} from "../../../auth/constants/user-types";
 })
 export class HeaderComponent implements OnInit {
 
-    userType: number;
     userTypes = UserTypes;
 
     get itemsInCart(): number {
@@ -22,6 +21,10 @@ export class HeaderComponent implements OnInit {
 
     get authUser(): string {
         return this.authService.getAuthUser();
+    }
+
+    get userType(): number {
+        return this.authService.getUserType();
     }
 
     constructor(
@@ -33,7 +36,6 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.authUser) {
-            this.userType = Number(localStorage.getItem('userType'));
             this.getCart();
         }
     }
