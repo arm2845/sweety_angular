@@ -9,6 +9,7 @@ import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.compon
 import {ProductAdditionalData} from "../../interfaces/product-additional-data";
 import {CartService} from "../../services/cart.service";
 import {Router} from "@angular/router";
+import {UserTypes} from "../../../auth/constants/user-types";
 
 @Component({
     selector: 'app-product-single',
@@ -19,6 +20,16 @@ export class ProductSingleComponent implements OnInit {
     @Input() product: MenuProduct;
     @Input() pageOption: number;
     @Output() removeFromFavorites = new EventEmitter();
+
+    userTypes = UserTypes;
+
+    get userType(): number {
+        return this.authService.getUserType();
+    }
+
+    get authUser(): string {
+        return this.authService.getAuthUser();
+    }
 
     constructor(
         private authService: AuthService,

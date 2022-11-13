@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Ingredient} from "../../models/ingredient";
 import {finalize, Subscription, tap} from "rxjs";
 import {IngredientsService} from "../../services/ingredients.service";
-import {IngredientCategoriesData} from "../../constants/ingredient-categories";
+import {IngredientCategories, IngredientCategoriesData} from "../../constants/ingredient-categories";
 
 @Component({
     selector: 'app-ingredients',
@@ -12,7 +12,10 @@ import {IngredientCategoriesData} from "../../constants/ingredient-categories";
 export class IngredientsComponent implements OnInit {
 
     ingredients: Ingredient[];
+    allIngredients: Ingredient[];
     isLoading = true;
+    ingredientCategories = IngredientCategoriesData;
+    searchWord: string;
 
     constructor(
         private ingredientsService: IngredientsService,
@@ -37,9 +40,38 @@ export class IngredientsComponent implements OnInit {
             .subscribe();
     }
 
+    openDropdown(): void {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    filterByCategory(category: number): void {
+        this.searchWord = '';
+        this.ingredientCategories.forEach(item => item.selected = item.id === category);
+        this.ingredients = category === IngredientCategories.all ? this.allIngredients :
+            this.allIngredients.filter(item => item.category_id === category);
+        this.closeDropdown();
+    }
+
+    search(): void {
+        this.ingredientCategories.forEach(item => item.selected = item.id === IngredientCategories.all);
+        const keyWord = this.simplifyString(this.searchWord);
+        this.ingredients = keyWord ?
+            this.allIngredients.filter(item => this.simplifyString(item.name_en).includes(keyWord))
+            : this.allIngredients;
+    }
+
+    private simplifyString(str: string): string {
+        return str.replace(/\s/g,'').toLowerCase();
+    }
+
+    private closeDropdown(): void {
+        document.getElementById("myDropdown").classList.remove("show");
+    }
+
     private getIngredients(): Subscription {
         return this.ingredientsService.getIngredients().pipe(
             tap((res) => this.ingredients = res.data),
+            tap((res) => this.allIngredients = res.data),
             finalize(() => this.isLoading = false),
         )
             .subscribe();

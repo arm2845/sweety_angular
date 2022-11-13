@@ -8,14 +8,15 @@
                 <div>
                     <div class="one-half">
                         <span class="name">{{product.name_en | titlecase}}</span>
-                        <span (click)="changeFavoriteState()"
+                        <span *ngIf="!authUser || userType !== userTypes.admin" (click)="changeFavoriteState()"
                               [class.filled-icon]="product.is_favourite" class="icon-heart favorite-icon"></span>
                     </div>
                     <div class="one-forth">
                         <span class="price">{{product.price}} AMD</span>
                     </div>
                 </div>
-                <p><a (click)="openDialog(product)" class="btn btn-primary">Add to Cart</a></p>
+                <p *ngIf="!authUser || userType !== userTypes.admin">
+                    <a (click)="openDialog(product)" class="btn btn-primary">Add to Cart</a></p>
             </div>
         </div>
     </div>

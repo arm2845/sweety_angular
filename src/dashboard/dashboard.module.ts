@@ -13,6 +13,7 @@ import {CartSingleItemComponent} from './components/cart-single-item/cart-single
 import { LoaderComponent } from './components/loader/loader.component';
 import { OrderComponent } from './components/order/order.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { IngredientsComponent } from './components/ingredients/ingredients.compo
     imports: [
         CommonModule,
         DashboardRoutingModule,
+        FormsModule,
     ],
     exports: [
         HeaderComponent,

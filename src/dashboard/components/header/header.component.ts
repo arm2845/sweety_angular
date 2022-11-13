@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        if (this.authUser) {
+        if (this.authUser && this.userType !== this.userTypes.admin) {
             this.getCart();
         }
     }

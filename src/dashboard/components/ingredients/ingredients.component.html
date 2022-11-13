@@ -1,8 +1,25 @@
 <div class="main-container">
     <div class="header">Products in the stock</div>
+    <div class="search-container">
+        <input (keyup)="search()" type="text" placeholder="Search.." [(ngModel)]="searchWord">
+        <span class="icon-search search"></span>
+    </div>
     <div class="table-container" *ngIf="!isLoading; else loader">
         <div class="table-cell table-header">Name</div>
-        <div class="table-cell table-header">Category</div>
+        <div class="table-cell table-header">
+            <div class="category" (click)="openDropdown()">
+                <span>Category</span>
+                <span class="icon-filter filter"></span>
+            </div>
+            <div id="myDropdown" class="dropdown-content">
+                <ng-container *ngFor="let category of ingredientCategories">
+                    <div class="option" (click)="filterByCategory(category.id)">
+                        <span>{{category.name | titlecase}}</span>
+                        <span *ngIf="category.selected" class="icon-selected"></span>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
         <div class="table-cell table-header">Current state</div>
         <div class="table-cell table-header">Change state</div>
         <ng-container *ngFor="let ingredient of ingredients">
