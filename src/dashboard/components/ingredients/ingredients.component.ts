@@ -15,7 +15,8 @@ export class IngredientsComponent implements OnInit {
     allIngredients: Ingredient[];
     isLoading = true;
     ingredientCategories = IngredientCategoriesData;
-    searchWord: string;
+    searchWord = '';
+    selectedCategory = 0;
 
     constructor(
         private ingredientsService: IngredientsService,
@@ -45,19 +46,24 @@ export class IngredientsComponent implements OnInit {
     }
 
     filterByCategory(category: number): void {
-        this.searchWord = '';
+        this.selectedCategory = category;
         this.ingredientCategories.forEach(item => item.selected = item.id === category);
-        this.ingredients = category === IngredientCategories.all ? this.allIngredients :
-            this.allIngredients.filter(item => item.category_id === category);
+        this.getFilteredAndSearchedData();
         this.closeDropdown();
     }
 
     search(): void {
-        this.ingredientCategories.forEach(item => item.selected = item.id === IngredientCategories.all);
-        const keyWord = this.simplifyString(this.searchWord);
-        this.ingredients = keyWord ?
-            this.allIngredients.filter(item => this.simplifyString(item.name_en).includes(keyWord))
-            : this.allIngredients;
+        this.getFilteredAndSearchedData();
+    }
+
+    private getFilteredAndSearchedData(): void {
+        this.ingredients = [];
+        this.allIngredients.forEach(item => {
+            if (this.simplifyString(item.name_en).includes(this.simplifyString(this.searchWord)) &&
+                (this.selectedCategory === IngredientCategories.all || item.category_id === this.selectedCategory)) {
+                    this.ingredients.push(item)
+            }
+        })
     }
 
     private simplifyString(str: string): string {
