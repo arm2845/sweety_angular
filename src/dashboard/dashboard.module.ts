@@ -14,6 +14,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { OrderComponent } from './components/order/order.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import {FormsModule} from "@angular/forms";
+import { ClickedOutsideDirective } from './directives/clicked-outside.directive';
 
 @NgModule({
     declarations: [
@@ -28,6 +29,7 @@ import {FormsModule} from "@angular/forms";
         LoaderComponent,
         OrderComponent,
         IngredientsComponent,
+        ClickedOutsideDirective,
     ],
     imports: [
         CommonModule,

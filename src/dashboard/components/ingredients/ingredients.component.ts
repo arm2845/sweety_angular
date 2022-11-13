@@ -56,6 +56,10 @@ export class IngredientsComponent implements OnInit {
         this.getFilteredAndSearchedData();
     }
 
+    closeDropdown(): void {
+        document.getElementById("myDropdown").classList.remove("show");
+    }
+
     private getFilteredAndSearchedData(): void {
         this.ingredients = [];
         this.allIngredients.forEach(item => {
@@ -68,10 +72,6 @@ export class IngredientsComponent implements OnInit {
 
     private simplifyString(str: string): string {
         return str.replace(/\s/g,'').toLowerCase();
-    }
-
-    private closeDropdown(): void {
-        document.getElementById("myDropdown").classList.remove("show");
     }
 
     private getIngredients(): Subscription {

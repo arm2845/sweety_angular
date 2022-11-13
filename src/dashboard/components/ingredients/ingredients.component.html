@@ -7,7 +7,7 @@
         </div>
         <div class="table-container">
             <div class="table-cell table-header">Name</div>
-            <div class="table-cell table-header">
+            <div class="table-cell table-header" appClickedOutside (clickedOutside)="closeDropdown()">
                 <div class="category" (click)="openDropdown()">
                     <span>Category</span>
                     <span class="icon-filter filter"></span>
