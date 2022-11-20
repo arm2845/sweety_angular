@@ -2,8 +2,9 @@ export enum OrderStatuses {
     pending = 1,
     accepted = 2,
     rejected = 3,
-    paid = 4,
-    given = 5,
+    ready = 4,
+    paid = 5,
+    given = 6,
 }
 
 export const OrderStatusesData = [
@@ -21,6 +22,11 @@ export const OrderStatusesData = [
         id: OrderStatuses.rejected,
         name: 'Rejected',
         color: '#ef233c',
+    },
+    {
+        id: OrderStatuses.ready,
+        name: 'Ready',
+        color: '#7209b7',
     },
     {
         id: OrderStatuses.paid,

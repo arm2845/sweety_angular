@@ -17,11 +17,15 @@
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.accepted" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.accepted)}"
-                                                class="status-big" (click)="closeOrder(order.id)">Close Order</button>
+                                                class="status-big" (click)="markAsReady(order.id)">Mark As Ready</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.rejected" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.rejected)}"
                                                 class="status">Rejected</button>
+                                    </div>
+                                    <div *ngSwitchCase="orderStatuses.ready" class="admin-buttons">
+                                        <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.ready)}"
+                                                class="status-big" (click)="closeOrder(order.id)">Close Paid Order</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.paid" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.paid)}"
