@@ -73,6 +73,7 @@ export class CartSingleItemComponent implements OnInit {
     updateCartItem(requestData: any): Subscription {
         return this.cartService.updateCartItem(requestData.id, requestData.data).pipe(
             tap((res) => this.cartUpdated.emit(res)),
+            tap((res) =>localStorage.setItem('cartCount', String(res.meta.total_count))),
         )
             .subscribe();
     }
