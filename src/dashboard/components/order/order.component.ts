@@ -7,6 +7,7 @@ import {OrderStatuses, OrderStatusesData} from "../../constants/order-statuses";
 import {PaymentTypesData} from "../../constants/payment-types";
 import {Order} from "../../models/order";
 import {UserTypes} from "../../../auth/constants/user-types";
+import {environment} from "../../../environments/environment";
 
 @Component({
     selector: 'app-order',
@@ -29,7 +30,7 @@ export class OrderComponent implements OnInit {
     ngOnInit(): void {
         this.userType = Number(localStorage.getItem('userType'));
         // this.getOrders();
-        this.orderService.getServerSentEvent('http://resto.3spiders.com/api/recent-orders').pipe(
+        this.orderService.getServerSentEvent(`${environment.baseURL}recent-orders`).pipe(
             tap((res: any) => {
                 this.orders = res;
                 this.isLoading = false;
