@@ -9,7 +9,7 @@ export class ApiInterceptor implements HttpInterceptor {
     }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const baseUrl = 'http://resto.3spiders.com/api/';
+        const baseUrl = 'https://resto.3spiders.com/api/';
         const apiReq = request.clone({url: `${baseUrl}${request.url}`});
         return next.handle(apiReq);
     }

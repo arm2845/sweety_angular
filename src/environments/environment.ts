@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    baseURL: 'http://resto.3spiders.com/api/',
+    baseURL: 'https://resto.3spiders.com/api/',
 };
 
 /*
