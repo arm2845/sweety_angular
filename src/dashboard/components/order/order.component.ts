@@ -77,6 +77,15 @@ export class OrderComponent implements OnInit {
             .subscribe();
     }
 
+    markAsReady(orderId: number): Subscription {
+        return this.orderService.updateOrderStatus(orderId, {
+            status: OrderStatuses.ready
+        }).pipe(
+            tap((data) => this.updateOrderStatus(orderId, data.data.status)),
+        )
+            .subscribe();
+    }
+
     closeOrder(orderId: number): Subscription {
         return this.orderService.updateOrderStatus(orderId, {
             status: OrderStatuses.given
