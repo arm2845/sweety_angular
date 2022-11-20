@@ -69,6 +69,10 @@ export class AuthService {
         )
     }
 
+    isLoggedIn() {
+        return this.getAuthUser();
+    }
+
     getFavourites(): Observable<any> {
         return this.http.get('favourites');
     }

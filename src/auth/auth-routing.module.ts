@@ -4,6 +4,7 @@ import {CommonModule} from "@angular/common";
 import {LoginComponent} from "./components/login/login.component";
 import {StartAuthComponent} from "./components/start-auth/start-auth.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {IsNotAuthGuard} from "../app/guards/is-not-auth.guard";
 
 const routes: Routes = [
     {
@@ -25,7 +26,8 @@ const routes: Routes = [
                 path: '**',
                 redirectTo: 'auth',
             }
-        ]
+        ],
+        canActivate: [IsNotAuthGuard],
     }
 ];
 

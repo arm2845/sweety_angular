@@ -6,36 +6,38 @@ import {CartComponent} from "./components/cart/cart.component";
 import {FavouritesComponent} from "./components/favourites/favourites.component";
 import {OrderComponent} from "./components/order/order.component";
 import {IngredientsComponent} from "./components/ingredients/ingredients.component";
+import {IsAuthGuard} from "../app/guards/is-auth.guard";
+import {IsAdminGuard} from "../app/guards/is-admin.guard";
+import {IsNotAdminGuard} from "../app/guards/is-not-admin.guard";
 
 const routes: Routes = [
     {
         path: 'dashboard',
         children: [
             {
-                path: 'menu/:id',
-                component: MenuNavComponent,
-            },
-            {
                 path: 'cart',
                 component: CartComponent,
-            },
-            {
-                path: 'order',
-                component: OrderComponent,
             },
             {
                 path: 'favourites',
                 component: FavouritesComponent,
             },
-            {
-                path: 'ingredients',
-                component: IngredientsComponent,
-            },
-            {
-                path: '**',
-                redirectTo: 'menu/1',
-            }
-        ]
+        ],
+        canActivate: [IsAuthGuard, IsNotAdminGuard],
+    },
+    {
+        path: 'dashboard/order',
+        component: OrderComponent,
+        canActivate: [IsAuthGuard],
+    },
+    {
+        path: 'dashboard/ingredients',
+        component: IngredientsComponent,
+        canActivate: [IsAuthGuard, IsAdminGuard],
+    },
+    {
+        path: 'dashboard/menu/:id',
+        component: MenuNavComponent,
     },
     {
         path: '**',
