@@ -10,6 +10,8 @@ import {ProductAdditionalData} from "../../interfaces/product-additional-data";
 import {CartService} from "../../services/cart.service";
 import {Router} from "@angular/router";
 import {UserTypes} from "../../../auth/constants/user-types";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
 
 @Component({
     selector: 'app-product-single',
@@ -22,6 +24,7 @@ export class ProductSingleComponent implements OnInit {
     @Output() removeFromFavorites = new EventEmitter();
 
     userTypes = UserTypes;
+    readonly message = "Item was added successfully.";
 
     get userType(): number {
         return this.authService.getUserType();
@@ -36,6 +39,7 @@ export class ProductSingleComponent implements OnInit {
         private cartService: CartService,
         public dialog: MatDialog,
         private router: Router,
+        private snackBar: MatSnackBar,
     ) {
     }
 
@@ -69,6 +73,7 @@ export class ProductSingleComponent implements OnInit {
     addToCart(data: ProductAdditionalData): Subscription {
         return this.cartService.addToCart(this.product.id, data).pipe(
             tap(() => updateCartCount(true, data.count)),
+            tap(() => this.showNotification()),
         )
             .subscribe();
     }
@@ -95,6 +100,15 @@ export class ProductSingleComponent implements OnInit {
             })
         )
             .subscribe();
+    }
+
+    showNotification() {
+        this.snackBar.openFromComponent(PopUpNotificationComponent, {
+            data: {
+                message: this.message,
+            },
+            duration: 5000,
+        });
     }
 
     private navigateToLoginPage(): void {

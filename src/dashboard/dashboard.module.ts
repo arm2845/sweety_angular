@@ -15,6 +15,7 @@ import { OrderComponent } from './components/order/order.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import {FormsModule} from "@angular/forms";
 import { ClickedOutsideDirective } from './directives/clicked-outside.directive';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { ClickedOutsideDirective } from './directives/clicked-outside.directive'
         CommonModule,
         DashboardRoutingModule,
         FormsModule,
+        MatButtonModule,
     ],
     exports: [
         HeaderComponent,

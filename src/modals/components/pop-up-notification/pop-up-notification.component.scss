@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    .message {
+        color: #333333;
+    }
+    .close-button {
+        border: none;
+        padding: 0 6px;
+        font-size: 14px;
+    }
+}
+
+::ng-deep {
+    .mat-snack-bar-container {
+        background-color: #ffffff;
+        padding: 10px;
+    }
+}

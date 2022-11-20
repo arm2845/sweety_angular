@@ -8,6 +8,8 @@ import {SugarOptionsData} from "../../constants/add-on-data";
 import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {CartService} from "../../services/cart.service";
+import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -21,9 +23,13 @@ export class CartSingleItemComponent implements OnInit {
     sugarOption: string;
     addings: string;
 
+    readonly message = "Item was updated successfully.";
+    readonly deleteMessage = "Item was deleted successfully.";
+
     constructor(
         private cartService: CartService,
         public dialog: MatDialog,
+        private snackBar: MatSnackBar,
     ) {
     }
 
@@ -74,6 +80,7 @@ export class CartSingleItemComponent implements OnInit {
         return this.cartService.updateCartItem(requestData.id, requestData.data).pipe(
             tap((res) => this.cartUpdated.emit(res)),
             tap((res) =>localStorage.setItem('cartCount', String(res.meta.total_count))),
+            tap(() => this.showNotification(this.message)),
         )
             .subscribe();
     }
@@ -83,9 +90,19 @@ export class CartSingleItemComponent implements OnInit {
             tap(() => {
                 this.itemDeleted.emit(this.product);
                 updateCartCount(false, this.product.count);
+                this.showNotification(this.deleteMessage);
             })
         )
             .subscribe();
+    }
+
+    showNotification(message: string) {
+        this.snackBar.openFromComponent(PopUpNotificationComponent, {
+            data: {
+                message: message,
+            },
+            duration: 5000,
+        });
     }
 
 }
