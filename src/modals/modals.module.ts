@@ -8,6 +8,7 @@ import {AddOnsComponent} from "./components/add-ons/add-ons.component";
 import { PopUpNotificationComponent } from './components/pop-up-notification/pop-up-notification.component';
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
         MatDialogModule,
         MatButtonModule,
         MatIconModule,
+        TranslateModule,
     ]
 })
 export class ModalsModule {

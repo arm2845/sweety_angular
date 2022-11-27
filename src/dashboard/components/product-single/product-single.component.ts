@@ -24,7 +24,7 @@ export class ProductSingleComponent implements OnInit {
     @Output() removeFromFavorites = new EventEmitter();
 
     userTypes = UserTypes;
-    readonly message = "Item was added successfully.";
+    readonly message = 'MESSAGES.ADDED-SUCCESSFULLY';
 
     get userType(): number {
         return this.authService.getUserType();
@@ -89,7 +89,7 @@ export class ProductSingleComponent implements OnInit {
             height: '420px',
             data: {
                 product: product,
-                confirm_button_name: 'Add to Cart',
+                confirm_button_name: 'BUTTONS.ADD-TO-CART',
             },
         });
         dialogRef.afterClosed().pipe(

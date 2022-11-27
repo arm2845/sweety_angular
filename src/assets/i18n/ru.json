@@ -72,13 +72,22 @@
     "CLOSE-PAID-ORDER": "Закрыть оплаченный заказ",
     "GIVEN": "Данный",
     "MARK-AS-AVAILABLE": "Отметить как доступный",
-    "MARK-AS-NOT-AVAILABLE": "Отметить как недоступное"
+    "MARK-AS-NOT-AVAILABLE": "Отметить как недоступное",
+    "DISCARD": "Отказаться",
+    "SAVE": "Сохранить",
+    "YES": "Да",
+    "CLOSE": "Закрыть",
+    "CONFIRM": "Подтвердить"
   },
   "MAIN-PHRASES": {
     "TOTAL-AMOUNT": "Итого",
     "TOTAL-PRICE": "Итоговая цена",
+    "TOTAL-COUNT": "Общее количество",
     "ORDER": {
       "NAME": "Заказ",
+      "CONFIRM": "Подтверждение заказа",
+      "NOTES": "Заметки",
+      "NOTE-PLACEHOLDER": "введите здесь ...",
       "STATUSES": {
         "PENDING": "В ожидании",
         "ACCEPTED": "Принято",
@@ -100,8 +109,12 @@
   "MESSAGES": {
     "NOT-FOUND": "Нет объектов для показа.",
     "ORDERS-NOT-FOUND": "Нет заказов для показа.",
-    "UPDATED-SUCCESSFULLY": "Элемент был успешно обновлен.",
-    "DELETED-SUCCESSFULLY": "Элемент успешно удален."
+    "UPDATED-SUCCESSFULLY": "Товар был успешно обновлен.",
+    "DELETED-SUCCESSFULLY": "Товар успешно удален.",
+    "ADDED-SUCCESSFULLY": "Товар был успешно добавлен.",
+    "MODAL-CHOOSE-OPTIONS": "Пожалуйста, выберите желаемые параметры",
+    "CONFIRM-DELETING": "Вы уверены, что хотите удалить этот товар ?",
+    "CONFIRM-LOG-OUT": "Вы действительно хотите выйти ?"
   },
   "LANGUAGES": {
     "ENGLISH": "English",

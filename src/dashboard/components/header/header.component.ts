@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
     userTypes = UserTypes;
     languages = LanguagesData;
 
+    readonly confirmLogoutMessage = this.translate.instant('MESSAGES.CONFIRM-LOG-OUT');
+
     get itemsInCart(): number {
         return this.cartService.getCartCount();
     }
@@ -63,7 +65,7 @@ export class HeaderComponent implements OnInit {
             width: '300px',
             height: '200px',
             data: {
-                message: 'you want to logout'
+                message: this.confirmLogoutMessage,
             }
         });
         dialogRef.afterClosed().pipe(

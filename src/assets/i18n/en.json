@@ -72,13 +72,22 @@
     "CLOSE-PAID-ORDER": "Close Paid Order",
     "GIVEN": "Given",
     "MARK-AS-AVAILABLE": "Mark as available",
-    "MARK-AS-NOT-AVAILABLE": "Mark as not available"
+    "MARK-AS-NOT-AVAILABLE": "Mark as not available",
+    "DISCARD": "Discard",
+    "SAVE": "Save",
+    "YES": "Yes",
+    "CLOSE": "Close",
+    "CONFIRM": "Confirm"
   },
   "MAIN-PHRASES": {
     "TOTAL-AMOUNT": "Total amount",
     "TOTAL-PRICE": "Total price",
+    "TOTAL-COUNT": "Total count",
     "ORDER": {
       "NAME": "Order",
+      "CONFIRM": "Order Confirmation",
+      "NOTES": "Notes",
+      "NOTE-PLACEHOLDER": "type here ...",
       "STATUSES": {
         "PENDING": "Pending",
         "ACCEPTED": "Accepted",
@@ -101,7 +110,11 @@
     "NOT-FOUND": "There are no items to show.",
     "ORDERS-NOT-FOUND": "There are no orders to show.",
     "UPDATED-SUCCESSFULLY": "Item was updated successfully.",
-    "DELETED-SUCCESSFULLY": "Item was deleted successfully."
+    "DELETED-SUCCESSFULLY": "Item was deleted successfully.",
+    "ADDED-SUCCESSFULLY": "Item was added successfully.",
+    "MODAL-CHOOSE-OPTIONS": "Please choose desired options",
+    "CONFIRM-DELETING": "Are you sure you want to delete this item ?",
+    "CONFIRM-LOG-OUT": "Are you sure you want to logout ?"
   },
   "LANGUAGES": {
     "ENGLISH": "English",

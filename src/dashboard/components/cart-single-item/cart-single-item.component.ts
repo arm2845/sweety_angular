@@ -48,7 +48,7 @@ export class CartSingleItemComponent implements OnInit {
             height: '420px',
             data: {
                 product: product,
-                confirm_button_name: 'Save',
+                confirm_button_name: 'BUTTONS.SAVE',
             },
         });
         dialogRef.afterClosed().pipe(
@@ -62,11 +62,12 @@ export class CartSingleItemComponent implements OnInit {
     }
 
     openConfirmationModal() {
+        const message = this.translate.instant('MESSAGES.CONFIRM-DELETING');
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',
             height: '200px',
             data: {
-                message: 'you want to delete this item'
+                message: message,
             }
         });
         dialogRef.afterClosed().pipe(

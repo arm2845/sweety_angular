@@ -1,4 +1,4 @@
 <div class="container">
-    <div class="message">{{data.message}}</div>
-    <button class="btn btn-primary close-button" (click)="sbRef.dismiss()">Close</button>
+    <div class="message">{{data.message | translate}}</div>
+    <button class="btn btn-primary close-button" (click)="sbRef.dismiss()">{{ 'BUTTONS.CLOSE' | translate }}</button>
 </div>
