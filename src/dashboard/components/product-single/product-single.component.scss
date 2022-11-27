@@ -29,6 +29,7 @@
         .image {
             height: 100%;
             width: 200px;
+            max-width: 100%;
             border-radius: 5px 0 0 5px;
         }
     }
@@ -127,17 +128,17 @@
     .menus {
         flex-direction: column;
         width: 360px;
+        justify-content: center;
+        align-items: center !important;
         .menu-img {
-            margin: 0 auto;
             padding-top: 10px;
             .image {
                 border-radius: 5px;
             }
         }
         .text {
-            width: calc(100% - 110px);
-            padding: 10px 20px;
-            margin: 0 auto;
+            width: 90%;
+            padding: 10px 0;
             p {
                 margin: 10px 0 0 0;
             }
