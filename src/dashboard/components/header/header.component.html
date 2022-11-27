@@ -45,8 +45,16 @@
                 <span class="menu-item-name">{{'HEADER.MAIN.LOGOUT' | translate}}</span>
             </div>
         </ng-container>
-        <div class="header-item">
-            <span class="icon-languages menu-icon"></span>
+        <div class="header-item" appClickedOutside (clickedOutside)="closeDropdown()">
+            <span class="icon-languages menu-icon" (click)="openDropdown()"></span>
+            <div id="languageDropdown" class="dropdown-content">
+                <ng-container *ngFor="let lang of languages">
+                    <div class="option" (click)="changeLanguage(lang.name)">
+                        <span class="text">{{lang.displayName | translate}}</span>
+                        <img class="flag-img" [src]="'assets/images/flags/' + lang.name + '_flag.png'" alt="">
+                    </div>
+                </ng-container>
+            </div>
         </div>
     </div>
 </div>

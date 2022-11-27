@@ -57,6 +57,42 @@
     }
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 54px;
+    right: 38px;
+    background-color: #ffffff;
+    min-width: 130px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+    border-radius: 6px;
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        cursor: pointer;
+        padding: 0 10px;
+        .text {
+            font-weight: normal;
+            font-size: 14px;
+            color: #333333;
+        }
+        .flag-img {
+            width: 30px;
+            height: 30px;
+        }
+        &:hover {
+            background-color: #ddd;
+        }
+    }
+}
+.show {
+    display: block;
+}
+
 @media (max-width: 1000px) {
     .header-main-container {
         .left-side {

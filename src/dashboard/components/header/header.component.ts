@@ -5,6 +5,8 @@ import {ConfirmationModalComponent} from "../../../modals/components/confirmatio
 import {MatDialog} from "@angular/material/dialog";
 import {CartService} from "../../services/cart.service";
 import {UserTypes} from "../../../auth/constants/user-types";
+import {TranslateService} from "@ngx-translate/core";
+import {LanguagesData} from "../../constants/languages";
 
 @Component({
     selector: 'app-header',
@@ -14,6 +16,7 @@ import {UserTypes} from "../../../auth/constants/user-types";
 export class HeaderComponent implements OnInit {
 
     userTypes = UserTypes;
+    languages = LanguagesData;
 
     get itemsInCart(): number {
         return this.cartService.getCartCount();
@@ -31,6 +34,7 @@ export class HeaderComponent implements OnInit {
         private authService: AuthService,
         private cartService: CartService,
         public dialog: MatDialog,
+        private translate: TranslateService,
     ) {
     }
 
@@ -70,6 +74,19 @@ export class HeaderComponent implements OnInit {
             })
         )
             .subscribe();
+    }
+
+    openDropdown(): void {
+        document.getElementById("languageDropdown").classList.toggle("show");
+    }
+
+    closeDropdown(): void {
+        document.getElementById("languageDropdown").classList.remove("show");
+    }
+
+    changeLanguage(language: string): void {
+        this.translate.use(language);
+        this.closeDropdown();
     }
 
 }
