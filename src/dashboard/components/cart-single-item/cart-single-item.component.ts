@@ -36,9 +36,14 @@ export class CartSingleItemComponent implements OnInit {
     ) {
     }
 
-    ngOnInit(): void {
-        this.sugarOption = this.translate.instant(SugarOptionsData.find(item => item.id === this.product.sugar).name);
-        this.addings = this.addOnHelper.getAddOnsAsString(this.product.adding_ids);
+    ngOnInit(): void {}
+
+    getSugarOption(): string {
+        return this.translate.instant(SugarOptionsData.find(item => item.id === this.product.sugar).name);
+    }
+
+    getAddings(): string {
+        return this.addOnHelper.getAddOnsAsString(this.product.adding_ids);
     }
 
     openAddOnModal(product: CartItem) {

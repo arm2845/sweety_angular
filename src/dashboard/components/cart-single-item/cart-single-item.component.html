@@ -11,11 +11,11 @@
                     </div>
                     <div class="add-on-data-single single-row">
                         <span class="text-title">{{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}</span>
-                        <span class="add-on-text">{{sugarOption | titlecase}}</span>
+                        <span class="add-on-text">{{getSugarOption()}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
                         <span class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</span>
-                        <span class="add-on-text">{{addings || '-'}}</span>
+                        <span class="add-on-text">{{getAddings() || '-'}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
                         <span class="text-title">{{ 'PRODUCTS.PROPERTIES.QUANTITY' | translate }}</span>
