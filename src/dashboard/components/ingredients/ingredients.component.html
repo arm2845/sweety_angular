@@ -1,35 +1,36 @@
 <div class="main-container">
-    <div class="header">Products in the stock</div>
+    <div class="header">{{ 'HEADER.PAGE.PRODUCTS' | translate }}</div>
     <ng-container *ngIf="!isLoading; else loader">
         <div class="search-container">
-            <input (keyup)="search()" type="text" placeholder="Search.." [(ngModel)]="searchWord">
+            <input (keyup)="search()" type="text"
+                   placeholder="{{'INGREDIENTS.SEARCH-PLACEHOLDER' | translate}}" [(ngModel)]="searchWord">
             <span class="icon-search search"></span>
         </div>
         <div class="table-container">
-            <div class="table-cell table-header">Name</div>
+            <div class="table-cell table-header">{{ 'INGREDIENTS.TABLE-COLUMNS.NAME' | translate }}</div>
             <div class="table-cell table-header" appClickedOutside (clickedOutside)="closeDropdown()">
                 <div class="category" (click)="openDropdown()">
-                    <span>Category</span>
+                    <span>{{ 'INGREDIENTS.TABLE-COLUMNS.CATEGORY' | translate }}</span>
                     <span class="icon-filter filter"></span>
                 </div>
                 <div id="myDropdown" class="dropdown-content">
                     <ng-container *ngFor="let category of ingredientCategories">
                         <div class="option" (click)="filterByCategory(category.id)">
-                            <span>{{category.name | titlecase}}</span>
+                            <span>{{category.name | translate}}</span>
                             <span *ngIf="category.selected" class="icon-selected"></span>
                         </div>
                     </ng-container>
                 </div>
             </div>
-            <div class="table-cell table-header">Current state</div>
-            <div class="table-cell table-header">Change state</div>
+            <div class="table-cell table-header">{{ 'INGREDIENTS.TABLE-COLUMNS.CURRENT-STATE' | translate }}</div>
+            <div class="table-cell table-header">{{ 'INGREDIENTS.TABLE-COLUMNS.CHANGE-STATE' | translate }}</div>
             <ng-container *ngFor="let ingredient of ingredients">
                 <div class="table-row">
                     <div class="table-cell">
                         {{ingredient.name_en | titlecase}}
                     </div>
                     <div class="table-cell">
-                        {{getCategoryName(ingredient.category_id) | titlecase}}
+                        {{getCategoryName(ingredient.category_id)}}
                     </div>
                     <div class="table-cell">
                         <span [ngClass]="ingredient.in_stock ?
@@ -38,7 +39,8 @@
                     <div class="table-cell">
                         <button class="button" [ngClass]="ingredient.in_stock ? 'red' : 'green'"
                                 (click)="changeAvailability(ingredient.id, ingredient.in_stock)">
-                            Mark as {{ingredient.in_stock ? 'not available' : 'available'}}
+                            {{ingredient.in_stock ? ('BUTTONS.MARK-AS-NOT-AVAILABLE' | translate) :
+                            ('BUTTONS.MARK-AS-AVAILABLE' | translate)}}
                         </button>
                     </div>
                 </div>

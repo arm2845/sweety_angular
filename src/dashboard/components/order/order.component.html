@@ -1,39 +1,44 @@
 <div class="main-container">
-    <div class="header">My orders</div>
+    <div class="header">{{ 'HEADER.PAGE.ORDERS' | translate }}</div>
     <ng-container *ngIf="!isLoading; else loader">
         <div class="items-container">
             <ng-container *ngIf="orders.length; else noData">
                 <ng-container *ngFor="let order of orders; let i = index">
                     <div class="order-container">
                         <div class="header">
-                            <div class="title">Order {{i + 1}}</div>
+                            <div class="title">{{ 'MAIN-PHRASES.ORDER.NAME' | translate }} {{i + 1}}</div>
                             <ng-container *ngIf="userType === userTypes.admin; else defaultStatusTpl">
                                 <ng-container [ngSwitch]="order.status">
                                     <div *ngSwitchCase="orderStatuses.pending" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.accepted)}"
-                                                class="status-large" (click)="acceptOrder(order.id)">Accept</button>
+                                                class="status-large" (click)="acceptOrder(order.id)">
+                                            {{ 'BUTTONS.ACCEPT' | translate }}</button>
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.rejected)}"
-                                                class="status-large" (click)="rejectOrder(order.id)">Reject</button>
+                                                class="status-large" (click)="rejectOrder(order.id)">
+                                            {{ 'BUTTONS.REJECT' | translate }}</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.accepted" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.accepted)}"
-                                                class="status-big" (click)="markAsReady(order.id)">Mark As Ready</button>
+                                                class="status-big" (click)="markAsReady(order.id)">
+                                            {{ 'BUTTONS.MARK-AS-READY' | translate }}</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.rejected" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.rejected)}"
-                                                class="status">Rejected</button>
+                                                class="status">{{ 'BUTTONS.REJECTED' | translate }}</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.ready" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.ready)}"
-                                                class="status-big" (click)="closeOrder(order.id)">Close Paid Order</button>
+                                                class="status-big" (click)="closeOrder(order.id)">
+                                            {{ 'BUTTONS.CLOSE-PAID-ORDER' | translate }}</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.paid" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.paid)}"
-                                                class="status-big" (click)="closeOrder(order.id)">Close Paid Order</button>
+                                                class="status-big" (click)="closeOrder(order.id)">
+                                            {{ 'BUTTONS.CLOSE-PAID-ORDER' | translate }}</button>
                                     </div>
                                     <div *ngSwitchCase="orderStatuses.given" class="admin-buttons">
                                         <button [ngStyle]="{backgroundColor : getStatusColor(orderStatuses.given)}"
-                                                class="status">Given</button>
+                                                class="status">{{ 'BUTTONS.GIVEN' | translate }}</button>
                                     </div>
                                 </ng-container>
                             </ng-container>
@@ -50,19 +55,19 @@
                                 <div class="info">
                                     <div class="name">{{item.name_en | titlecase}}</div>
                                     <div *ngIf="item.has_sugar" class="sub-name">
-                                        Sugar: {{getSugarOption(item.order_options.sugar) | titlecase}}</div>
+                                        {{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}: {{getSugarOption(item.order_options.sugar) | titlecase}}</div>
                                     <div class="sub-name">
-                                        Add on: {{getAddOns(item.order_options.adding_ids) || '-'}}</div>
+                                        {{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}: {{getAddOns(item.order_options.adding_ids) || '-'}}</div>
                                     <div class="quantity">x {{item.order_options.count}}</div>
                                 </div>
                                 <div class="price">{{item.order_options.price}} AMD</div>
                             </div>
                         </ng-container>
                         <div class="payment-type">
-                            Payment type: {{getPaymentType(order.payment_type)}}
+                            {{ 'MAIN-PHRASES.PAYMENT-TYPE.NAME' | translate }}: {{getPaymentType(order.payment_type)}}
                         </div>
                         <div class="total-info">
-                            <span>Total</span>
+                            <span>{{ 'MAIN-PHRASES.TOTAL' | translate }}</span>
                             <span class="price">{{order.price}} AMD</span>
                         </div>
                     </div>
@@ -76,6 +81,6 @@
 </ng-template>
 <ng-template #noData>
     <div class="no-data-text">
-        There are no orders to show.
+        {{ 'MESSAGES.ORDERS-NOT-FOUND' | translate }}
     </div>
 </ng-template>

@@ -1,0 +1,106 @@
+{
+  "HEADER": {
+    "MAIN": {
+      "PRODUCT-NAME": "Coffee Lab",
+      "MENU": "Menu",
+      "CART": "Cart",
+      "FAVOURITES": "Favourites",
+      "PRODUCTS": "Products",
+      "ORDERS": "Orders",
+      "LOGIN": "Log in",
+      "LOGOUT": "Log out"
+    },
+    "PAGE": {
+      "CART": "My cart",
+      "FAVOURITES": "My favourites",
+      "ORDERS": "My orders",
+      "PRODUCTS": "Products in the stock"
+    }
+  },
+  "PRODUCT-CATEGORIES": {
+    "COFFEE": "Coffee",
+    "ICED-TEA": "Iced Tea",
+    "LEMONADE": "Lemonade",
+    "SMOOTHIE": "Smoothie",
+    "FRESH": "Fresh",
+    "OTHER": "Other"
+  },
+  "PRODUCTS": {
+    "PROPERTIES": {
+      "SUGAR": {
+        "NAME": "Sugar",
+        "OPTIONS": {
+          "WITHOUT": "Without",
+          "MEDIUM": "Medium",
+          "SWEET": "Sweet"
+        }
+      },
+      "ADD-ON": {
+        "NAME": "Add on",
+        "OPTIONS": {
+          "MILK": "Milk",
+          "ICE-CREAM": "Ice cream",
+          "NUTELLA": "Nutella"
+        }
+      },
+      "QUANTITY": "Quantity"
+    }
+  },
+  "INGREDIENTS": {
+    "TABLE-COLUMNS": {
+      "NAME": "Name",
+      "CATEGORY": "Category",
+      "CURRENT-STATE": "Current state",
+      "CHANGE-STATE": "Change state"
+    },
+    "SEARCH-PLACEHOLDER": "Search..",
+    "CATEGORIES": {
+      "ALL": "All",
+      "FRUIT": "Fruit",
+      "COFFEE": "Coffee",
+      "TEA": "Tea",
+      "OTHER": "Other"
+    }
+  },
+  "BUTTONS": {
+    "ADD-TO-CART": "Add to Cart",
+    "MAKE-ORDER": "Make Order",
+    "ACCEPT": "Accept",
+    "REJECT": "Reject",
+    "MARK-AS-READY": "Mark As Ready",
+    "REJECTED": "Rejected",
+    "CLOSE-PAID-ORDER": "Close Paid Order",
+    "GIVEN": "Given",
+    "MARK-AS-AVAILABLE": "Mark as available",
+    "MARK-AS-NOT-AVAILABLE": "Mark as not available"
+  },
+  "MAIN-PHRASES": {
+    "TOTAL-AMOUNT": "Total amount",
+    "TOTAL-PRICE": "Total price",
+    "ORDER": {
+      "NAME": "Order",
+      "STATUSES": {
+        "PENDING": "Pending",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected",
+        "READY": "Ready",
+        "PAID": "Paid",
+        "GIVEN": "Given"
+      }
+    },
+    "PAYMENT-TYPE": {
+      "NAME": "Payment type",
+      "OPTIONS": {
+        "CARD": "Card",
+        "CASH": "Cash"
+      }
+    },
+    "TOTAL": "Total"
+  },
+  "MESSAGES": {
+    "NOT-FOUND": "There are no items to show.",
+    "ORDERS-NOT-FOUND": "There are no orders to show.",
+    "UPDATED-SUCCESSFULLY": "Item was updated successfully.",
+    "DELETED-SUCCESSFULLY": "Item was deleted successfully."
+  }
+}

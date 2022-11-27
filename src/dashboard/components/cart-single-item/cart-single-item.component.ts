@@ -5,11 +5,12 @@ import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.compon
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
 import {SugarOptionsData} from "../../constants/add-on-data";
-import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
+import {AddOnsHelper} from "../../../app/helpers/addOns.helper";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {CartService} from "../../services/cart.service";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -23,19 +24,21 @@ export class CartSingleItemComponent implements OnInit {
     sugarOption: string;
     addings: string;
 
-    readonly message = "Item was updated successfully.";
-    readonly deleteMessage = "Item was deleted successfully.";
+    readonly message = this.translate.instant('MESSAGES.UPDATED-SUCCESSFULLY');
+    readonly deleteMessage = this.translate.instant('MESSAGES.DELETED-SUCCESSFULLY');
 
     constructor(
         private cartService: CartService,
         public dialog: MatDialog,
         private snackBar: MatSnackBar,
+        private translate: TranslateService,
+        private addOnHelper: AddOnsHelper,
     ) {
     }
 
     ngOnInit(): void {
-        this.sugarOption = SugarOptionsData.find(item => item.id === this.product.sugar).name;
-        this.addings = getAddOnsAsString(this.product.adding_ids);
+        this.sugarOption = this.translate.instant(SugarOptionsData.find(item => item.id === this.product.sugar).name);
+        this.addings = this.addOnHelper.getAddOnsAsString(this.product.adding_ids);
     }
 
     openAddOnModal(product: CartItem) {

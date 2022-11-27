@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MenuProduct} from "../../models/menu-product";
 import {MainService} from "../../services/main.service";
 import {finalize, tap} from "rxjs";
+import {ProductCategoriesData} from "../../constants/product-categories";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-menu-nav',
@@ -20,6 +22,7 @@ export class MenuNavComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private mainService: MainService,
+        private translate: TranslateService,
     ) {
     }
 
@@ -63,6 +66,10 @@ export class MenuNavComponent implements OnInit {
 
     goToTheTop(): void {
         window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    getCategoryName(id: number): string {
+        return this.translate.instant(ProductCategoriesData.find(item => item.id === id).name);
     }
 
 }

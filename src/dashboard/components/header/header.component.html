@@ -1,48 +1,48 @@
 <div class="header-main-container">
     <div class="left-side">
     <span class="name-container">
-      Coffee Lab
+      {{'HEADER.MAIN.PRODUCT-NAME' | translate}}
     </span>
     </div>
     <div class="right-side">
         <div class="header-item" routerLink="/dashboard/menu/1">
             <span class="icon-menu menu-icon"></span>
-            <span class="menu-item-name">Menu</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.MENU' | translate}}</span>
         </div>
         <ng-container *ngIf="authUser && userType !== userTypes.admin">
             <div class="header-item" routerLink="/dashboard/cart">
                 <span class="icon-cart menu-cart-icon">
                   <span class="item-count">{{itemsInCart}}</span>
                 </span>
-                <span class="menu-item-name">Cart</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.CART' | translate}}</span>
             </div>
             <div class="header-item" routerLink="/dashboard/favourites">
                 <span class="icon-heart menu-icon"></span>
-                <span class="menu-item-name">Favourites</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.FAVOURITES' | translate}}</span>
             </div>
         </ng-container>
         <ng-container *ngIf="authUser && userType === userTypes.admin">
             <div class="header-item" routerLink="/dashboard/ingredients">
                 <span class="icon-products menu-icon"></span>
-                <span class="menu-item-name">Products</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.PRODUCTS' | translate}}</span>
             </div>
         </ng-container>
         <ng-container *ngIf="authUser">
             <div class="header-item" routerLink="/dashboard/order">
                 <span class="icon-orders menu-icon order"></span>
-                <span class="menu-item-name">Orders</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.ORDERS' | translate}}</span>
             </div>
         </ng-container>
         <ng-container *ngIf="!authUser">
             <div class="header-item" routerLink="/user/auth">
                 <span class="icon-log-in menu-icon"></span>
-                <span class="menu-item-name">Log in</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.LOGIN' | translate}}</span>
             </div>
         </ng-container>
         <ng-container *ngIf="authUser">
             <div (click)="openConfirmationModal()" class="header-item">
                 <span class="icon-log-out menu-icon"></span>
-                <span class="menu-item-name">Log out</span>
+                <span class="menu-item-name">{{'HEADER.MAIN.LOGOUT' | translate}}</span>
             </div>
         </ng-container>
         <div class="header-item">

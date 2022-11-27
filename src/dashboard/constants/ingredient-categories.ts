@@ -9,27 +9,27 @@ export enum IngredientCategories {
 export const IngredientCategoriesData = [
     {
         id: IngredientCategories.all,
-        name: 'all',
+        name: 'INGREDIENTS.CATEGORIES.ALL',
         selected: true,
     },
     {
         id: IngredientCategories.fruit,
-        name: 'fruit',
+        name: 'INGREDIENTS.CATEGORIES.FRUIT',
         selected: false,
     },
     {
         id: IngredientCategories.coffee,
-        name: 'coffee',
+        name: 'INGREDIENTS.CATEGORIES.COFFEE',
         selected: false,
     },
     {
         id: IngredientCategories.tea,
-        name: 'tea',
+        name: 'INGREDIENTS.CATEGORIES.TEA',
         selected: false,
     },
     {
         id: IngredientCategories.other,
-        name: 'other',
+        name: 'INGREDIENTS.CATEGORIES.OTHER',
         selected: false,
     },
 ]

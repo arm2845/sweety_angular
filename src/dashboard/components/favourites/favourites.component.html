@@ -1,5 +1,5 @@
 <div class="main-container">
-    <div class="header">My favourites</div>
+    <div class="header">{{ 'HEADER.PAGE.FAVOURITES' | translate }}</div>
     <div class="items-container" *ngIf="!isLoading; else loader">
         <ng-container *ngIf="favourites.length; else noData">
             <ng-container *ngFor="let product of favourites">
@@ -15,6 +15,6 @@
 </ng-template>
 <ng-template #noData>
     <div class="no-data-text">
-        There are no items to show.
+        {{ 'MESSAGES.NOT-FOUND' | translate }}
     </div>
 </ng-template>

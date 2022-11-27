@@ -10,32 +10,32 @@ export enum OrderStatuses {
 export const OrderStatusesData = [
     {
         id: OrderStatuses.pending,
-        name: 'Pending',
+        name: 'MAIN-PHRASES.ORDER.STATUSES.PENDING',
         color: '#ffd60a',
     },
     {
         id: OrderStatuses.accepted,
-        name: 'Accepted',
+        name: 'MAIN-PHRASES.ORDER.STATUSES.ACCEPTED',
         color: '#00b4d8',
     },
     {
         id: OrderStatuses.rejected,
-        name: 'Rejected',
+        name: 'MAIN-PHRASES.ORDER.STATUSES.REJECTED',
         color: '#ef233c',
     },
     {
         id: OrderStatuses.ready,
-        name: 'Ready',
+        name: 'MAIN-PHRASES.ORDER.STATUSES.READY',
         color: '#7209b7',
     },
     {
         id: OrderStatuses.paid,
-        name: 'Paid',
+        name: 'MAIN-PHRASES.ORDER.STATUSES.PAID',
         color: '#52b788',
     },
     {
         id: OrderStatuses.given,
-        name: 'Given',
+        name: 'MAIN-PHRASES.ORDER.STATUSES.GIVEN',
         color: '#001f54',
     },
 ]

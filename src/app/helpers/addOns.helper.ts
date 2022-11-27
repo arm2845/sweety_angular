@@ -1,16 +1,28 @@
 import {AddOnOptionsData, doubleAddingPrice, tripleAddingPrice} from "../../dashboard/constants/add-on-data";
+import {TranslateService} from "@ngx-translate/core";
+import {Injectable} from "@angular/core";
 
-function extractAddOnNamesFromIds(ids: number[]): string[] {
-    let addOnNames: string[] = [];
-    ids.forEach(id => {
-        addOnNames.push(AddOnOptionsData.find(item => item.id === id).name)
-    });
-    return addOnNames;
-}
+@Injectable({
+    providedIn: 'root'
+})
+export class AddOnsHelper {
+    constructor(
+        private translate: TranslateService,
+    ) {
+    }
 
-export function getAddOnsAsString(ids: number[]): string {
-    let names = extractAddOnNamesFromIds(ids);
-    return names.join(", ");
+    getAddOnsAsString(ids: number[]): string {
+        let names = this.extractAddOnNamesFromIds(ids);
+        return names.join(", ");
+    }
+
+    private extractAddOnNamesFromIds(ids: number[]): string[] {
+        let addOnNames: string[] = [];
+        ids.forEach(id => {
+            addOnNames.push(this.translate.instant(AddOnOptionsData.find(item => item.id === id).name));
+        });
+        return addOnNames;
+    }
 }
 
 export function getAddOnPrice(addingIds: number[]): number {

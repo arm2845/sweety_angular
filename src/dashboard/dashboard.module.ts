@@ -16,6 +16,7 @@ import { IngredientsComponent } from './components/ingredients/ingredients.compo
 import {FormsModule} from "@angular/forms";
 import { ClickedOutsideDirective } from './directives/clicked-outside.directive';
 import {MatButtonModule} from "@angular/material/button";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
     declarations: [
@@ -37,6 +38,7 @@ import {MatButtonModule} from "@angular/material/button";
         DashboardRoutingModule,
         FormsModule,
         MatButtonModule,
+        TranslateModule,
     ],
     exports: [
         HeaderComponent,

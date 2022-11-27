@@ -6,10 +6,10 @@ export enum PaymentTypes {
 export const PaymentTypesData = [
     {
         id: PaymentTypes.cash,
-        name: 'Cash',
+        name: 'MAIN-PHRASES.PAYMENT-TYPE.OPTIONS.CASH',
     },
     {
         id: PaymentTypes.card,
-        name: 'Card',
+        name: 'MAIN-PHRASES.PAYMENT-TYPE.OPTIONS.CARD',
     },
 ]
