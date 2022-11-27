@@ -24,9 +24,6 @@ export class CartSingleItemComponent implements OnInit {
     sugarOption: string;
     addings: string;
 
-    readonly message = this.translate.instant('MESSAGES.UPDATED-SUCCESSFULLY');
-    readonly deleteMessage = this.translate.instant('MESSAGES.DELETED-SUCCESSFULLY');
-
     constructor(
         private cartService: CartService,
         public dialog: MatDialog,
@@ -50,7 +47,7 @@ export class CartSingleItemComponent implements OnInit {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '340px',
-            height: '420px',
+            height: '440px',
             data: {
                 product: product,
                 confirm_button_name: 'BUTTONS.SAVE',
@@ -89,7 +86,7 @@ export class CartSingleItemComponent implements OnInit {
         return this.cartService.updateCartItem(requestData.id, requestData.data).pipe(
             tap((res) => this.cartUpdated.emit(res)),
             tap((res) =>localStorage.setItem('cartCount', String(res.meta.total_count))),
-            tap(() => this.showNotification(this.message)),
+            tap(() => this.showNotification(this.translate.instant('MESSAGES.UPDATED-SUCCESSFULLY'))),
         )
             .subscribe();
     }
@@ -99,7 +96,7 @@ export class CartSingleItemComponent implements OnInit {
             tap(() => {
                 this.itemDeleted.emit(this.product);
                 updateCartCount(false, this.product.count);
-                this.showNotification(this.deleteMessage);
+                this.showNotification(this.translate.instant('MESSAGES.DELETED-SUCCESSFULLY'));
             })
         )
             .subscribe();
