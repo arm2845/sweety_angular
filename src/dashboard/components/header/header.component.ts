@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
     openConfirmationModal() {
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',
-            height: '200px',
+            height: '180px',
             data: {
                 message: this.confirmLogoutMessage,
             }

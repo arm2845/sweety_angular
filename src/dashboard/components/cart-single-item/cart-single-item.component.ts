@@ -67,7 +67,7 @@ export class CartSingleItemComponent implements OnInit {
         const message = this.translate.instant('MESSAGES.CONFIRM-DELETING');
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',
-            height: '200px',
+            height: '180px',
             data: {
                 message: message,
             }
