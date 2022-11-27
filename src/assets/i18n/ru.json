@@ -1,0 +1,111 @@
+{
+  "HEADER": {
+    "MAIN": {
+      "PRODUCT-NAME": "Coffee Lab",
+      "MENU": "Меню",
+      "CART": "Корзина",
+      "FAVOURITES": "Избранное",
+      "PRODUCTS": "Товары",
+      "ORDERS": "Заказы",
+      "LOGIN": "Войти",
+      "LOGOUT": "Выйти"
+    },
+    "PAGE": {
+      "CART": "Моя корзина",
+      "FAVOURITES": "Мои избранные",
+      "ORDERS": "Мои заказы",
+      "PRODUCTS": "Товары на складе"
+    }
+  },
+  "PRODUCT-CATEGORIES": {
+    "COFFEE": "Кофе",
+    "ICED-TEA": "Холодный чай",
+    "LEMONADE": "Лимонад",
+    "SMOOTHIE": "Смузи",
+    "FRESH": "Свежевыжатый",
+    "OTHER": "Другое"
+  },
+  "PRODUCTS": {
+    "PROPERTIES": {
+      "SUGAR": {
+        "NAME": "Сахар",
+        "OPTIONS": {
+          "WITHOUT": "Без",
+          "MEDIUM": "Средний",
+          "SWEET": "Сладкий"
+        }
+      },
+      "ADD-ON": {
+        "NAME": "Добавка",
+        "OPTIONS": {
+          "MILK": "Молоко",
+          "ICE-CREAM": "Мороженое",
+          "NUTELLA": "Нутелла"
+        }
+      },
+      "QUANTITY": "Количество"
+    }
+  },
+  "INGREDIENTS": {
+    "TABLE-COLUMNS": {
+      "NAME": "Имя",
+      "CATEGORY": "Название",
+      "CURRENT-STATE": "Текущее состояние",
+      "CHANGE-STATE": "Изменить состояние"
+    },
+    "SEARCH-PLACEHOLDER": "Поиск..",
+    "CATEGORIES": {
+      "ALL": "Все",
+      "FRUIT": "Фрукты",
+      "COFFEE": "Кофе",
+      "TEA": "Чай",
+      "OTHER": "Другое"
+    }
+  },
+  "BUTTONS": {
+    "ADD-TO-CART": "Добавить в корзину",
+    "MAKE-ORDER": "Сделать заказ",
+    "ACCEPT": "Принимать",
+    "REJECT": "Отклонять",
+    "MARK-AS-READY": "Отметить как готовое",
+    "REJECTED": "Отклоненный",
+    "CLOSE-PAID-ORDER": "Закрыть оплаченный заказ",
+    "GIVEN": "Данный",
+    "MARK-AS-AVAILABLE": "Отметить как доступный",
+    "MARK-AS-NOT-AVAILABLE": "Отметить как недоступное"
+  },
+  "MAIN-PHRASES": {
+    "TOTAL-AMOUNT": "Итого",
+    "TOTAL-PRICE": "Итоговая цена",
+    "ORDER": {
+      "NAME": "Заказ",
+      "STATUSES": {
+        "PENDING": "В ожидании",
+        "ACCEPTED": "Принято",
+        "REJECTED": "Отклонено",
+        "READY": "Готово",
+        "PAID": "Оплачен",
+        "GIVEN": "Дано"
+      }
+    },
+    "PAYMENT-TYPE": {
+      "NAME": "Способ оплаты",
+      "OPTIONS": {
+        "CARD": "Карта",
+        "CASH": "Наличные"
+      }
+    },
+    "TOTAL": "Итого"
+  },
+  "MESSAGES": {
+    "NOT-FOUND": "Нет объектов для показа.",
+    "ORDERS-NOT-FOUND": "Нет заказов для показа.",
+    "UPDATED-SUCCESSFULLY": "Элемент был успешно обновлен.",
+    "DELETED-SUCCESSFULLY": "Элемент успешно удален."
+  },
+  "LANGUAGES": {
+    "ENGLISH": "Английский",
+    "ARMENIAN": "Армянский",
+    "RUSSIAN": "Русский"
+  }
+}
