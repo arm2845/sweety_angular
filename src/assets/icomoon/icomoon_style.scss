@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?5h7g4p');
-  src:  url('fonts/icomoon.eot?5h7g4p#iefix') format('embedded-opentype'),
-  url('fonts/icomoon.ttf?5h7g4p') format('truetype'),
-  url('fonts/icomoon.woff?5h7g4p') format('woff'),
-  url('fonts/icomoon.svg?5h7g4p#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?9hcrhp');
+  src:  url('fonts/icomoon.eot?9hcrhp#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?9hcrhp') format('truetype'),
+  url('fonts/icomoon.woff?9hcrhp') format('woff'),
+  url('fonts/icomoon.svg?9hcrhp#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close:before {
+  content: "\e90c";
+}
+.icon-minus-simple:before {
+  content: "\e904";
+}
+.icon-plus-simple:before {
+  content: "\e905";
+}
 .icon-show-pass:before {
   content: "\e902";
 }
@@ -39,12 +48,6 @@
 }
 .icon-circle-empty:before {
   content: "\e901";
-}
-.icon-minus-simple:before {
-  content: "\e904";
-}
-.icon-plus-simple:before {
-  content: "\e905";
 }
 .icon-not-available:before {
   content: "\e908";
