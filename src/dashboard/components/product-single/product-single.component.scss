@@ -25,17 +25,16 @@
     transition: all 0.3s ease;
 
     .menu-img {
-        border-radius: 5px 0 0 5px;
+        margin: auto 0;
         .image {
-            height: 100%;
-            width: 200px;
+            height: auto;
+            width: 180px;
             max-width: 100%;
-            border-radius: 5px 0 0 5px;
+            border-radius: 5px;
         }
     }
 
     .text {
-        width: calc(100% - 200px);
         padding: 20px;
         border-radius: 0 5px 5px 0;
 
@@ -106,15 +105,8 @@
 
 @media (max-width: 576px) {
     .menus {
-        .menu-img {
-            border-radius: 5px 5px 0 0;
-            .image {
-                width: 200px;
-            }
-        }
         .text {
             border-radius: 0 0 5px 5px;
-            width: calc(100% - 150px);
         }
     }
 }
@@ -122,23 +114,20 @@
 
 @media (max-width: 530px) {
     .col-lg-6 {
-        height: 430px;
+        height: 394px;
         justify-content: center;
     }
     .menus {
         flex-direction: column;
         width: 360px;
-        justify-content: center;
-        align-items: center !important;
         .menu-img {
             padding-top: 10px;
-            .image {
-                border-radius: 5px;
-            }
+            align-self: center;
         }
         .text {
-            width: 90%;
+            align-self: center;
             padding: 10px 0;
+            margin: 0;
             p {
                 margin: 10px 0 0 0;
             }
