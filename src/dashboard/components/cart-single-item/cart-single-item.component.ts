@@ -46,8 +46,8 @@ export class CartSingleItemComponent implements OnInit {
     openAddOnModal(product: CartItem) {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
-            width: '340px',
-            height: '440px',
+            width: '320px',
+            height: '400px',
             data: {
                 product: product,
                 confirm_button_name: 'BUTTONS.SAVE',

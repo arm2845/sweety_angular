@@ -1,6 +1,7 @@
 ::ng-deep {
     mat-dialog-container {
         background-color: #f2f2f0 !important;
+        padding: 14px !important;
     }
 }
 
@@ -16,6 +17,8 @@ mat-dialog-actions {
 }
 
 mat-dialog-content {
+    margin: 0 -14px !important;
+    padding: 0 14px !important;
     .header {
         display: flex;
         justify-content: space-between;
@@ -55,7 +58,7 @@ mat-dialog-content {
             }
             .one-third {
                 @extend .one-forth;
-                width: 30%;
+                width: 33%;
             }
         }
         .quantity-container {

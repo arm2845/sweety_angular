@@ -77,7 +77,8 @@
     "SAVE": "Сохранить",
     "YES": "Да",
     "CLOSE": "Закрыть",
-    "CONFIRM": "Подтвердить"
+    "CONFIRM": "Подтвердить",
+    "ADD": "Добавить"
   },
   "MAIN-PHRASES": {
     "TOTAL-AMOUNT": "Итого",
@@ -112,7 +113,7 @@
     "UPDATED-SUCCESSFULLY": "Товар был успешно обновлен.",
     "DELETED-SUCCESSFULLY": "Товар успешно удален.",
     "ADDED-SUCCESSFULLY": "Товар был успешно добавлен.",
-    "MODAL-CHOOSE-OPTIONS": "Пожалуйста, выберите желаемые параметры",
+    "MODAL-CHOOSE-OPTIONS": "Выберите желаемые параметры",
     "CONFIRM-DELETING": "Вы уверены, что хотите удалить этот товар ?",
     "CONFIRM-LOG-OUT": "Вы действительно хотите выйти ?"
   },

@@ -85,11 +85,11 @@ export class ProductSingleComponent implements OnInit {
         }
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
-            width: '340px',
-            height: '420px',
+            width: '320px',
+            height: '400px',
             data: {
                 product: product,
-                confirm_button_name: 'BUTTONS.ADD-TO-CART',
+                confirm_button_name: 'BUTTONS.ADD',
             },
         });
         dialogRef.afterClosed().pipe(
