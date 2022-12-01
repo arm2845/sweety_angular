@@ -14,8 +14,12 @@
                         <span class="add-on-text">{{getSugarOption()}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
-                        <span class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</span>
-                        <span class="add-on-text">{{getAddings() || '-'}}</span>
+                        <div class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
+                        <div class="main-text">
+                            <ng-container *ngFor="let id of product.adding_ids">
+                                <span class="add-on-text">{{getAddingName(id) | translate}}</span>
+                            </ng-container>
+                        </div>
                     </div>
                     <div class="add-on-data-single single-row">
                         <span class="text-title">{{ 'PRODUCTS.PROPERTIES.QUANTITY' | translate }}</span>

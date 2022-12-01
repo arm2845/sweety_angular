@@ -4,7 +4,7 @@ import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
-import {SugarOptionsData} from "../../constants/add-on-data";
+import {SugarOptionsData, AddOnOptionsData} from "../../constants/add-on-data";
 import {AddOnsHelper} from "../../../app/helpers/addOns.helper";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {CartService} from "../../services/cart.service";
@@ -39,8 +39,8 @@ export class CartSingleItemComponent implements OnInit {
         return this.translate.instant(SugarOptionsData.find(item => item.id === this.product.sugar).name);
     }
 
-    getAddings(): string {
-        return this.addOnHelper.getAddOnsAsString(this.product.adding_ids);
+    getAddingName(id: number): string {
+        return this.translate.instant(AddOnOptionsData.find(item => item.id === id).name);
     }
 
     openAddOnModal(product: CartItem) {
