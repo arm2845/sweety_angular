@@ -130,5 +130,11 @@
     "PASSWORD": "Пароль",
     "PHONE": "Номер телефона",
     "CONFIRM-PASSWORD": "Подтвердить Пароль"
+  },
+  "FOOTER": {
+    "FIND-US": "Найдите нас в Facebook и Instagram.",
+    "HOURS": "Открытые часы",
+    "DAYS": "Понедельник-Воскресенье",
+    "LOCATION": "Расположение"
   }
 }

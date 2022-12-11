@@ -130,5 +130,11 @@
     "PASSWORD": "Password",
     "PHONE": "Phone number",
     "CONFIRM-PASSWORD": "Confirm password"
+  },
+  "FOOTER": {
+    "FIND-US": "Find us on Facebook and Instagram.",
+    "HOURS": "Open Hours",
+    "DAYS": "Monday-Sunday",
+    "LOCATION": "Location"
   }
 }
