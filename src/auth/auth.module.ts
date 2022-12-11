@@ -10,6 +10,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "../app/interceptors/token.interceptor";
 import {AuthRoutingModule} from "./auth-routing.module";
 import {DashboardModule} from "../dashboard/dashboard.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import {DashboardModule} from "../dashboard/dashboard.module";
         RouterModule,
         AuthRoutingModule,
         DashboardModule,
+        TranslateModule,
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

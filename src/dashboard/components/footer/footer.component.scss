@@ -17,8 +17,11 @@
         }
 
         .open-hours li span {
-            width: 100%;
             color: rgba(255, 255, 255, 0.7);
+        }
+        .hours {
+            display: flex;
+            justify-content: space-between;
         }
     }
 
@@ -52,7 +55,7 @@
 .container {
     padding-right: 15px;
     padding-left: 15px;
-    margin: 0 35px;
+    margin: 0 5px;
 }
 
 .col-md-6, .col-md-12, .col-lg-3 {

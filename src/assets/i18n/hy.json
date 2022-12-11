@@ -1,0 +1,140 @@
+{
+  "HEADER": {
+    "MAIN": {
+      "PRODUCT-NAME": "Coffee Lab",
+      "MENU": "Մենյու",
+      "CART": "Զամբյուղ",
+      "FAVOURITES": "Հավանածներ",
+      "PRODUCTS": "Ապրանքներ",
+      "ORDERS": "Պատվերներ",
+      "LOGIN": "Մուտք",
+      "LOGOUT": "Դուրս գալ"
+    },
+    "PAGE": {
+      "CART": "Իմ զամբյուղը",
+      "FAVOURITES": "Իմ հավանածները",
+      "ORDERS": "Իմ պատվերները",
+      "PRODUCTS": "Պահեստային ապրանքներ"
+    }
+  },
+  "PRODUCT-CATEGORIES": {
+    "COFFEE": "Սուրճ",
+    "ICED-TEA": "Սառը թեյ",
+    "LEMONADE": "Լիմոնադ",
+    "SMOOTHIE": "Սմուզի",
+    "FRESH": "Թարմ քամած",
+    "OTHER": "Այլ"
+  },
+  "PRODUCTS": {
+    "PROPERTIES": {
+      "SUGAR": {
+        "NAME": "Շաքար",
+        "OPTIONS": {
+          "WITHOUT": "Առանց",
+          "MEDIUM": "Միջին",
+          "SWEET": "Քաղցր"
+        }
+      },
+      "ADD-ON": {
+        "NAME": "Հավելում",
+        "OPTIONS": {
+          "MILK": "Կաթ",
+          "ICE-CREAM": "Պաղպաղակ",
+          "NUTELLA": "Նուտելլա"
+        }
+      },
+      "QUANTITY": "Քանակ"
+    }
+  },
+  "INGREDIENTS": {
+    "TABLE-COLUMNS": {
+      "NAME": "Անուն",
+      "CATEGORY": "Դաս",
+      "CURRENT-STATE": "Ներկա կարգավիճակ",
+      "CHANGE-STATE": "Փոխել կարգավիճակը"
+    },
+    "SEARCH-PLACEHOLDER": "Որոնել..",
+    "CATEGORIES": {
+      "ALL": "Բոլորը",
+      "FRUIT": "Միրգ",
+      "COFFEE": "Սուրճ",
+      "TEA": "Թեյ",
+      "OTHER": "Այլ"
+    }
+  },
+  "BUTTONS": {
+    "ADD-TO-CART": "Ավելացնել Զամբյուղ",
+    "MAKE-ORDER": "Պատվիրել",
+    "ACCEPT": "Հաստատել",
+    "REJECT": "Մերժել",
+    "MARK-AS-READY": "Նշել որպես պատրաստ",
+    "REJECTED": "Մերժված",
+    "CLOSE-PAID-ORDER": "Փակել վճարված պատվերը",
+    "GIVEN": "Տրված",
+    "MARK-AS-AVAILABLE": "Նշել որպես առկա",
+    "MARK-AS-NOT-AVAILABLE": "Նշել որպես ոչ առկա",
+    "DISCARD": "Հրաժարվել",
+    "SAVE": "Պահպանել",
+    "YES": "Այո",
+    "CLOSE": "Փակել",
+    "CONFIRM": "Հաստատել",
+    "ADD": "Ավելացնել"
+  },
+  "MAIN-PHRASES": {
+    "TOTAL-AMOUNT": "Ընդամենը",
+    "TOTAL-PRICE": "Ընդ. գումար",
+    "TOTAL-COUNT": "Ընդ. քանակ",
+    "ORDER": {
+      "NAME": "Պատվեր",
+      "CONFIRM": "Պատվերի հաստատում",
+      "NOTES": "Նշումներ",
+      "NOTE-PLACEHOLDER": "գրեք այստեղ ...",
+      "STATUSES": {
+        "PENDING": "Ընթացքում",
+        "ACCEPTED": "Հաստատված",
+        "REJECTED": "Մերժված",
+        "READY": "Պատրաստ",
+        "PAID": "Վճարված",
+        "GIVEN": "Տրված"
+      }
+    },
+    "PAYMENT-TYPE": {
+      "NAME": "Վճարման եղանակ",
+      "OPTIONS": {
+        "CARD": "Քարտ",
+        "CASH": "Կանխիկ"
+      }
+    },
+    "TOTAL": "Ընդամենը"
+  },
+  "MESSAGES": {
+    "NOT-FOUND": "Չկան ավելացված ապրանքներ։",
+    "ORDERS-NOT-FOUND": "Չկան ավելացված պատվերներ։",
+    "UPDATED-SUCCESSFULLY": "Ապրանքը հաջողությամբ թարմացվեց։",
+    "DELETED-SUCCESSFULLY": "Ապրանքը հաջողությամբ ջնջվեց։",
+    "ADDED-SUCCESSFULLY": "Ապրանքը հաջողությամբ ավելացվեց:",
+    "MODAL-CHOOSE-OPTIONS": "Ընտրեք նախընտրելի տարբերակները",
+    "CONFIRM-DELETING": "Վստա՞հ եք, որ ցանկանում եք ջնջել այս ապրանքը։",
+    "CONFIRM-LOG-OUT": "Վստա՞հ եք, որ ցանկանում եք դուրս գալ։"
+  },
+  "LANGUAGES": {
+    "ENGLISH": "English",
+    "ARMENIAN": "Հայերեն",
+    "RUSSIAN": "Русский"
+  },
+  "AUTH": {
+    "WELCOME": "Բարի գալուստ !",
+    "LOGIN": "Մուտք գործել",
+    "REGISTER": "Գրանցվել",
+    "NAME": "Անուն",
+    "PASSWORD": "Գաղտնաբառ",
+    "PHONE": "Հեռախոսահամար",
+    "CONFIRM-PASSWORD": "Հաստատել գաղտնաբառը"
+  },
+  "FOOTER": {
+    "FIND-US": "Գտեք մեզ Facebook-ում և Instagram-ում:",
+    "HOURS": "Աշխատանքային ժամեր",
+    "DAYS": "Երկուշաբթի-Կիրակի",
+    "LOCATION": "Գտնվելու վայրը"
+  }
+}

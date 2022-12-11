@@ -4,12 +4,12 @@ import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
-import {SugarOptionsData} from "../../constants/add-on-data";
-import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
+import {SugarOptionsData, AddOnOptionsData} from "../../constants/add-on-data";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {CartService} from "../../services/cart.service";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -23,29 +23,32 @@ export class CartSingleItemComponent implements OnInit {
     sugarOption: string;
     addings: string;
 
-    readonly message = "Item was updated successfully.";
-    readonly deleteMessage = "Item was deleted successfully.";
-
     constructor(
         private cartService: CartService,
         public dialog: MatDialog,
         private snackBar: MatSnackBar,
+        private translate: TranslateService,
     ) {
     }
 
-    ngOnInit(): void {
-        this.sugarOption = SugarOptionsData.find(item => item.id === this.product.sugar).name;
-        this.addings = getAddOnsAsString(this.product.adding_ids);
+    ngOnInit(): void {}
+
+    getSugarOption(): string {
+        return this.translate.instant(SugarOptionsData.find(item => item.id === this.product.sugar).name);
+    }
+
+    getAddingName(id: number): string {
+        return this.translate.instant(AddOnOptionsData.find(item => item.id === id).name);
     }
 
     openAddOnModal(product: CartItem) {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
-            width: '340px',
-            height: '420px',
+            width: '320px',
+            height: '400px',
             data: {
                 product: product,
-                confirm_button_name: 'Save',
+                confirm_button_name: 'BUTTONS.SAVE',
             },
         });
         dialogRef.afterClosed().pipe(
@@ -59,11 +62,12 @@ export class CartSingleItemComponent implements OnInit {
     }
 
     openConfirmationModal() {
+        const message = this.translate.instant('MESSAGES.CONFIRM-DELETING');
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',
-            height: '200px',
+            height: '205px',
             data: {
-                message: 'you want to delete this item'
+                message: message,
             }
         });
         dialogRef.afterClosed().pipe(
@@ -80,7 +84,7 @@ export class CartSingleItemComponent implements OnInit {
         return this.cartService.updateCartItem(requestData.id, requestData.data).pipe(
             tap((res) => this.cartUpdated.emit(res)),
             tap((res) =>localStorage.setItem('cartCount', String(res.meta.total_count))),
-            tap(() => this.showNotification(this.message)),
+            tap(() => this.showNotification(this.translate.instant('MESSAGES.UPDATED-SUCCESSFULLY'))),
         )
             .subscribe();
     }
@@ -90,7 +94,7 @@ export class CartSingleItemComponent implements OnInit {
             tap(() => {
                 this.itemDeleted.emit(this.product);
                 updateCartCount(false, this.product.count);
-                this.showNotification(this.deleteMessage);
+                this.showNotification(this.translate.instant('MESSAGES.DELETED-SUCCESSFULLY'));
             })
         )
             .subscribe();

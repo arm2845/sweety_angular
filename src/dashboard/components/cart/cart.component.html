@@ -1,5 +1,5 @@
 <div class="cart-container">
-    <div class="header">My cart</div>
+    <div class="header">{{ 'HEADER.PAGE.CART' | translate }}</div>
     <ng-container *ngIf="!isLoading; else loader">
         <div class="items-container">
             <ng-container *ngIf="!cartIsEmpty; else noData">
@@ -11,9 +11,11 @@
             </ng-container>
         </div>
         <ng-container *ngIf="!cartIsEmpty">
-            <div class="total-amount">Total amount: <span class="price">{{total_price}} AMD</span></div>
+            <div class="total-amount">
+                {{ 'MAIN-PHRASES.TOTAL-AMOUNT' | translate }}: <span class="price">{{total_price}} AMD</span></div>
             <div class="button-container">
-                <button class="btn btn-primary" (click)="confirmOrder()">Make Order</button>
+                <button class="btn btn-primary" (click)="confirmOrder()">
+                    {{ 'BUTTONS.MAKE-ORDER' | translate }}</button>
             </div>
         </ng-container>
     </ng-container>
@@ -23,6 +25,6 @@
 </ng-template>
 <ng-template #noData>
     <div class="no-data-text">
-        There are no items to show.
+        {{ 'MESSAGES.NOT-FOUND' | translate }}
     </div>
 </ng-template>

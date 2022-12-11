@@ -4,38 +4,44 @@
         <span class="price">{{(product.price + addingPrice) * product.count}} AMD</span>
     </div>
     <div class="description">
-        Please choose desired options
+        {{ 'MESSAGES.MODAL-CHOOSE-OPTIONS' | translate }}
     </div>
     <div [class.disabled]="!product.has_sugar" class="single-option">
-        <div class="option-name">Sugar</div>
+        <div class="option-name">{{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}</div>
         <div class="options">
             <span class="one-third"
                   [class.selected]="selectedSugarOption === sugarOptions.without"
-                  (click)="setSugarOption(sugarOptions.without)">Without</span>
+                  (click)="setSugarOption(sugarOptions.without)">
+                {{ 'PRODUCTS.PROPERTIES.SUGAR.OPTIONS.WITHOUT' | translate }}</span>
             <span class="one-third"
                   [class.selected]="selectedSugarOption === sugarOptions.medium"
-                  (click)="setSugarOption(sugarOptions.medium)">Medium</span>
+                  (click)="setSugarOption(sugarOptions.medium)">
+                {{ 'PRODUCTS.PROPERTIES.SUGAR.OPTIONS.MEDIUM' | translate }}</span>
             <span class="one-third"
                   [class.selected]="selectedSugarOption === sugarOptions.sweet"
-                  (click)="setSugarOption(sugarOptions.sweet)">Sweet</span>
+                  (click)="setSugarOption(sugarOptions.sweet)">
+                {{ 'PRODUCTS.PROPERTIES.SUGAR.OPTIONS.SWEET' | translate }}</span>
         </div>
     </div>
     <div class="single-option">
-        <div class="option-name">Add on</div>
+        <div class="option-name">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
         <div class="options">
             <span class="one-third"
                   [class.selected]="selectedAddingOptions.includes(addingOptions.milk)"
-                  (click)="setAddingOptionAndUpdatePrice(addingOptions.milk)">Milk</span>
+                  (click)="setAddingOptionAndUpdatePrice(addingOptions.milk)">
+                {{ 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.MILK' | translate }}</span>
             <span class="one-third"
                   [class.selected]="selectedAddingOptions.includes(addingOptions.iceCream)"
-                  (click)="setAddingOptionAndUpdatePrice(addingOptions.iceCream)">Ice Cream</span>
+                  (click)="setAddingOptionAndUpdatePrice(addingOptions.iceCream)">
+                {{ 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.ICE-CREAM' | translate }}</span>
             <span class="one-third"
                   [class.selected]="selectedAddingOptions.includes(addingOptions.nutella)"
-                  (click)="setAddingOptionAndUpdatePrice(addingOptions.nutella)">Nutella</span>
+                  (click)="setAddingOptionAndUpdatePrice(addingOptions.nutella)">
+                {{ 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.NUTELLA' | translate }}</span>
         </div>
     </div>
     <div class="single-option">
-        <div class="option-name">Quantity</div>
+        <div class="option-name">{{ 'PRODUCTS.PROPERTIES.QUANTITY' | translate }}</div>
         <div class="quantity-container">
             <span class="icon-minus-simple minus" [class.disabled]="product.count <= minAllowedQuantity"
                   (click)="decrease()"></span>
@@ -46,6 +52,6 @@
 </mat-dialog-content>
 <mat-dialog-actions>
     <button class="btn btn-primary" [class.disabled]="!selectedSugarOption || !selectedAddingOptions"
-            mat-button [mat-dialog-close]="createdOrUpdatedProductData">{{data.confirm_button_name}}</button>
-    <button class="btn btn-white" mat-button [mat-dialog-close]="false">Discard</button>
+            mat-button [mat-dialog-close]="createdOrUpdatedProductData">{{data.confirm_button_name | translate}}</button>
+    <button class="btn btn-white" mat-button [mat-dialog-close]="false">{{ 'BUTTONS.DISCARD' | translate }}</button>
 </mat-dialog-actions>

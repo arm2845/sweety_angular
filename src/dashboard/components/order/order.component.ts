@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {finalize, Subscription, tap} from "rxjs";
-import {SugarOptionsData} from "../../constants/add-on-data";
-import {getAddOnsAsString} from "../../../app/helpers/addOns.helper";
+import {AddOnOptionsData, SugarOptionsData} from "../../constants/add-on-data";
+import {AddOnsHelper} from "../../../app/helpers/addOns.helper";
 import {OrderService} from "../../services/order.service";
 import {OrderStatuses, OrderStatusesData} from "../../constants/order-statuses";
 import {PaymentTypesData} from "../../constants/payment-types";
 import {Order} from "../../models/order";
 import {UserTypes} from "../../../auth/constants/user-types";
 import {environment} from "../../../environments/environment";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-order',
@@ -24,12 +25,13 @@ export class OrderComponent implements OnInit {
 
     constructor(
         private orderService: OrderService,
+        private addOnHelper: AddOnsHelper,
+        private translate: TranslateService,
     ) {
     }
 
     ngOnInit(): void {
         this.userType = Number(localStorage.getItem('userType'));
-        // this.getOrders();
         this.orderService.getServerSentEvent(`${environment.baseURL}recent-orders`).pipe(
             tap((res: any) => {
                 this.orders = res;
@@ -40,15 +42,19 @@ export class OrderComponent implements OnInit {
     }
 
     getSugarOption(id: number): string {
-        return SugarOptionsData.find(item => item.id === id).name;
+        return this.translate.instant(SugarOptionsData.find(item => item.id === id).name);
+    }
+
+    getAddingName(id: number): string {
+        return this.translate.instant(AddOnOptionsData.find(item => item.id === id).name);
     }
 
     getAddOns(ids: number[]): string {
-        return getAddOnsAsString(ids);
+        return this.addOnHelper.getAddOnsAsString(ids);
     }
 
     getOrderStatus(status: number): string {
-        return OrderStatusesData.find(item => item.id === status).name;
+        return this.translate.instant(OrderStatusesData.find(item => item.id === status).name);
     }
 
     getStatusColor(status: number): string {
@@ -56,7 +62,7 @@ export class OrderComponent implements OnInit {
     }
 
     getPaymentType(id: number): string {
-        return PaymentTypesData.find(item => item.id === id).name;
+        return this.translate.instant(PaymentTypesData.find(item => item.id === id).name);
     }
 
     acceptOrder(orderId: number): Subscription {
@@ -97,14 +103,6 @@ export class OrderComponent implements OnInit {
 
     updateOrderStatus(orderId: number, status: number): void {
         this.orders.find(item => item.id === orderId).status = status;
-    }
-
-    private getOrders(): Subscription {
-        return this.orderService.getOrders().pipe(
-            tap((res) => this.orders = res.data),
-            finalize(() => this.isLoading = false),
-        )
-            .subscribe();
     }
 
 }

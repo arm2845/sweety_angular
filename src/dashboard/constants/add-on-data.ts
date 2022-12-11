@@ -16,32 +16,32 @@ export const AddingOptions = {
 export const SugarOptionsData = [
     {
         id: 1,
-        name: 'without',
+        name: 'PRODUCTS.PROPERTIES.SUGAR.OPTIONS.WITHOUT',
     },
     {
         id: 2,
-        name: 'medium',
+        name: 'PRODUCTS.PROPERTIES.SUGAR.OPTIONS.MEDIUM',
     },
     {
         id: 3,
-        name: 'sweet',
+        name: 'PRODUCTS.PROPERTIES.SUGAR.OPTIONS.SWEET',
     },
 ]
 
 export const AddOnOptionsData = [
     {
         id: 1,
-        name: 'Milk',
+        name: 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.MILK',
         price: 200,
     },
     {
         id: 2,
-        name: 'Ice cream',
+        name: 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.ICE-CREAM',
         price: 200,
     },
     {
         id: 3,
-        name: 'Nutella',
+        name: 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.NUTELLA',
         price: 400,
     },
 ]

@@ -3,6 +3,7 @@ import {Ingredient} from "../../models/ingredient";
 import {finalize, Subscription, tap} from "rxjs";
 import {IngredientsService} from "../../services/ingredients.service";
 import {IngredientCategories, IngredientCategoriesData} from "../../constants/ingredient-categories";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-ingredients',
@@ -20,6 +21,7 @@ export class IngredientsComponent implements OnInit {
 
     constructor(
         private ingredientsService: IngredientsService,
+        private translate: TranslateService,
     ) {
     }
 
@@ -28,7 +30,7 @@ export class IngredientsComponent implements OnInit {
     }
 
     getCategoryName(id: number): string {
-        return IngredientCategoriesData.find(item => item.id === id).name;
+        return this.translate.instant(IngredientCategoriesData.find(item => item.id === id).name);
     }
 
     changeAvailability(id: number, in_stock: boolean): Subscription {

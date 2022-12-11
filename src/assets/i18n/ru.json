@@ -1,0 +1,140 @@
+{
+  "HEADER": {
+    "MAIN": {
+      "PRODUCT-NAME": "Coffee Lab",
+      "MENU": "Меню",
+      "CART": "Корзина",
+      "FAVOURITES": "Избранное",
+      "PRODUCTS": "Товары",
+      "ORDERS": "Заказы",
+      "LOGIN": "Войти",
+      "LOGOUT": "Выйти"
+    },
+    "PAGE": {
+      "CART": "Моя корзина",
+      "FAVOURITES": "Мои избранные",
+      "ORDERS": "Мои заказы",
+      "PRODUCTS": "Товары на складе"
+    }
+  },
+  "PRODUCT-CATEGORIES": {
+    "COFFEE": "Кофе",
+    "ICED-TEA": "Холодный чай",
+    "LEMONADE": "Лимонад",
+    "SMOOTHIE": "Смузи",
+    "FRESH": "Свежевыжатый",
+    "OTHER": "Другое"
+  },
+  "PRODUCTS": {
+    "PROPERTIES": {
+      "SUGAR": {
+        "NAME": "Сахар",
+        "OPTIONS": {
+          "WITHOUT": "Без",
+          "MEDIUM": "Средний",
+          "SWEET": "Сладкий"
+        }
+      },
+      "ADD-ON": {
+        "NAME": "Добавка",
+        "OPTIONS": {
+          "MILK": "Молоко",
+          "ICE-CREAM": "Мороженое",
+          "NUTELLA": "Нутелла"
+        }
+      },
+      "QUANTITY": "Количество"
+    }
+  },
+  "INGREDIENTS": {
+    "TABLE-COLUMNS": {
+      "NAME": "Имя",
+      "CATEGORY": "Название",
+      "CURRENT-STATE": "Текущее состояние",
+      "CHANGE-STATE": "Изменить состояние"
+    },
+    "SEARCH-PLACEHOLDER": "Поиск..",
+    "CATEGORIES": {
+      "ALL": "Все",
+      "FRUIT": "Фрукты",
+      "COFFEE": "Кофе",
+      "TEA": "Чай",
+      "OTHER": "Другое"
+    }
+  },
+  "BUTTONS": {
+    "ADD-TO-CART": "Добавить в корзину",
+    "MAKE-ORDER": "Сделать заказ",
+    "ACCEPT": "Принимать",
+    "REJECT": "Отклонять",
+    "MARK-AS-READY": "Отметить как готовое",
+    "REJECTED": "Отклоненный",
+    "CLOSE-PAID-ORDER": "Закрыть оплаченный заказ",
+    "GIVEN": "Данный",
+    "MARK-AS-AVAILABLE": "Отметить как доступный",
+    "MARK-AS-NOT-AVAILABLE": "Отметить как недоступное",
+    "DISCARD": "Отказаться",
+    "SAVE": "Сохранить",
+    "YES": "Да",
+    "CLOSE": "Закрыть",
+    "CONFIRM": "Подтвердить",
+    "ADD": "Добавить"
+  },
+  "MAIN-PHRASES": {
+    "TOTAL-AMOUNT": "Итого",
+    "TOTAL-PRICE": "Итог. цена",
+    "TOTAL-COUNT": "Общее количество",
+    "ORDER": {
+      "NAME": "Заказ",
+      "CONFIRM": "Подтверждение заказа",
+      "NOTES": "Заметки",
+      "NOTE-PLACEHOLDER": "введите здесь ...",
+      "STATUSES": {
+        "PENDING": "В ожидании",
+        "ACCEPTED": "Принято",
+        "REJECTED": "Отклонено",
+        "READY": "Готово",
+        "PAID": "Оплачен",
+        "GIVEN": "Дано"
+      }
+    },
+    "PAYMENT-TYPE": {
+      "NAME": "Способ оплаты",
+      "OPTIONS": {
+        "CARD": "Карта",
+        "CASH": "Наличные"
+      }
+    },
+    "TOTAL": "Итого"
+  },
+  "MESSAGES": {
+    "NOT-FOUND": "Нет объектов для показа.",
+    "ORDERS-NOT-FOUND": "Нет заказов для показа.",
+    "UPDATED-SUCCESSFULLY": "Товар был успешно обновлен.",
+    "DELETED-SUCCESSFULLY": "Товар успешно удален.",
+    "ADDED-SUCCESSFULLY": "Товар был успешно добавлен.",
+    "MODAL-CHOOSE-OPTIONS": "Выберите желаемые параметры",
+    "CONFIRM-DELETING": "Вы уверены, что хотите удалить этот товар ?",
+    "CONFIRM-LOG-OUT": "Вы действительно хотите выйти ?"
+  },
+  "LANGUAGES": {
+    "ENGLISH": "English",
+    "ARMENIAN": "Հայերեն",
+    "RUSSIAN": "Русский"
+  },
+  "AUTH": {
+    "WELCOME": "Добро пожаловать !",
+    "LOGIN": "Вход",
+    "REGISTER": "Регистрироваться",
+    "NAME": "Имя",
+    "PASSWORD": "Пароль",
+    "PHONE": "Номер телефона",
+    "CONFIRM-PASSWORD": "Подтвердить Пароль"
+  },
+  "FOOTER": {
+    "FIND-US": "Найдите нас в Facebook и Instagram.",
+    "HOURS": "Открытые часы",
+    "DAYS": "Понедельник-Воскресенье",
+    "LOCATION": "Расположение"
+  }
+}

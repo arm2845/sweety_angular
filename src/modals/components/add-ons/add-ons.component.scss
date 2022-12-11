@@ -1,6 +1,7 @@
 ::ng-deep {
     mat-dialog-container {
         background-color: #f2f2f0 !important;
+        padding: 14px !important;
     }
 }
 
@@ -16,6 +17,8 @@ mat-dialog-actions {
 }
 
 mat-dialog-content {
+    margin: 0 -14px !important;
+    padding: 0 14px !important;
     .header {
         display: flex;
         justify-content: space-between;
@@ -26,7 +29,7 @@ mat-dialog-content {
         }
     }
     .description {
-        font-size: 17px;
+        font-size: 15px;
         color: #969595;
     }
     .single-option {
@@ -41,7 +44,7 @@ mat-dialog-content {
             justify-content: space-between;
             margin-top: 4px;
             .one-forth {
-                font-size: 14px;
+                font-size: 13px;
                 width: 20%;
                 border-radius: 15px;
                 border: 1px solid #e6e6e6;
@@ -55,7 +58,7 @@ mat-dialog-content {
             }
             .one-third {
                 @extend .one-forth;
-                width: 30%;
+                width: 33%;
             }
         }
         .quantity-container {

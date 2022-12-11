@@ -80,7 +80,7 @@ $sweety-angular-theme: mat.define-light-theme((
 }
 
 * {
-    font-family: Roboto;
+    font-family: var(--font-family-sans-serif);
 }
 
 html {
@@ -447,6 +447,7 @@ body {
             position: relative;
 
             .pass-icon {
+                cursor: pointer;
                 position: absolute;
                 right: 16px;
                 top: 40px;

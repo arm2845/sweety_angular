@@ -4,11 +4,13 @@
     </div>
     <div class="form-container">
         <div class="header">
-            Welcome !
+            {{ 'AUTH.WELCOME' | translate }}
         </div>
         <div class="form">
-            <button class="login-button button-unfilled" routerLink="/user/login" type="submit">Login</button>
-            <button class="submit-button button-filled" routerLink="/user/register" type="submit">Register</button>
+            <button class="login-button button-unfilled" routerLink="/user/login" type="submit">
+                {{ 'AUTH.LOGIN' | translate }}</button>
+            <button class="submit-button button-filled" routerLink="/user/register" type="submit">
+                {{ 'AUTH.REGISTER' | translate }}</button>
         </div>
     </div>
 </div>

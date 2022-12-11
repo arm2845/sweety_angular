@@ -10,19 +10,28 @@
                         <span class="name">{{product.item.name_en | titlecase}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
-                        <span class="text-title">Sugar</span>
-                        <span class="add-on-text">{{sugarOption | titlecase}}</span>
+                        <span class="text-title">{{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}</span>
+                        <span class="add-on-text">{{getSugarOption()}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
-                        <span class="text-title">Add on</span>
-                        <span class="add-on-text">{{addings || '-'}}</span>
+                        <div class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
+                        <div class="main-text">
+                            <ng-container *ngIf="product.adding_ids.length; else noAddingTpl">
+                                <ng-container *ngFor="let id of product.adding_ids">
+                                    <span class="add-on-text">{{getAddingName(id) | translate}}</span>
+                                </ng-container>
+                            </ng-container>
+                            <ng-template #noAddingTpl>
+                                <span class="add-on-text">-</span>
+                            </ng-template>
+                        </div>
                     </div>
                     <div class="add-on-data-single single-row">
-                        <span class="text-title">Quantity</span>
+                        <span class="text-title">{{ 'PRODUCTS.PROPERTIES.QUANTITY' | translate }}</span>
                         <span class="add-on-text">{{product.count}}</span>
                     </div>
                     <div class="add-on-data-single single-row">
-                        <span class="text-title">Total price</span>
+                        <span class="text-title">{{ 'MAIN-PHRASES.TOTAL-PRICE' | translate }}</span>
                         <span class="price">{{product.price * product.count}} AMD</span>
                     </div>
                     <div class="icon single-row">

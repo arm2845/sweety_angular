@@ -1,6 +1,7 @@
 ::ng-deep {
     mat-dialog-container {
         background-color: #f2f2f0 !important;
+        padding: 14px !important;
     }
 }
 
@@ -12,19 +13,21 @@ mat-dialog-actions {
 }
 
 mat-dialog-content {
+    margin: 0 -14px !important;
+    padding: 0 14px !important;
     .description {
         text-align: center;
-        font-size: 24px;
+        font-size: 20px;
         color: rgba(0, 0, 0, 0.87);
         font-weight: 600;
     }
     .header {
-        font-size: 18px;
+        font-size: 16px;
         color: #666666;
         margin-bottom: -5px;
     }
     .total-text {
-        font-size: 20px;
+        font-size: 18px;
         color: #666666;
         text-align: right;
         .data {
@@ -54,7 +57,7 @@ mat-dialog-content {
                 }
             }
             .text {
-                font-size: 20px;
+                font-size: 16px;
             }
         }
     }
