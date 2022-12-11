@@ -5,7 +5,6 @@ import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.compon
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
 import {SugarOptionsData, AddOnOptionsData} from "../../constants/add-on-data";
-import {AddOnsHelper} from "../../../app/helpers/addOns.helper";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {CartService} from "../../services/cart.service";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
@@ -29,7 +28,6 @@ export class CartSingleItemComponent implements OnInit {
         public dialog: MatDialog,
         private snackBar: MatSnackBar,
         private translate: TranslateService,
-        private addOnHelper: AddOnsHelper,
     ) {
     }
 

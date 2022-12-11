@@ -54,7 +54,8 @@ export class CartComponent implements OnInit {
 
     confirmOrder() {
         let dialogRef = this.dialog.open(OrderCheckoutComponent, {
-            width: '350px',
+            maxWidth: '90vh',
+            width: '300px',
             height: '450px',
             data: {
                 total_price: this.total_price,
