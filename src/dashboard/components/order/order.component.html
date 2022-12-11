@@ -54,14 +54,28 @@
                                 </div>
                                 <div class="info">
                                     <div class="name">{{item.name_en | titlecase}}</div>
-                                    <div *ngIf="item.has_sugar" class="sub-name">
+                                    <div *ngIf="item.has_sugar" class="sub-name title-text">
                                         {{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}: {{getSugarOption(item.order_options.sugar) | titlecase}}</div>
                                     <div class="sub-name">
-                                        {{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}: {{getAddOns(item.order_options.adding_ids) || '-'}}</div>
-                                    <div class="quantity">x {{item.order_options.count}}</div>
+                                        <div class="title-text">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}: </div>
+                                        <div class="main-text">
+                                            <ng-container *ngIf="item.order_options.adding_ids.length; else noAddingTpl">
+                                                <ng-container *ngFor="let id of item.order_options.adding_ids">
+                                                    <span class="add-on-text">{{getAddingName(id) | translate}}</span>
+                                                </ng-container>
+                                            </ng-container>
+                                            <ng-template #noAddingTpl>
+                                                <span class="add-on-text">-</span>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <div class="sub-name">
+                                        <div class="title-text">{{ 'PRODUCTS.PROPERTIES.QUANTITY' | translate }}: </div>
+                                        <div class="main-text">x {{item.order_options.count}}</div>
+                                    </div>
                                 </div>
-                                <div class="price">{{item.order_options.price}} AMD</div>
                             </div>
+                            <div class="bottom price">{{item.order_options.price}} AMD</div>
                         </ng-container>
                         <div class="payment-type">
                             {{ 'MAIN-PHRASES.PAYMENT-TYPE.NAME' | translate }}: {{getPaymentType(order.payment_type)}}

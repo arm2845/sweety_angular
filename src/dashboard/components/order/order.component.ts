@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {finalize, Subscription, tap} from "rxjs";
-import {SugarOptionsData} from "../../constants/add-on-data";
+import {AddOnOptionsData, SugarOptionsData} from "../../constants/add-on-data";
 import {AddOnsHelper} from "../../../app/helpers/addOns.helper";
 import {OrderService} from "../../services/order.service";
 import {OrderStatuses, OrderStatusesData} from "../../constants/order-statuses";
@@ -43,6 +43,10 @@ export class OrderComponent implements OnInit {
 
     getSugarOption(id: number): string {
         return this.translate.instant(SugarOptionsData.find(item => item.id === id).name);
+    }
+
+    getAddingName(id: number): string {
+        return this.translate.instant(AddOnOptionsData.find(item => item.id === id).name);
     }
 
     getAddOns(ids: number[]): string {
