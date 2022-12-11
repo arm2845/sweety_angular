@@ -121,5 +121,14 @@
     "ENGLISH": "English",
     "ARMENIAN": "Հայերեն",
     "RUSSIAN": "Русский"
+  },
+  "AUTH": {
+    "WELCOME": "Добро пожаловать !",
+    "LOGIN": "Вход",
+    "REGISTER": "Регистрироваться",
+    "NAME": "Имя",
+    "PASSWORD": "Пароль",
+    "PHONE": "Номер телефона",
+    "CONFIRM-PASSWORD": "Подтвердить Пароль"
   }
 }

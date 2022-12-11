@@ -121,5 +121,14 @@
     "ENGLISH": "English",
     "ARMENIAN": "Հայերեն",
     "RUSSIAN": "Русский"
+  },
+  "AUTH": {
+    "WELCOME": "Բարի գալուստ !",
+    "LOGIN": "Մուտք գործել",
+    "REGISTER": "Գրանցվել",
+    "NAME": "Անուն",
+    "PASSWORD": "Գաղտնաբառ",
+    "PHONE": "Հեռախոսահամար",
+    "CONFIRM-PASSWORD": "Հաստատել գաղտնաբառը"
   }
 }

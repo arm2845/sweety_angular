@@ -4,15 +4,17 @@
     </div>
     <div class="form-container">
         <form [formGroup]="loginForm" class="form">
-            <label class="login-label" for="username">Name</label>
-            <input class="input-row" formControlName="username" id="username" placeholder="Name" type="text">
+            <label class="login-label" for="username">{{ 'AUTH.NAME' | translate }}</label>
+            <input class="input-row" formControlName="username" id="username"
+                   [placeholder]="'AUTH.NAME' | translate" type="text">
             <div class="password-container">
-                <label class="login-label" for="password">Password</label>
+                <label class="login-label" for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
                 <input class="input-row" formControlName="password" id="password" placeholder="********"
                        type="password">
                 <span (click)="showHidePass($event, 'password')" class="icon-hide-pass pass-icon"></span>
             </div>
-            <button (click)="login()" class="submit-button button-filled" type="submit">Login</button>
+            <button (click)="login()" class="submit-button button-filled" type="submit">
+                {{ 'AUTH.LOGIN' | translate }}</button>
         </form>
     </div>
 </div>
