@@ -22,7 +22,7 @@
                 .status {
                     padding: 5px;
                     border-radius: 20px;
-                    width: 94px;
+                    width: auto;
                     height: 30px;
                     color: #ffffff;
                     border: none;
@@ -39,7 +39,6 @@
                 }
                 .status-big {
                     @extend .status-large;
-                    width: 140px;
                     &:first-child {
                         margin-right: 0;
                     }
