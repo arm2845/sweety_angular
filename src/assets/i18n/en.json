@@ -40,7 +40,13 @@
         "OPTIONS": {
           "MILK": "Milk",
           "ICE-CREAM": "Ice cream",
-          "NUTELLA": "Nutella"
+          "NUTELLA": "Nutella",
+          "SNICKERS": "Snickers",
+          "KIT-KAT": "Kit-Kat",
+          "BOUNTY": "Bounty",
+          "MARS": "Mars",
+          "TWIX": "Twix",
+          "OREO": "Oreo"
         }
       },
       "QUANTITY": "Quantity"

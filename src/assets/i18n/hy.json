@@ -40,7 +40,13 @@
         "OPTIONS": {
           "MILK": "Կաթ",
           "ICE-CREAM": "Պաղպաղակ",
-          "NUTELLA": "Նուտելլա"
+          "NUTELLA": "Nutella",
+          "SNICKERS": "Snickers",
+          "KIT-KAT": "Kit-Kat",
+          "BOUNTY": "Bounty",
+          "MARS": "Mars",
+          "TWIX": "Twix",
+          "OREO": "Oreo"
         }
       },
       "QUANTITY": "Քանակ"
