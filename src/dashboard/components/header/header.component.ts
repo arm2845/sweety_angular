@@ -6,7 +6,10 @@ import {MatDialog} from "@angular/material/dialog";
 import {CartService} from "../../services/cart.service";
 import {UserTypes} from "../../../auth/constants/user-types";
 import {TranslateService} from "@ngx-translate/core";
-import {LanguagesData} from "../../constants/languages";
+import {Language, LanguagesData} from "../../constants/languages";
+import {MainService} from "../../services/main.service";
+import {saveAs} from "file-saver";
+import {DownloadReportComponent} from "../../../modals/components/download-report/download-report.component";
 
 @Component({
     selector: 'app-header',
@@ -37,6 +40,7 @@ export class HeaderComponent implements OnInit {
         private cartService: CartService,
         public dialog: MatDialog,
         private translate: TranslateService,
+        private mainService: MainService,
     ) {
     }
 
@@ -44,6 +48,15 @@ export class HeaderComponent implements OnInit {
         if (this.authUser && this.userType !== this.userTypes.admin) {
             this.getCart();
         }
+    }
+
+    getExcel(data: {start_date: string, end_date: string}): Subscription {
+        return this.mainService.getExcelFile(data).pipe(
+            tap((res) => {
+                saveAs(res, "report.xlsx")
+            }),
+        )
+            .subscribe();
     }
 
     getCart(): Subscription {
@@ -78,6 +91,22 @@ export class HeaderComponent implements OnInit {
             .subscribe();
     }
 
+    openDownloadExcelModal() {
+        let dialogRef = this.dialog.open(DownloadReportComponent, {
+            width: '400px',
+            height: '340px',
+        });
+        dialogRef.afterClosed().pipe(
+            tap((result) => {
+                if (result) {
+                    console.log(result);
+                    this.getExcel(result);
+                }
+            })
+        )
+            .subscribe();
+    }
+
     openDropdown(): void {
         document.getElementById("languageDropdown").classList.toggle("show");
     }
@@ -86,8 +115,24 @@ export class HeaderComponent implements OnInit {
         document.getElementById("languageDropdown").classList.remove("show");
     }
 
-    changeLanguage(language: string): void {
-        this.translate.use(language);
+    changeLanguage(language: Language): Subscription | void {
+        const authUser = JSON.parse(this.authUser)
+        if (authUser) {
+            return this.authService.changeLanguage(authUser.id, {lang: language.id}).pipe(
+                tap(() => {
+                    this.setLanguageAndCloseDropdown(language);
+                })
+            )
+                .subscribe();
+        } else {
+            this.setLanguageAndCloseDropdown(language);
+
+        }
+    }
+
+    setLanguageAndCloseDropdown(language: Language): void {
+        this.translate.use(language.name);
+        localStorage.setItem('lang', String(language.id));
         this.closeDropdown();
     }
 

@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 import {UserTypes} from "../../../auth/constants/user-types";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
+import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
 
 @Component({
     selector: 'app-product-single',
@@ -109,6 +110,10 @@ export class ProductSingleComponent implements OnInit {
             },
             duration: 5000,
         });
+    }
+
+    getName(product: MenuProduct): string {
+        return getTranslatedProductName(product);
     }
 
     private navigateToLoginPage(): void {

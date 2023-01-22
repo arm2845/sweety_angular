@@ -81,6 +81,10 @@ export class AuthService {
         return this.http.post(`favourites/${productId}`, {});
     }
 
+    changeLanguage(id: number, data: {lang: number}): Observable<any> {
+        return this.http.patch(`users/${id}`, data);
+    }
+
     removeFromFavorites(productId: number): Observable<any> {
         return this.http.delete(`favourites/${productId}`);
     }
@@ -88,6 +92,7 @@ export class AuthService {
     private setUserInLocalStorage(user: User): void {
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('userType', String(user.type));
+        localStorage.setItem('lang', String(user.lang));
     }
 
     private setTokenInLocalStorage(res: any): void {
@@ -102,6 +107,7 @@ export class AuthService {
     private removeUserFromLocalStorage(): void {
         localStorage.removeItem('user');
         localStorage.removeItem('userType');
+        localStorage.removeItem('lang');
     }
 
     private navigateToHomePage(): void {

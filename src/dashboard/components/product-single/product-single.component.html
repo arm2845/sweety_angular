@@ -1,13 +1,13 @@
 <div class="col-md-12 col-lg-6 d-flex align-self-stretch">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
         <div class="menu-img img">
-            <img class="image" src="assets/images/mojito.jpg" alt="">
+            <img class="image" [src]="product.image_path" src="assets/images/mojito.jpg" alt="">
         </div>
         <div class="text d-flex align-items-center">
             <div class="right-side">
                 <div>
                     <div class="one-half">
-                        <span class="name">{{product.name_en | titlecase}}</span>
+                        <span class="name">{{getName(product) | titlecase}}</span>
                         <span *ngIf="!authUser || userType !== userTypes.admin" (click)="changeFavoriteState()"
                               [class.filled-icon]="product.is_favourite" class="icon-heart favorite-icon"></span>
                     </div>

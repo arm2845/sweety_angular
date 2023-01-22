@@ -15,4 +15,8 @@ export class MainService {
         return this.http.get(`categories`);
     }
 
+    getExcelFile(data: {start_date: string, end_date: string}): Observable<any> {
+        return this.http.post(`orders-excel`, data, {responseType: 'blob'});
+    }
+
 }

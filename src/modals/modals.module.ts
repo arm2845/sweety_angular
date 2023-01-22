@@ -9,6 +9,12 @@ import { PopUpNotificationComponent } from './components/pop-up-notification/pop
 import { MatIconModule } from "@angular/material/icon";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import {TranslateModule} from "@ngx-translate/core";
+import { DownloadReportComponent } from './components/download-report/download-report.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,6 +23,7 @@ import {TranslateModule} from "@ngx-translate/core";
         OrderCheckoutComponent,
         AddOnsComponent,
         PopUpNotificationComponent,
+        DownloadReportComponent,
     ],
     imports: [
         CommonModule,
@@ -25,6 +32,15 @@ import {TranslateModule} from "@ngx-translate/core";
         MatButtonModule,
         MatIconModule,
         TranslateModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
     ]
 })
 export class ModalsModule {

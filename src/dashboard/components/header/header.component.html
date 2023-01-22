@@ -39,6 +39,12 @@
                 <span class="menu-item-name">{{'HEADER.MAIN.LOGIN' | translate}}</span>
             </div>
         </ng-container>
+        <ng-container *ngIf="authUser && userType === userTypes.admin">
+            <div (click)="openDownloadExcelModal()" class="header-item">
+                <span class="icon-file-excel menu-icon"></span>
+                <span class="menu-item-name">{{'HEADER.MAIN.REPORT' | translate}}</span>
+            </div>
+        </ng-container>
         <ng-container *ngIf="authUser">
             <div (click)="openConfirmationModal()" class="header-item">
                 <span class="icon-log-out menu-icon"></span>
@@ -49,7 +55,7 @@
             <span class="icon-languages menu-icon" (click)="openDropdown()"></span>
             <div id="languageDropdown" class="dropdown-content">
                 <ng-container *ngFor="let lang of languages">
-                    <div class="option" (click)="changeLanguage(lang.name)">
+                    <div class="option" (click)="changeLanguage(lang)">
                         <span class="text">{{lang.displayName | translate}}</span>
                         <img class="flag-img" [src]="'assets/images/flags/' + lang.name + '_flag.png'" alt="">
                     </div>
