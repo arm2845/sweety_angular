@@ -94,7 +94,7 @@ export class HeaderComponent implements OnInit {
     openDownloadExcelModal() {
         let dialogRef = this.dialog.open(DownloadReportComponent, {
             width: '400px',
-            height: '340px',
+            height: '360px',
         });
         dialogRef.afterClosed().pipe(
             tap((result) => {
