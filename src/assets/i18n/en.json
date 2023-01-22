@@ -7,6 +7,7 @@
       "FAVOURITES": "Favourites",
       "PRODUCTS": "Products",
       "ORDERS": "Orders",
+      "REPORT": "Report",
       "LOGIN": "Log in",
       "LOGOUT": "Log out"
     },
@@ -84,7 +85,8 @@
     "YES": "Yes",
     "CLOSE": "Close",
     "CONFIRM": "Confirm",
-    "ADD": "Add"
+    "ADD": "Add",
+    "DOWNLOAD": "Download"
   },
   "MAIN-PHRASES": {
     "TOTAL-AMOUNT": "Total amount",
@@ -111,7 +113,8 @@
         "CASH": "Cash"
       }
     },
-    "TOTAL": "Total"
+    "TOTAL": "Total",
+    "DOWNLOAD-EXCEL": "Download Excel"
   },
   "MESSAGES": {
     "NOT-FOUND": "There are no items to show.",

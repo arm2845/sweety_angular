@@ -7,6 +7,7 @@
       "FAVOURITES": "Избранное",
       "PRODUCTS": "Товары",
       "ORDERS": "Заказы",
+      "REPORT": "Отчёт",
       "LOGIN": "Войти",
       "LOGOUT": "Выйти"
     },
@@ -84,7 +85,8 @@
     "YES": "Да",
     "CLOSE": "Закрыть",
     "CONFIRM": "Подтвердить",
-    "ADD": "Добавить"
+    "ADD": "Добавить",
+    "DOWNLOAD": "Скачать"
   },
   "MAIN-PHRASES": {
     "TOTAL-AMOUNT": "Итого",
@@ -111,7 +113,8 @@
         "CASH": "Наличные"
       }
     },
-    "TOTAL": "Итого"
+    "TOTAL": "Итого",
+    "DOWNLOAD-EXCEL": "Скачать Excel"
   },
   "MESSAGES": {
     "NOT-FOUND": "Нет объектов для показа.",
