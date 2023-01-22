@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {getFormattedDate} from "../../../app/helpers/date.helper";
 
 @Component({
   selector: 'app-download-report',
@@ -12,8 +13,8 @@ export class DownloadReportComponent implements OnInit {
 
   get dateFormData() {
     return {
-      start_date: this.dateForm.controls['startDate'].value,
-      end_date: this.dateForm.controls['endDate'].value,
+      start_date: getFormattedDate(this.dateForm.controls['startDate'].value),
+      end_date: getFormattedDate(this.dateForm.controls['endDate'].value),
     }
   }
 

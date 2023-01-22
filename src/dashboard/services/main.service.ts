@@ -16,7 +16,7 @@ export class MainService {
     }
 
     getExcelFile(data: {start_date: string, end_date: string}): Observable<any> {
-        return this.http.post(`orders-excel`, data, {responseType: 'blob'});
+        return this.http.get(`orders-excel?start_date=${data.start_date}&end_date=${data.end_date}`,{responseType: 'blob'});
     }
 
 }

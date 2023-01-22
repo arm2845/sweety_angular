@@ -10,6 +10,7 @@ import {Language, LanguagesData} from "../../constants/languages";
 import {MainService} from "../../services/main.service";
 import {saveAs} from "file-saver";
 import {DownloadReportComponent} from "../../../modals/components/download-report/download-report.component";
+import {getFormattedDate} from "../../../app/helpers/date.helper";
 
 @Component({
     selector: 'app-header',
@@ -53,7 +54,8 @@ export class HeaderComponent implements OnInit {
     getExcel(data: {start_date: string, end_date: string}): Subscription {
         return this.mainService.getExcelFile(data).pipe(
             tap((res) => {
-                saveAs(res, "report.xlsx")
+                const fileName = "report_by_" + getFormattedDate(new Date()) + ".xlsx";
+                saveAs(res, fileName)
             }),
         )
             .subscribe();
@@ -99,7 +101,6 @@ export class HeaderComponent implements OnInit {
         dialogRef.afterClosed().pipe(
             tap((result) => {
                 if (result) {
-                    console.log(result);
                     this.getExcel(result);
                 }
             })
