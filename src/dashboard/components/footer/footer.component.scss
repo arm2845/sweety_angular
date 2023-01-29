@@ -21,7 +21,9 @@
         }
         .hours {
             display: flex;
-            justify-content: space-between;
+            .days-label {
+                margin-right: 20px;
+            }
         }
     }
 
