@@ -15,7 +15,7 @@
                         <span class="price">{{product.price}} AMD</span>
                     </div>
                     <div *ngIf="!product.in_stock" class="one-forth">
-                        <span class="message">Product is not available</span>
+                        <span class="message">{{ 'MESSAGES.PRODUCT-NOT-AVAILABLE' |translate }}</span>
                     </div>
                 </div>
                 <p *ngIf="!authUser || userType !== userTypes.admin">

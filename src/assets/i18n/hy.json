@@ -124,7 +124,8 @@
     "ADDED-SUCCESSFULLY": "Ապրանքը հաջողությամբ ավելացվեց:",
     "MODAL-CHOOSE-OPTIONS": "Ընտրեք նախընտրելի տարբերակները",
     "CONFIRM-DELETING": "Վստա՞հ եք, որ ցանկանում եք ջնջել այս ապրանքը։",
-    "CONFIRM-LOG-OUT": "Վստա՞հ եք, որ ցանկանում եք դուրս գալ։"
+    "CONFIRM-LOG-OUT": "Վստա՞հ եք, որ ցանկանում եք դուրս գալ։",
+    "PRODUCT-NOT-AVAILABLE": "Ապրանքը հասանելի չէ"
   },
   "LANGUAGES": {
     "ENGLISH": "English",

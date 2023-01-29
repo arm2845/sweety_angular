@@ -124,7 +124,8 @@
     "ADDED-SUCCESSFULLY": "Item was added successfully.",
     "MODAL-CHOOSE-OPTIONS": "Please choose desired options",
     "CONFIRM-DELETING": "Are you sure you want to delete this item ?",
-    "CONFIRM-LOG-OUT": "Are you sure you want to logout ?"
+    "CONFIRM-LOG-OUT": "Are you sure you want to logout ?",
+    "PRODUCT-NOT-AVAILABLE": "Product is not available"
   },
   "LANGUAGES": {
     "ENGLISH": "English",

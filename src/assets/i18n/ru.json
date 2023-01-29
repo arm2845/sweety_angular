@@ -124,7 +124,8 @@
     "ADDED-SUCCESSFULLY": "Товар был успешно добавлен.",
     "MODAL-CHOOSE-OPTIONS": "Выберите желаемые параметры",
     "CONFIRM-DELETING": "Вы уверены, что хотите удалить этот товар ?",
-    "CONFIRM-LOG-OUT": "Вы действительно хотите выйти ?"
+    "CONFIRM-LOG-OUT": "Вы действительно хотите выйти ?",
+    "PRODUCT-NOT-AVAILABLE": "Товар недоступен"
   },
   "LANGUAGES": {
     "ENGLISH": "English",
