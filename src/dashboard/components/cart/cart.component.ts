@@ -56,10 +56,10 @@ export class CartComponent implements OnInit {
         let dialogRef = this.dialog.open(OrderCheckoutComponent, {
             maxWidth: '90vh',
             width: '300px',
-            height: '450px',
+            height: 'auto',
             data: {
                 total_price: this.total_price,
-                total_count: Number(localStorage.getItem('cartCount')),
+                total_count: this.getCartAvailableProductsCount(),
             }
         });
         dialogRef.afterClosed().pipe(
@@ -76,6 +76,20 @@ export class CartComponent implements OnInit {
         this.products = res.data;
         this.total_price = res.meta.total_price;
         this.updateCartState();
+    }
+
+    productsAreNotAvailable(): boolean {
+        return this.products.every(product => !product.item.in_stock);
+    }
+
+    private getCartAvailableProductsCount(): number {
+        let unavailableProductsCount = 0;
+        this.products.forEach(product => {
+            if (!product.item.in_stock) {
+                unavailableProductsCount += product.count;
+            }
+        })
+        return Number(localStorage.getItem('cartCount')) - unavailableProductsCount;
     }
 
     private updateCartState(): void {

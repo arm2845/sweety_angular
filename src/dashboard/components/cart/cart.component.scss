@@ -39,6 +39,11 @@ app-cart-single-item {
     color: #969595;
 }
 
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 @media (max-width: 992px) {
     app-cart-single-item {
         -webkit-box-flex: 0;
