@@ -12,6 +12,7 @@ export class MenuProduct {
     addings: Adding[];
     order_options?: any;
     image_path: string;
+    in_stock: boolean;
 
     constructor(data: any) {
         this.id = data.id;
@@ -25,6 +26,7 @@ export class MenuProduct {
         this.addings = data.addings;
         this.order_options = data.order_options;
         this.image_path = data.image_path;
+        this.in_stock = data.in_stock;
     }
 
     public static transform(data: any): MenuProduct {

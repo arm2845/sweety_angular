@@ -40,6 +40,12 @@
 
         .right-side {
             width: 100%;
+
+            .message {
+                font-size: 14px;
+                color: #cc2131;
+                font-weight: 500;
+            }
         }
 
         .one-half {
@@ -83,6 +89,11 @@
 
 .filled-icon {
     color: #d62974 !important;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 @media (min-width: 768px) {

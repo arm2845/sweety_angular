@@ -29,6 +29,14 @@
 
     .right-side {
         padding-top: 20px;
+
+        .message {
+            display: flex;
+            justify-content: center;
+            font-size: 14px;
+            color: #cc2131;
+            font-weight: 500;
+        }
     }
 
     .text-container {
@@ -100,6 +108,11 @@
             border-radius: 5px;
         }
     }
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 @media (min-width: 768px) {

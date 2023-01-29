@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+<div class="col-md-12 col-lg-6 d-flex align-self-stretch" [class.disabled]="!product.item.in_stock">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
         <div class="menu-img img">
             <img class="image" [src]="product.item.image_path" alt="">
@@ -33,6 +33,9 @@
                     <div class="add-on-data-single single-row">
                         <span class="text-title">{{ 'MAIN-PHRASES.TOTAL-PRICE' | translate }}</span>
                         <span class="price">{{product.price * product.count}} AMD</span>
+                    </div>
+                    <div *ngIf="!product.item.in_stock" class="one-forth">
+                        <span class="message">Product is not available</span>
                     </div>
                     <div class="icon single-row">
                         <span (click)="openAddOnModal(product)" class="icon-edit edit-icon"></span>

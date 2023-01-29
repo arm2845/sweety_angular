@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
+<div class="col-md-12 col-lg-6 d-flex align-self-stretch" [class.disabled]="!product.in_stock">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
         <div class="menu-img img">
             <img class="image" [src]="product.image_path" alt="">
@@ -13,6 +13,9 @@
                     </div>
                     <div class="one-forth">
                         <span class="price">{{product.price}} AMD</span>
+                    </div>
+                    <div *ngIf="!product.in_stock" class="one-forth">
+                        <span class="message">Product is not available</span>
                     </div>
                 </div>
                 <p *ngIf="!authUser || userType !== userTypes.admin">
