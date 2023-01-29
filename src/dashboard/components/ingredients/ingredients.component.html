@@ -27,7 +27,7 @@
             <ng-container *ngFor="let ingredient of ingredients">
                 <div class="table-row">
                     <div class="table-cell">
-                        {{ingredient.name_en | titlecase}}
+                        {{getName(ingredient) | titlecase}}
                     </div>
                     <div class="table-cell">
                         {{getCategoryName(ingredient.category_id)}}

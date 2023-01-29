@@ -4,6 +4,7 @@ import {finalize, Subscription, tap} from "rxjs";
 import {IngredientsService} from "../../services/ingredients.service";
 import {IngredientCategories, IngredientCategoriesData} from "../../constants/ingredient-categories";
 import {TranslateService} from "@ngx-translate/core";
+import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
 
 @Component({
     selector: 'app-ingredients',
@@ -60,6 +61,10 @@ export class IngredientsComponent implements OnInit {
 
     closeDropdown(): void {
         document.getElementById("myDropdown").classList.remove("show");
+    }
+
+    getName(ingredient: Ingredient): string {
+        return getTranslatedProductName(ingredient);
     }
 
     private getFilteredAndSearchedData(): void {
