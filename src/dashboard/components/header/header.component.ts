@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit {
     openConfirmationModal() {
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',
-            height: '205px',
+            height: 'auto',
             data: {
                 message: this.confirmLogoutMessage,
             }
@@ -96,7 +96,7 @@ export class HeaderComponent implements OnInit {
     openDownloadExcelModal() {
         let dialogRef = this.dialog.open(DownloadReportComponent, {
             width: '400px',
-            height: '360px',
+            height: 'auto',
         });
         dialogRef.afterClosed().pipe(
             tap((result) => {
