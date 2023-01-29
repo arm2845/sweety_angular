@@ -1,6 +1,8 @@
 export const doubleAddingPrice = 400;
 export const tripleAddingPrice = 600;
 
+export const productIdsIncludingAddOnPrice = [10, 12];
+
 export const SugarOptions = {
     without: 1,
     medium: 2,

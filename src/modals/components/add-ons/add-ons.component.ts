@@ -1,11 +1,10 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ProductAdditionalData} from "../../../dashboard/interfaces/product-additional-data";
-import {SugarOptions} from "../../../dashboard/constants/add-on-data";
+import {productIdsIncludingAddOnPrice, SugarOptions} from "../../../dashboard/constants/add-on-data";
 import {ProductWithAddOn} from "../../../dashboard/interfaces/product-with-add-on";
 import {getAddOnPrice} from "../../../app/helpers/addOns.helper";
 import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
-import {MenuProduct} from "../../../dashboard/models/menu-product";
 
 @Component({
     selector: 'app-add-ons',
@@ -71,6 +70,10 @@ export class AddOnsComponent implements OnInit {
 
     setAddingOptionAndUpdatePrice(id: number) {
         const index = this.selectedAddings.indexOf(id);
+        if (productIdsIncludingAddOnPrice.includes(this.product.id)) {
+            index === -1 ? this.selectedAddings = [id] : this.selectedAddings.push(id);
+            return;
+        }
         index === -1 ? this.selectedAddings.push(id) : this.selectedAddings.splice(index, 1);
         this.addingPrice = this.selectedAddings.length ? getAddOnPrice(this.selectedAddings, this.product) : 0;
     }

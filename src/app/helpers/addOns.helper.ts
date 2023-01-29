@@ -2,6 +2,7 @@ import {AddOnOptionsData, doubleAddingPrice, tripleAddingPrice} from "../../dash
 import {TranslateService} from "@ngx-translate/core";
 import {Injectable} from "@angular/core";
 import {ProductWithAddOn} from "../../dashboard/interfaces/product-with-add-on";
+import {productIdsIncludingAddOnPrice} from "../../dashboard/constants/add-on-data";
 
 @Injectable({
     providedIn: 'root'
@@ -27,7 +28,7 @@ export class AddOnsHelper {
 }
 
 export function getAddOnPrice(addingIds: number[], product: ProductWithAddOn): number {
-    if (product.id === 12 || product.id === 10) {
+    if (productIdsIncludingAddOnPrice.includes(product.id)) {
         return 0;
     }
     const count = addingIds.length;
