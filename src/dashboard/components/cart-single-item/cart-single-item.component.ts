@@ -10,6 +10,8 @@ import {CartService} from "../../services/cart.service";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {TranslateService} from "@ngx-translate/core";
+import {MenuProduct} from "../../models/menu-product";
+import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -34,7 +36,8 @@ export class CartSingleItemComponent implements OnInit {
     ngOnInit(): void {}
 
     getSugarOption(): string {
-        return this.translate.instant(SugarOptionsData.find(item => item.id === this.product.sugar).name);
+        return this.product.sugar ? this.translate.instant(
+            SugarOptionsData.find(item => item.id === this.product.sugar).name) : '-';
     }
 
     getAddingName(id: number): string {
@@ -45,7 +48,7 @@ export class CartSingleItemComponent implements OnInit {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '320px',
-            height: '400px',
+            height: 'auto',
             data: {
                 product: product,
                 confirm_button_name: 'BUTTONS.SAVE',
@@ -107,6 +110,10 @@ export class CartSingleItemComponent implements OnInit {
             },
             duration: 5000,
         });
+    }
+
+    getName(product: MenuProduct): string {
+        return getTranslatedProductName(product);
     }
 
 }

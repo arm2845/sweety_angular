@@ -87,7 +87,7 @@ export class ProductSingleComponent implements OnInit {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '320px',
-            height: '400px',
+            height: 'auto',
             data: {
                 product: product,
                 confirm_button_name: 'BUTTONS.ADD',

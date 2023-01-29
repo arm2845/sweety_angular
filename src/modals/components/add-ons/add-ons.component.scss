@@ -1,7 +1,7 @@
 ::ng-deep {
     mat-dialog-container {
         background-color: #f2f2f0 !important;
-        padding: 14px !important;
+        padding: 24px 14px !important;
     }
 }
 
@@ -34,6 +34,9 @@ mat-dialog-content {
     }
     .single-option {
         margin: 14px 0;
+        &.quantity {
+            margin-top: -7px;
+        }
         .option-name {
             font-size: 16px;
             color: #969595;
@@ -42,6 +45,7 @@ mat-dialog-content {
         .options {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             margin-top: 4px;
             .one-forth {
                 font-size: 13px;
@@ -59,6 +63,7 @@ mat-dialog-content {
             .one-third {
                 @extend .one-forth;
                 width: 33%;
+                margin-bottom: 5px;
             }
         }
         .quantity-container {

@@ -1,6 +1,7 @@
 import {AddOnOptionsData, doubleAddingPrice, tripleAddingPrice} from "../../dashboard/constants/add-on-data";
 import {TranslateService} from "@ngx-translate/core";
 import {Injectable} from "@angular/core";
+import {ProductWithAddOn} from "../../dashboard/interfaces/product-with-add-on";
 
 @Injectable({
     providedIn: 'root'
@@ -25,7 +26,10 @@ export class AddOnsHelper {
     }
 }
 
-export function getAddOnPrice(addingIds: number[]): number {
+export function getAddOnPrice(addingIds: number[], product: ProductWithAddOn): number {
+    if (product.id === 12 || product.id === 10) {
+        return 0;
+    }
     const count = addingIds.length;
     switch (count) {
         case 1: return AddOnOptionsData.find(item => item.id === addingIds[0]).price;
