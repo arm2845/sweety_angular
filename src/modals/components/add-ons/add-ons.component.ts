@@ -61,6 +61,7 @@ export class AddOnsComponent implements OnInit {
             selectedAddings: this.data.product?.adding_ids || [],
             adding_price: this.data.product?.adding_price || 0,
             allAvailableAddings: this.data.product.addings || this.data.product?.item?.addings,
+            product_id: this.data.product?.item?.id || this.data.product.id,
         };
     }
 
@@ -70,7 +71,7 @@ export class AddOnsComponent implements OnInit {
 
     setAddingOptionAndUpdatePrice(id: number) {
         const index = this.selectedAddings.indexOf(id);
-        if (productIdsIncludingAddOnPrice.includes(this.product.id)) {
+        if (productIdsIncludingAddOnPrice.includes(this.product.product_id)) {
             index === -1 ? this.selectedAddings = [id] : this.selectedAddings.push(id);
             return;
         }
