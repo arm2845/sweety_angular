@@ -50,7 +50,7 @@
                         <ng-container *ngFor="let item of order.items">
                             <div class="single-item">
                                 <div class="image">
-                                    <img src="assets/images/mojito.jpg" alt="">
+                                    <img [src]="item.image_path" alt="">
                                 </div>
                                 <div class="info">
                                     <div class="name">{{item.name_en | titlecase}}</div>
@@ -79,6 +79,9 @@
                         </ng-container>
                         <div class="payment-type">
                             {{ 'MAIN-PHRASES.PAYMENT-TYPE.NAME' | translate }}: {{getPaymentType(order.payment_type)}}
+                        </div>
+                        <div class="payment-type">
+                            {{ 'MAIN-PHRASES.ORDER.NOTES' | translate }}: {{order.note}}
                         </div>
                         <div class="total-info">
                             <span>{{ 'MAIN-PHRASES.TOTAL' | translate }}</span>
