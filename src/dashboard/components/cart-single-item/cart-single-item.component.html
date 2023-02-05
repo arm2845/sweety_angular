@@ -9,11 +9,11 @@
                     <div class="add-on-data-single single-row centered">
                         <span class="name">{{getName(product.item) | titlecase}}</span>
                     </div>
-                    <div class="add-on-data-single single-row">
+                    <div *ngIf="product.item.has_sugar" class="add-on-data-single single-row">
                         <span class="text-title">{{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}</span>
                         <span class="add-on-text">{{getSugarOption()}}</span>
                     </div>
-                    <div class="add-on-data-single single-row">
+                    <div *ngIf="product.adding_ids.length" class="add-on-data-single single-row">
                         <div class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
                         <div class="main-text">
                             <ng-container *ngIf="product.adding_ids.length; else noAddingTpl">
