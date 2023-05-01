@@ -19,6 +19,7 @@ export const AddingOptions = {
     mars: 7,
     twix: 8,
     oreo: 9,
+    kinder: 10,
 }
 
 export const SugarOptionsData = [
@@ -82,4 +83,9 @@ export const AddOnOptionsData = [
         name: 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.OREO',
         price: 0,
     },
+    {
+        id: AddingOptions.kinder,
+        name: 'PRODUCTS.PROPERTIES.ADD-ON.OPTIONS.KINDER',
+        price: 0,
+    }
 ]
