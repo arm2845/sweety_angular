@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ProductAdditionalData} from "../../../dashboard/interfaces/product-additional-data";
 import {
     MIX_ID,
-    MIX_PRICE_RANGE,
     productIdsIncludingAddOnPrice,
     SugarOptions
 } from "../../../dashboard/constants/add-on-data";
@@ -27,16 +26,20 @@ export class AddOnsComponent implements OnInit {
     allAddings: any[];
     addingPrice: number;
     readonly mix_id = MIX_ID;
-    readonly mix_price_range = MIX_PRICE_RANGE;
     readonly minAllowedQuantity = 1;
     readonly sugarOptions = SugarOptions;
 
     get productAdditionalData(): ProductAdditionalData {
-        return {
+        const data = {
             adding_ids: this.selectedAddings,
             sugar: this.selectedSugarOption,
             count: this.product.count,
         };
+        if (this.product.id === this.mix_id) {
+            return {...data, ingredient_ids: this.getSelectedIngredientIds()};
+        } else {
+            return data;
+        }
     }
 
     get createdOrUpdatedProductData() {
@@ -140,4 +143,9 @@ export class AddOnsComponent implements OnInit {
         });
     }
 
+    private getSelectedIngredientIds(): number[] {
+        const ids: number[] = [];
+        this.selectedIngredients.forEach(it => ids.push(it.id));
+        return ids;
+    }
 }
