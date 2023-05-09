@@ -11,4 +11,5 @@ export interface ProductWithAddOn {
     allAvailableAddings?: any[];
     adding_price: number;
     product_id: number;
+    ingredients: any[];
 }

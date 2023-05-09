@@ -13,6 +13,8 @@ export class MenuProduct {
     order_options?: any;
     image_path: string;
     in_stock: boolean;
+    has_changing_price: boolean;
+    price_includes_addings: boolean;
 
     constructor(data: any) {
         this.id = data.id;
@@ -27,6 +29,8 @@ export class MenuProduct {
         this.order_options = data.order_options;
         this.image_path = data.image_path;
         this.in_stock = data.in_stock;
+        this.has_changing_price = data.has_changing_price;
+        this.price_includes_addings = data.price_includes_addings;
     }
 
     public static transform(data: any): MenuProduct {

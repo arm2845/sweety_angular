@@ -12,7 +12,7 @@
                               [class.filled-icon]="product.is_favourite" class="icon-heart favorite-icon"></span>
                     </div>
                     <div class="one-forth">
-                        <span class="price">{{product.price}} AMD</span>
+                        <span class="price">{{product.price || mix_price_range}} AMD</span>
                     </div>
                     <div *ngIf="!product.in_stock" class="one-forth">
                         <span class="message">{{ 'MESSAGES.PRODUCT-NOT-AVAILABLE' |translate }}</span>

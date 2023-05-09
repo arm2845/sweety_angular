@@ -51,7 +51,8 @@
           "KINDER": "Kinder"
         }
       },
-      "QUANTITY": "Quantity"
+      "QUANTITY": "Quantity",
+      "FRUITS": "Fruits"
     }
   },
   "INGREDIENTS": {
@@ -126,7 +127,8 @@
     "MODAL-CHOOSE-OPTIONS": "Please choose desired options",
     "CONFIRM-DELETING": "Are you sure you want to delete this item ?",
     "CONFIRM-LOG-OUT": "Are you sure you want to logout ?",
-    "PRODUCT-NOT-AVAILABLE": "Product is not available"
+    "PRODUCT-NOT-AVAILABLE": "Product is not available",
+    "MIX-MAX-ALLOWED": "You can't choose more than 3 fruits."
   },
   "LANGUAGES": {
     "ENGLISH": "English",

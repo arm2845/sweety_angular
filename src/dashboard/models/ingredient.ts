@@ -1,3 +1,5 @@
+import {ADDING_TYPES} from "./adding";
+
 export class Ingredient {
     id: number;
     name_hy: string;
@@ -6,6 +8,8 @@ export class Ingredient {
     category_id: number;
     category_name: string;
     in_stock: boolean;
+    price: number;
+    type: ADDING_TYPES;
 
     constructor(data: any) {
         this.id = data.id;
@@ -15,6 +19,8 @@ export class Ingredient {
         this.category_id = data.category_id;
         this.category_name = data.category_name;
         this.in_stock = data.in_stock;
+        this.price = data.price;
+        this.type = data.type;
     }
 
     static transform(data: any): Ingredient {

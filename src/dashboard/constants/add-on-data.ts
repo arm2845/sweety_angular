@@ -2,6 +2,8 @@ export const doubleAddingPrice = 400;
 export const tripleAddingPrice = 600;
 
 export const productIdsIncludingAddOnPrice = [10, 12];
+export const MIX_ID = 50;
+export const MIX_PRICE_RANGE = '800 - 1400';
 
 export const SugarOptions = {
     without: 1,
@@ -10,16 +12,16 @@ export const SugarOptions = {
 }
 
 export const AddingOptions = {
-    milk: 1,
-    iceCream: 2,
-    nutella: 3,
-    snickers: 4,
-    kitKat: 5,
-    bounty: 6,
-    mars: 7,
-    twix: 8,
-    oreo: 9,
-    kinder: 10,
+    milk: 23,
+    iceCream: 24,
+    nutella: 25,
+    snickers: 26,
+    kitKat: 27,
+    bounty: 28,
+    mars: 29,
+    twix: 30,
+    oreo: 31,
+    kinder: 32
 }
 
 export const SugarOptionsData = [

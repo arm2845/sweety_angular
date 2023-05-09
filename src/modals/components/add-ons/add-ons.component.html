@@ -33,6 +33,16 @@
             </ng-container>
         </div>
     </div>
+    <div *ngIf="product.id === mix_id" class="single-option">
+        <div class="option-name">{{ 'PRODUCTS.PROPERTIES.FRUITS' | translate }}</div>
+        <div class="options">
+            <ng-container *ngFor="let item of product.ingredients">
+                <span class="one-third" [class.selected]="ingredientIsSelected(item)"
+                      (click)="setIngredientsAndUpdatePrice(item)">
+                    {{ getProductName(item) | titlecase }}</span>
+            </ng-container>
+        </div>
+    </div>
     <div class="single-option quantity">
         <div class="option-name">{{ 'PRODUCTS.PROPERTIES.QUANTITY' | translate }}</div>
         <div class="quantity-container">
@@ -44,7 +54,8 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button class="btn btn-primary" [class.disabled]="!selectedSugarOption && !selectedAddings.length"
+    <button class="btn btn-primary" [class.disabled]="!selectedSugarOption && !selectedAddings.length ||
+    (product.id === mix_id ? !selectedIngredients.length : false)"
             mat-button [mat-dialog-close]="createdOrUpdatedProductData">{{data.confirm_button_name | translate}}</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">{{ 'BUTTONS.DISCARD' | translate }}</button>
 </mat-dialog-actions>

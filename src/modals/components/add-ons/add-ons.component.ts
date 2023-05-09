@@ -1,10 +1,18 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ProductAdditionalData} from "../../../dashboard/interfaces/product-additional-data";
-import {productIdsIncludingAddOnPrice, SugarOptions} from "../../../dashboard/constants/add-on-data";
+import {
+    MIX_ID,
+    MIX_PRICE_RANGE,
+    productIdsIncludingAddOnPrice,
+    SugarOptions
+} from "../../../dashboard/constants/add-on-data";
 import {ProductWithAddOn} from "../../../dashboard/interfaces/product-with-add-on";
 import {getAddOnPrice} from "../../../app/helpers/addOns.helper";
 import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {PopUpNotificationComponent} from "../pop-up-notification/pop-up-notification.component";
+import {TranslateService} from "@ngx-translate/core";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
     selector: 'app-add-ons',
@@ -15,8 +23,11 @@ export class AddOnsComponent implements OnInit {
     product: ProductWithAddOn;
     selectedSugarOption: number;
     selectedAddings: number[];
+    selectedIngredients: any[] = [];
     allAddings: any[];
     addingPrice: number;
+    readonly mix_id = MIX_ID;
+    readonly mix_price_range = MIX_PRICE_RANGE;
     readonly minAllowedQuantity = 1;
     readonly sugarOptions = SugarOptions;
 
@@ -36,7 +47,9 @@ export class AddOnsComponent implements OnInit {
     }
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) public data: any
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private snackBar: MatSnackBar,
+        private translate: TranslateService
     ) {
     }
 
@@ -62,6 +75,7 @@ export class AddOnsComponent implements OnInit {
             adding_price: this.data.product?.adding_price || 0,
             allAvailableAddings: this.data.product.addings || this.data.product?.item?.addings,
             product_id: this.data.product?.item?.id || this.data.product.id,
+            ingredients: this.data.product?.item?.ingredients || this.data.product.ingredients
         };
     }
 
@@ -77,6 +91,22 @@ export class AddOnsComponent implements OnInit {
         }
         index === -1 ? this.selectedAddings.push(id) : this.selectedAddings.splice(index, 1);
         this.addingPrice = this.selectedAddings.length ? getAddOnPrice(this.selectedAddings, this.product) : 0;
+    }
+
+    ingredientIsSelected(item: any): boolean {
+        return this.selectedIngredients.findIndex(it => it.id === item.id) !== -1;
+    }
+
+    setIngredientsAndUpdatePrice(item: any): void {
+        const index = this.selectedIngredients.findIndex(it => it.id === item.id);
+        if (index === -1) {
+            this.selectedIngredients.length < 3 ? this.selectedIngredients.push(item) : this.showNotification();
+        } else {
+            this.selectedIngredients.splice(index, 1);
+        }
+        const prices: number[] = [];
+        this.selectedIngredients.forEach(it => prices.push(it.price));
+        this.product.price = prices.length ? Math.max(...prices) : 0;
     }
 
     increase(): void {
@@ -99,6 +129,15 @@ export class AddOnsComponent implements OnInit {
 
     getName(product: ProductWithAddOn): string {
         return getTranslatedProductName(product);
+    }
+
+    private showNotification(): void {
+        this.snackBar.openFromComponent(PopUpNotificationComponent, {
+            data: {
+                message: this.translate.instant('MESSAGES.MIX-MAX-ALLOWED'),
+            },
+            duration: 5000,
+        });
     }
 
 }

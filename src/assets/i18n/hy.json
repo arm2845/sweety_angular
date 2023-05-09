@@ -51,7 +51,8 @@
           "KINDER": "Kinder"
         }
       },
-      "QUANTITY": "Քանակ"
+      "QUANTITY": "Քանակ",
+      "FRUITS": "Մրգեր"
     }
   },
   "INGREDIENTS": {
@@ -126,7 +127,8 @@
     "MODAL-CHOOSE-OPTIONS": "Ընտրեք նախընտրելի տարբերակները",
     "CONFIRM-DELETING": "Վստա՞հ եք, որ ցանկանում եք ջնջել այս ապրանքը։",
     "CONFIRM-LOG-OUT": "Վստա՞հ եք, որ ցանկանում եք դուրս գալ։",
-    "PRODUCT-NOT-AVAILABLE": "Ապրանքը հասանելի չէ"
+    "PRODUCT-NOT-AVAILABLE": "Ապրանքը հասանելի չէ",
+    "MIX-MAX-ALLOWED": "Դուք չեք կարող ընտրել 3-ից ավելի միրգ։"
   },
   "LANGUAGES": {
     "ENGLISH": "English",
