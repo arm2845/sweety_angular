@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {finalize, Subscription, tap} from "rxjs";
-import {AddOnOptionsData, SugarOptionsData} from "../../constants/add-on-data";
-import {AddOnsHelper} from "../../../app/helpers/addOns.helper";
+import {Subscription, tap} from "rxjs";
+import {SugarOptionsData} from "../../constants/add-on-data";
 import {OrderService} from "../../services/order.service";
 import {OrderStatuses, OrderStatusesData} from "../../constants/order-statuses";
 import {PaymentTypesData} from "../../constants/payment-types";
@@ -9,6 +8,9 @@ import {Order} from "../../models/order";
 import {UserTypes} from "../../../auth/constants/user-types";
 import {environment} from "../../../environments/environment";
 import {TranslateService} from "@ngx-translate/core";
+import {MenuProduct} from "../../models/menu-product";
+import {Adding} from "../../models/adding";
+import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
 
 @Component({
     selector: 'app-order',
@@ -25,7 +27,6 @@ export class OrderComponent implements OnInit {
 
     constructor(
         private orderService: OrderService,
-        private addOnHelper: AddOnsHelper,
         private translate: TranslateService,
     ) {
     }
@@ -45,12 +46,13 @@ export class OrderComponent implements OnInit {
         return this.translate.instant(SugarOptionsData.find(item => item.id === id).name);
     }
 
-    getAddingName(id: number): string {
-        return this.translate.instant(AddOnOptionsData.find(item => item.id === id).name);
+    getAddingName(item: MenuProduct, id: number): string {
+        const adding = item.addings.find(adding => adding.id === id);
+        return this.getName(adding);
     }
 
-    getAddOns(ids: number[]): string {
-        return this.addOnHelper.getAddOnsAsString(ids);
+    getName(product: MenuProduct | Adding): string {
+        return getTranslatedProductName(product);
     }
 
     getOrderStatus(status: number): string {

@@ -4,7 +4,7 @@ import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CartItem} from "../../models/cart-item";
-import {SugarOptionsData, AddOnOptionsData} from "../../constants/add-on-data";
+import {SugarOptionsData} from "../../constants/add-on-data";
 import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
 import {CartService} from "../../services/cart.service";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
@@ -12,6 +12,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {TranslateService} from "@ngx-translate/core";
 import {MenuProduct} from "../../models/menu-product";
 import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {Adding} from "../../models/adding";
 
 @Component({
     selector: 'app-cart-single-item',
@@ -41,7 +42,8 @@ export class CartSingleItemComponent implements OnInit {
     }
 
     getAddingName(id: number): string {
-        return this.translate.instant(AddOnOptionsData.find(item => item.id === id).name);
+        const adding = this.product.item.addings.find(adding => adding.id === id);
+        return this.getName(adding);
     }
 
     openAddOnModal(product: CartItem) {
@@ -112,7 +114,7 @@ export class CartSingleItemComponent implements OnInit {
         });
     }
 
-    getName(product: MenuProduct): string {
+    getName(product: MenuProduct | Adding): string {
         return getTranslatedProductName(product);
     }
 

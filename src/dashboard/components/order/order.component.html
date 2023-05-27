@@ -61,7 +61,7 @@
                                         <div class="main-text">
                                             <ng-container *ngIf="item.order_options.adding_ids.length; else noAddingTpl">
                                                 <ng-container *ngFor="let id of item.order_options.adding_ids">
-                                                    <span class="add-on-text">{{getAddingName(id) | translate}}</span>
+                                                    <span class="add-on-text">{{getAddingName(item, id) | titlecase}}</span>
                                                 </ng-container>
                                             </ng-container>
                                             <ng-template #noAddingTpl>
