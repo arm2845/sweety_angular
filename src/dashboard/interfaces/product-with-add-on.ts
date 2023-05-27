@@ -1,4 +1,5 @@
 import {Mix} from "../models/mix";
+import {Adding} from "../models/adding";
 
 export interface ProductWithAddOn {
     id: number;
@@ -9,8 +10,8 @@ export interface ProductWithAddOn {
     count: number;
     sugar?: number;
     has_sugar?: boolean;
-    selectedAddings?: any[];
-    allAvailableAddings?: any[];
+    selectedAddings?: number[];
+    allAvailableAddings?: Adding[];
     adding_price: number;
     product_id: number;
     mixes: Mix[];
