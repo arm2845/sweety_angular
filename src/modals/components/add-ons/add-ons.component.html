@@ -26,10 +26,10 @@
     <div *ngIf="allAddings.length" class="single-option">
         <div class="option-name">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
         <div class="options">
-            <ng-container *ngFor="let item of allAddings">
-                <span class="one-third" [class.selected]="selectedAddings.includes(item.id)"
-                      (click)="setAddingAndUpdatePrice(item.id)">
-                    {{ getProductName(item) | titlecase }}</span>
+            <ng-container *ngFor="let adding of allAddings">
+                <span class="one-third" [class.selected]="selectedAddings.includes(adding.id)"
+                      (click)="setAddingAndUpdatePrice(adding.id)">
+                    {{ getProductName(adding) | titlecase }}</span>
             </ng-container>
         </div>
     </div>
@@ -55,7 +55,7 @@
 </mat-dialog-content>
 <mat-dialog-actions>
     <button class="btn btn-primary" [class.disabled]="!selectedSugarOption && !selectedAddings.length ||
-    (product.id === mix_id ? !selectedMixes.length : false)"
+    (product.product_id === mix_id ? !selectedMixes.length : false)"
             mat-button [mat-dialog-close]="createdOrUpdatedProductData">{{data.confirm_button_name | translate}}</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">{{ 'BUTTONS.DISCARD' | translate }}</button>
 </mat-dialog-actions>
