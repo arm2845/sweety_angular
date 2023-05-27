@@ -20,8 +20,9 @@ export class AddOnsComponent implements OnInit {
     product: ProductWithAddOn;
     selectedSugarOption: number;
     selectedAddings: number[];
-    selectedMixes: Mix[] = [];
+    selectedMixes: number[];
     allAddings: Adding[];
+    allMixes: Mix[];
     addingPrice: number;
     readonly mix_id = MIX_ID;
     readonly minAllowedQuantity = 1;
@@ -30,7 +31,7 @@ export class AddOnsComponent implements OnInit {
     get productAdditionalData(): ProductAdditionalData {
         return  {
             adding_ids: this.selectedAddings,
-            mix_ids: this.getSelectedMixIds(),
+            mix_ids: this.selectedMixes,
             sugar: this.selectedSugarOption,
             count: this.product.count,
         };
@@ -54,7 +55,9 @@ export class AddOnsComponent implements OnInit {
         this.product = this.getProductData();
         this.selectedSugarOption = this.product.sugar;
         this.selectedAddings = this.product.selectedAddings;
-        this.allAddings = this.product.allAvailableAddings;
+        this.selectedMixes = this.product.selectedMixes;
+        this.allAddings = this.product.allAddings;
+        this.allMixes = this.product.allMixes;
         this.addingPrice = this.product.adding_price;
     }
 
@@ -69,10 +72,11 @@ export class AddOnsComponent implements OnInit {
             sugar: this.data.product?.sugar || null,
             has_sugar: this.data.product.has_sugar || this.data.product?.item?.has_sugar,
             selectedAddings: this.data.product?.adding_ids || [],
+            selectedMixes: this.data.product?.mix_ids || [],
             adding_price: this.data.product?.adding_price || 0,
-            allAvailableAddings: this.data.product.addings || this.data.product?.item?.addings,
+            allAddings: this.data.product.addings || this.data.product?.item?.addings,
+            allMixes: this.data.product.mixes || this.data.product?.item?.mixes,
             product_id: this.data.product?.item?.id || this.data.product.id,
-            mixes: this.data.product?.item?.mixes || this.data.product.mixes,
             price_includes_addings: this.data.product?.item?.price_includes_addings || this.data.product.price_includes_addings
         };
     }
@@ -81,7 +85,7 @@ export class AddOnsComponent implements OnInit {
         this.selectedSugarOption = id;
     }
 
-    setAddingOptionAndUpdatePrice(id: number): void {
+    setAddingAndUpdatePrice(id: number): void {
         const index = this.selectedAddings.indexOf(id);
         if (this.product.price_includes_addings) {
             index === -1 ? this.selectedAddings = [id] : this.selectedAddings.push(id);
@@ -92,18 +96,18 @@ export class AddOnsComponent implements OnInit {
     }
 
     mixIsSelected(mix: Mix): boolean {
-        return this.selectedMixes.findIndex(it => it.id === mix.id) !== -1;
+        return this.allMixes.findIndex(it => it.id === mix.id) !== -1;
     }
 
-    setMixesAndUpdatePrice(mix: Mix): void {
-        const index = this.selectedMixes.findIndex(it => it.id === mix.id);
+    setMixesAndUpdatePrice(id: number): void {
+        const index = this.selectedMixes.indexOf(id);
         if (index === -1) {
-            this.selectedMixes.length < 3 ? this.selectedMixes.push(mix) : this.showNotification();
+            this.selectedMixes.length < 3 ? this.selectedMixes.push(id) : this.showNotification();
         } else {
             this.selectedMixes.splice(index, 1);
         }
         const prices: number[] = [];
-        this.selectedMixes.forEach(it => prices.push(it.price));
+        this.selectedMixes.forEach(mixId => prices.push(this.allMixes.find(mix => mix.id === mixId).price));
         this.product.price = prices.length ? Math.max(...prices) : 0;
     }
 
@@ -132,11 +136,5 @@ export class AddOnsComponent implements OnInit {
             },
             duration: 5000,
         });
-    }
-
-    private getSelectedMixIds(): number[] {
-        const ids: number[] = [];
-        this.selectedMixes.forEach(it => ids.push(it.id));
-        return ids;
     }
 }

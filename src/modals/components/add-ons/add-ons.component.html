@@ -28,17 +28,17 @@
         <div class="options">
             <ng-container *ngFor="let item of allAddings">
                 <span class="one-third" [class.selected]="selectedAddings.includes(item.id)"
-                      (click)="setAddingOptionAndUpdatePrice(item.id)">
+                      (click)="setAddingAndUpdatePrice(item.id)">
                     {{ getProductName(item) | titlecase }}</span>
             </ng-container>
         </div>
     </div>
-    <div *ngIf="product.id === mix_id" class="single-option">
+    <div *ngIf="product.product_id === mix_id" class="single-option">
         <div class="option-name">{{ 'PRODUCTS.PROPERTIES.FRUITS' | translate }}</div>
         <div class="options">
-            <ng-container *ngFor="let mix of product.mixes">
-                <span class="one-third" [class.selected]="mixIsSelected(mix)" [class.disabled]="!mix.in_stock"
-                      (click)="setMixesAndUpdatePrice(mix)">
+            <ng-container *ngFor="let mix of allMixes">
+                <span class="one-third" [class.selected]="selectedMixes.includes(mix.id)" [class.disabled]="!mix.in_stock"
+                      (click)="setMixesAndUpdatePrice(mix.id)">
                     {{ getProductName(mix) | titlecase }}</span>
             </ng-container>
         </div>

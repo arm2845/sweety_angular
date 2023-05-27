@@ -11,9 +11,10 @@ export interface ProductWithAddOn {
     sugar?: number;
     has_sugar?: boolean;
     selectedAddings?: number[];
-    allAvailableAddings?: Adding[];
+    selectedMixes?: number[];
+    allAddings?: Adding[];
+    allMixes?: Mix[];
     adding_price: number;
     product_id: number;
-    mixes: Mix[];
     price_includes_addings: boolean;
 }

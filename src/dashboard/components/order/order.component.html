@@ -81,7 +81,7 @@
                             {{ 'MAIN-PHRASES.PAYMENT-TYPE.NAME' | translate }}: {{getPaymentType(order.payment_type)}}
                         </div>
                         <div class="payment-type">
-                            {{ 'MAIN-PHRASES.ORDER.NOTES' | translate }}: {{order.note}}
+                            {{ 'MAIN-PHRASES.ORDER.NOTES' | translate }}: {{order.note || '-'}}
                         </div>
                         <div class="total-info">
                             <span>{{ 'MAIN-PHRASES.TOTAL' | translate }}</span>
