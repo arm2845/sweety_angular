@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MenuProduct} from "../../models/menu-product";
 import {ProductSingleOptions} from "../../constants/product-single-options";
 
@@ -7,16 +7,10 @@ import {ProductSingleOptions} from "../../constants/product-single-options";
     templateUrl: './product-listing.component.html',
     styleUrls: ['./product-listing.component.scss']
 })
-export class ProductListingComponent implements OnInit {
+export class ProductListingComponent {
 
     @Input() products: MenuProduct[] = [];
 
     pageOptions = ProductSingleOptions;
-
-    constructor() {
-    }
-
-    ngOnInit(): void {
-    }
 
 }

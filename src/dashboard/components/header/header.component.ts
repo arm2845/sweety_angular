@@ -42,8 +42,7 @@ export class HeaderComponent implements OnInit {
         public dialog: MatDialog,
         private translate: TranslateService,
         private mainService: MainService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         if (this.authUser && this.userType !== this.userTypes.admin) {
@@ -75,7 +74,7 @@ export class HeaderComponent implements OnInit {
             .subscribe();
     }
 
-    openConfirmationModal() {
+    openConfirmationModal(): void {
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',
             height: 'auto',
@@ -93,7 +92,7 @@ export class HeaderComponent implements OnInit {
             .subscribe();
     }
 
-    openDownloadExcelModal() {
+    openDownloadExcelModal(): void {
         let dialogRef = this.dialog.open(DownloadReportComponent, {
             width: '400px',
             height: 'auto',

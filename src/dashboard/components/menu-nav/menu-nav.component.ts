@@ -23,8 +23,7 @@ export class MenuNavComponent implements OnInit {
         private router: Router,
         private mainService: MainService,
         private translate: TranslateService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.getCategories();

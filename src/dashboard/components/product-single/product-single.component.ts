@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AuthService} from "../../../auth/services/auth.service";
 import {Subscription, tap} from "rxjs";
 import {MenuProduct} from "../../models/menu-product";
@@ -20,7 +20,7 @@ import {MIX_PRICE_RANGE} from "../../constants/add-on-data";
     templateUrl: './product-single.component.html',
     styleUrls: ['./product-single.component.scss']
 })
-export class ProductSingleComponent implements OnInit {
+export class ProductSingleComponent {
     @Input() product: MenuProduct;
     @Input() pageOption: number;
     @Output() removeFromFavorites = new EventEmitter();
@@ -43,10 +43,7 @@ export class ProductSingleComponent implements OnInit {
         public dialog: MatDialog,
         private router: Router,
         private snackBar: MatSnackBar,
-    ) {
-    }
-
-    ngOnInit(): void {}
+    ) {}
 
     changeFavoriteState(): Subscription | void {
         if (!localStorage.getItem('token')) {
@@ -105,7 +102,7 @@ export class ProductSingleComponent implements OnInit {
             .subscribe();
     }
 
-    showNotification() {
+    showNotification(): void {
         this.snackBar.openFromComponent(PopUpNotificationComponent, {
             data: {
                 message: this.message,

@@ -16,8 +16,7 @@ export class FavouritesComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.getFavourites();
@@ -33,7 +32,7 @@ export class FavouritesComponent implements OnInit {
             .subscribe()
     }
 
-    remove(product: MenuProduct) {
+    remove(product: MenuProduct): void {
         const index = this.favourites.findIndex(item => item.id === product.id);
         this.favourites.splice(index, 1);
     }

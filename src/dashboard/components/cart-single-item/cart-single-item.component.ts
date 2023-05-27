@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Subscription, tap} from "rxjs";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {AddOnsComponent} from "../../../modals/components/add-ons/add-ons.component";
@@ -19,7 +19,7 @@ import {Adding} from "../../models/adding";
     templateUrl: './cart-single-item.component.html',
     styleUrls: ['./cart-single-item.component.scss']
 })
-export class CartSingleItemComponent implements OnInit {
+export class CartSingleItemComponent {
     @Input() product: CartItem;
     @Output() itemDeleted = new EventEmitter;
     @Output() cartUpdated = new EventEmitter;
@@ -31,10 +31,7 @@ export class CartSingleItemComponent implements OnInit {
         public dialog: MatDialog,
         private snackBar: MatSnackBar,
         private translate: TranslateService,
-    ) {
-    }
-
-    ngOnInit(): void {}
+    ) {}
 
     getSugarOption(): string {
         return this.product.sugar ? this.translate.instant(
@@ -46,7 +43,7 @@ export class CartSingleItemComponent implements OnInit {
         return this.getName(adding);
     }
 
-    openAddOnModal(product: CartItem) {
+    openAddOnModal(product: CartItem): void {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',
             width: '320px',
@@ -66,7 +63,7 @@ export class CartSingleItemComponent implements OnInit {
             .subscribe();
     }
 
-    openConfirmationModal() {
+    openConfirmationModal(): void {
         const message = this.translate.instant('MESSAGES.CONFIRM-DELETING');
         let dialogRef = this.dialog.open(ConfirmationModalComponent, {
             width: '300px',

@@ -12,7 +12,6 @@ import {getTranslatedProductName} from "../../../app/helpers/language.helper";
     styleUrls: ['./ingredients.component.scss']
 })
 export class IngredientsComponent implements OnInit {
-
     ingredients: Ingredient[];
     allIngredients: Ingredient[];
     isLoading = true;
@@ -23,8 +22,7 @@ export class IngredientsComponent implements OnInit {
     constructor(
         private ingredientsService: IngredientsService,
         private translate: TranslateService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.getIngredients();

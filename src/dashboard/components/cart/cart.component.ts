@@ -26,8 +26,7 @@ export class CartComponent implements OnInit {
         private orderService: OrderService,
         private route: ActivatedRoute,
         private router: Router,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.getCart();
@@ -52,7 +51,7 @@ export class CartComponent implements OnInit {
         this.total_price -= product.count * product.price;
     }
 
-    confirmOrder() {
+    confirmOrder(): void {
         let dialogRef = this.dialog.open(OrderCheckoutComponent, {
             maxWidth: '90vh',
             width: '300px',

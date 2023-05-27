@@ -28,8 +28,7 @@ export class OrderComponent implements OnInit {
     constructor(
         private orderService: OrderService,
         private translate: TranslateService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.userType = Number(localStorage.getItem('userType'));
