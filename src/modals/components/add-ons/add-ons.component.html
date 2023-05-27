@@ -38,7 +38,7 @@
         <div class="options">
             <ng-container *ngFor="let mix of product.mixes">
                 <span class="one-third" [class.selected]="mixIsSelected(mix)" [class.disabled]="!mix.in_stock"
-                      (click)="setIngredientsAndUpdatePrice(mix)">
+                      (click)="setMixesAndUpdatePrice(mix)">
                     {{ getProductName(mix) | titlecase }}</span>
             </ng-container>
         </div>
@@ -55,7 +55,7 @@
 </mat-dialog-content>
 <mat-dialog-actions>
     <button class="btn btn-primary" [class.disabled]="!selectedSugarOption && !selectedAddings.length ||
-    (product.id === mix_id ? !selectedIngredients.length : false)"
+    (product.id === mix_id ? !selectedMixes.length : false)"
             mat-button [mat-dialog-close]="createdOrUpdatedProductData">{{data.confirm_button_name | translate}}</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">{{ 'BUTTONS.DISCARD' | translate }}</button>
 </mat-dialog-actions>

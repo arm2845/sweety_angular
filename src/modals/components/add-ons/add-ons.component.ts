@@ -9,6 +9,7 @@ import {PopUpNotificationComponent} from "../pop-up-notification/pop-up-notifica
 import {TranslateService} from "@ngx-translate/core";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Mix} from "../../../dashboard/models/mix";
+import {Adding} from "../../../dashboard/models/adding";
 
 @Component({
     selector: 'app-add-ons',
@@ -19,24 +20,20 @@ export class AddOnsComponent implements OnInit {
     product: ProductWithAddOn;
     selectedSugarOption: number;
     selectedAddings: number[];
-    selectedIngredients: any[] = [];
-    allAddings: any[];
+    selectedMixes: Mix[] = [];
+    allAddings: Adding[];
     addingPrice: number;
     readonly mix_id = MIX_ID;
     readonly minAllowedQuantity = 1;
     readonly sugarOptions = SugarOptions;
 
     get productAdditionalData(): ProductAdditionalData {
-        const data = {
+        return  {
             adding_ids: this.selectedAddings,
+            mix_ids: this.getSelectedMixIds(),
             sugar: this.selectedSugarOption,
             count: this.product.count,
         };
-        if (this.product.id === this.mix_id) {
-            return {...data, ingredient_ids: this.getSelectedIngredientIds()};
-        } else {
-            return data;
-        }
     }
 
     get createdOrUpdatedProductData() {
@@ -80,11 +77,11 @@ export class AddOnsComponent implements OnInit {
         };
     }
 
-    setSugarOption(id: number) {
+    setSugarOption(id: number): void {
         this.selectedSugarOption = id;
     }
 
-    setAddingOptionAndUpdatePrice(id: number) {
+    setAddingOptionAndUpdatePrice(id: number): void {
         const index = this.selectedAddings.indexOf(id);
         if (this.product.price_includes_addings) {
             index === -1 ? this.selectedAddings = [id] : this.selectedAddings.push(id);
@@ -95,18 +92,18 @@ export class AddOnsComponent implements OnInit {
     }
 
     mixIsSelected(mix: Mix): boolean {
-        return this.selectedIngredients.findIndex(it => it.id === mix.id) !== -1;
+        return this.selectedMixes.findIndex(it => it.id === mix.id) !== -1;
     }
 
-    setIngredientsAndUpdatePrice(item: any): void {
-        const index = this.selectedIngredients.findIndex(it => it.id === item.id);
+    setMixesAndUpdatePrice(mix: Mix): void {
+        const index = this.selectedMixes.findIndex(it => it.id === mix.id);
         if (index === -1) {
-            this.selectedIngredients.length < 3 ? this.selectedIngredients.push(item) : this.showNotification();
+            this.selectedMixes.length < 3 ? this.selectedMixes.push(mix) : this.showNotification();
         } else {
-            this.selectedIngredients.splice(index, 1);
+            this.selectedMixes.splice(index, 1);
         }
         const prices: number[] = [];
-        this.selectedIngredients.forEach(it => prices.push(it.price));
+        this.selectedMixes.forEach(it => prices.push(it.price));
         this.product.price = prices.length ? Math.max(...prices) : 0;
     }
 
@@ -118,10 +115,6 @@ export class AddOnsComponent implements OnInit {
         if (this.product.count > 1) {
             this.product.count -= 1;
         }
-    }
-
-    addingIsAvailable(value: any): boolean {
-        return this.product.allAvailableAddings.findIndex(item => item.id === value) !== -1;
     }
 
     getProductName(product: ProductWithAddOn | Mix): string {
@@ -141,9 +134,9 @@ export class AddOnsComponent implements OnInit {
         });
     }
 
-    private getSelectedIngredientIds(): number[] {
+    private getSelectedMixIds(): number[] {
         const ids: number[] = [];
-        this.selectedIngredients.forEach(it => ids.push(it.id));
+        this.selectedMixes.forEach(it => ids.push(it.id));
         return ids;
     }
 }
