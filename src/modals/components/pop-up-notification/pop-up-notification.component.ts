@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_SNACK_BAR_DATA, MatSnackBarRef} from "@angular/material/snack-bar";
 
 @Component({
@@ -6,15 +6,10 @@ import {MAT_SNACK_BAR_DATA, MatSnackBarRef} from "@angular/material/snack-bar";
     templateUrl: './pop-up-notification.component.html',
     styleUrls: ['./pop-up-notification.component.scss']
 })
-export class PopUpNotificationComponent implements OnInit {
+export class PopUpNotificationComponent {
 
     constructor(
         public sbRef: MatSnackBarRef<PopUpNotificationComponent>,
         @Inject(MAT_SNACK_BAR_DATA) public data: any,
-    ) {
-    }
-
-    ngOnInit(): void {
-    }
-
+    ) {}
 }

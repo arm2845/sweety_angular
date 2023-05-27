@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {OrderData} from "../../../dashboard/interfaces/order-data";
 import {PaymentTypesData} from "../../../dashboard/constants/payment-types";
@@ -8,7 +8,7 @@ import {PaymentTypesData} from "../../../dashboard/constants/payment-types";
     templateUrl: './order-checkout.component.html',
     styleUrls: ['./order-checkout.component.scss']
 })
-export class OrderCheckoutComponent implements OnInit {
+export class OrderCheckoutComponent {
     @ViewChild('comment', { static: true }) textarea: ElementRef;
     paymentTypes = PaymentTypesData;
     selectedPaymentType: number;
@@ -22,13 +22,9 @@ export class OrderCheckoutComponent implements OnInit {
 
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any
-    ) {
-    }
+    ) {}
 
-    ngOnInit(): void {
-    }
-
-    setSelectedValue(id: number) {
+    setSelectedValue(id: number): void {
         this.selectedPaymentType = id;
     }
 

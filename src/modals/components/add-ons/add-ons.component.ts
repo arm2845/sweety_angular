@@ -48,8 +48,7 @@ export class AddOnsComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         private snackBar: MatSnackBar,
         private translate: TranslateService
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.product = this.getProductData();

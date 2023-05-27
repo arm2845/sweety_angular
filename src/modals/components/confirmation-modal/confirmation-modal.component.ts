@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
@@ -6,13 +6,9 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
   templateUrl: './confirmation-modal.component.html',
   styleUrls: ['./confirmation-modal.component.scss']
 })
-export class ConfirmationModalComponent implements OnInit {
+export class ConfirmationModalComponent {
 
   constructor(
       @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
-
-  ngOnInit(): void {
-  }
-
 }
