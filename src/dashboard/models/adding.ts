@@ -27,7 +27,7 @@ export class Adding {
 }
 
 export enum ADDING_TYPES {
-    candy = 1,
+    ingredient = 1,
     adding = 2,
-    fruit = 3
+    mix = 3
 }

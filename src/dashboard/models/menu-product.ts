@@ -1,4 +1,6 @@
 import {Adding} from "./adding";
+import {Ingredient} from "./ingredient";
+import {Mix} from "./mix";
 
 export class MenuProduct {
     id: number;
@@ -10,6 +12,8 @@ export class MenuProduct {
     is_favourite: boolean;
     has_sugar: boolean;
     addings: Adding[];
+    mixes: Mix[];
+    ingredients: Ingredient[];
     order_options?: any;
     image_path: string;
     in_stock: boolean;
@@ -26,6 +30,8 @@ export class MenuProduct {
         this.is_favourite = data.is_favourite;
         this.has_sugar = data.has_sugar;
         this.addings = data.addings;
+        this.mixes = data.mixes;
+        this.ingredients = data.ingredients;
         this.order_options = data.order_options;
         this.image_path = data.image_path;
         this.in_stock = data.in_stock;

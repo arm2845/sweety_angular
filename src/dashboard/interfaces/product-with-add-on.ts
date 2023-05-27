@@ -1,3 +1,5 @@
+import {Mix} from "../models/mix";
+
 export interface ProductWithAddOn {
     id: number;
     name_en: string;
@@ -11,5 +13,6 @@ export interface ProductWithAddOn {
     allAvailableAddings?: any[];
     adding_price: number;
     product_id: number;
-    ingredients: any[];
+    mixes: Mix[];
+    price_includes_addings: boolean;
 }

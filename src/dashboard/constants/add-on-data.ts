@@ -1,7 +1,6 @@
 export const doubleAddingPrice = 400;
 export const tripleAddingPrice = 600;
 
-export const productIdsIncludingAddOnPrice = [10, 12];
 export const MIX_ID = 50;
 export const MIX_PRICE_RANGE = '800 - 1400';
 

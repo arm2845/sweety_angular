@@ -36,10 +36,10 @@
     <div *ngIf="product.id === mix_id" class="single-option">
         <div class="option-name">{{ 'PRODUCTS.PROPERTIES.FRUITS' | translate }}</div>
         <div class="options">
-            <ng-container *ngFor="let item of product.ingredients">
-                <span class="one-third" [class.selected]="ingredientIsSelected(item)"
-                      (click)="setIngredientsAndUpdatePrice(item)">
-                    {{ getProductName(item) | titlecase }}</span>
+            <ng-container *ngFor="let mix of product.mixes">
+                <span class="one-third" [class.selected]="mixIsSelected(mix)" [class.disabled]="!mix.in_stock"
+                      (click)="setIngredientsAndUpdatePrice(mix)">
+                    {{ getProductName(mix) | titlecase }}</span>
             </ng-container>
         </div>
     </div>

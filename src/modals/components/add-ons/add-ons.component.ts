@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ProductAdditionalData} from "../../../dashboard/interfaces/product-additional-data";
 import {
     MIX_ID,
-    productIdsIncludingAddOnPrice,
     SugarOptions
 } from "../../../dashboard/constants/add-on-data";
 import {ProductWithAddOn} from "../../../dashboard/interfaces/product-with-add-on";
@@ -12,6 +11,7 @@ import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
 import {PopUpNotificationComponent} from "../pop-up-notification/pop-up-notification.component";
 import {TranslateService} from "@ngx-translate/core";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Mix} from "../../../dashboard/models/mix";
 
 @Component({
     selector: 'app-add-ons',
@@ -78,7 +78,8 @@ export class AddOnsComponent implements OnInit {
             adding_price: this.data.product?.adding_price || 0,
             allAvailableAddings: this.data.product.addings || this.data.product?.item?.addings,
             product_id: this.data.product?.item?.id || this.data.product.id,
-            ingredients: this.data.product?.item?.ingredients || this.data.product.ingredients
+            mixes: this.data.product?.item?.mixes || this.data.product.mixes,
+            price_includes_addings: this.data.product?.item?.price_includes_addings || this.data.product.price_includes_addings
         };
     }
 
@@ -88,7 +89,7 @@ export class AddOnsComponent implements OnInit {
 
     setAddingOptionAndUpdatePrice(id: number) {
         const index = this.selectedAddings.indexOf(id);
-        if (productIdsIncludingAddOnPrice.includes(this.product.product_id)) {
+        if (this.product.price_includes_addings) {
             index === -1 ? this.selectedAddings = [id] : this.selectedAddings.push(id);
             return;
         }
@@ -96,8 +97,8 @@ export class AddOnsComponent implements OnInit {
         this.addingPrice = this.selectedAddings.length ? getAddOnPrice(this.selectedAddings, this.product) : 0;
     }
 
-    ingredientIsSelected(item: any): boolean {
-        return this.selectedIngredients.findIndex(it => it.id === item.id) !== -1;
+    mixIsSelected(mix: Mix): boolean {
+        return this.selectedIngredients.findIndex(it => it.id === mix.id) !== -1;
     }
 
     setIngredientsAndUpdatePrice(item: any): void {
@@ -126,7 +127,7 @@ export class AddOnsComponent implements OnInit {
         return this.product.allAvailableAddings.findIndex(item => item.id === value) !== -1;
     }
 
-    getProductName(product: ProductWithAddOn): string {
+    getProductName(product: ProductWithAddOn | Mix): string {
         return getTranslatedProductName(product);
     }
 
