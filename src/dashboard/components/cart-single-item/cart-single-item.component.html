@@ -14,7 +14,7 @@
                         <span class="add-on-text">{{getSugarOption()}}</span>
                     </div>
                     <div *ngIf="product.adding_ids.length" class="add-on-data-single single-row">
-                        <div class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
+                        <div class="text-title">{{ 'PRODUCTS.PROPERTIES.ADD-ON' | translate }}</div>
                         <div class="main-text">
                             <ng-container *ngIf="product.adding_ids.length; else noAddingTpl">
                                 <ng-container *ngFor="let id of product.adding_ids">

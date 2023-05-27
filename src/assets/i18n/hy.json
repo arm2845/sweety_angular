@@ -36,21 +36,7 @@
           "SWEET": "Քաղցր"
         }
       },
-      "ADD-ON": {
-        "NAME": "Հավելում",
-        "OPTIONS": {
-          "MILK": "Կաթ",
-          "ICE-CREAM": "Պաղպաղակ",
-          "NUTELLA": "Nutella",
-          "SNICKERS": "Snickers",
-          "KIT-KAT": "Kit-Kat",
-          "BOUNTY": "Bounty",
-          "MARS": "Mars",
-          "TWIX": "Twix",
-          "OREO": "Oreo",
-          "KINDER": "Kinder"
-        }
-      },
+      "ADD-ON": "Հավելում",
       "QUANTITY": "Քանակ",
       "FRUITS": "Մրգեր"
     }

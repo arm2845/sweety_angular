@@ -36,21 +36,7 @@
           "SWEET": "Sweet"
         }
       },
-      "ADD-ON": {
-        "NAME": "Add on",
-        "OPTIONS": {
-          "MILK": "Milk",
-          "ICE-CREAM": "Ice cream",
-          "NUTELLA": "Nutella",
-          "SNICKERS": "Snickers",
-          "KIT-KAT": "Kit-Kat",
-          "BOUNTY": "Bounty",
-          "MARS": "Mars",
-          "TWIX": "Twix",
-          "OREO": "Oreo",
-          "KINDER": "Kinder"
-        }
-      },
+      "ADD-ON": "Add on",
       "QUANTITY": "Quantity",
       "FRUITS": "Fruits"
     }

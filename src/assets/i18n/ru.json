@@ -36,21 +36,7 @@
           "SWEET": "Сладкий"
         }
       },
-      "ADD-ON": {
-        "NAME": "Добавка",
-        "OPTIONS": {
-          "MILK": "Молоко",
-          "ICE-CREAM": "Мороженое",
-          "NUTELLA": "Nutella",
-          "SNICKERS": "Snickers",
-          "KIT-KAT": "Kit-Kat",
-          "BOUNTY": "Bounty",
-          "MARS": "Mars",
-          "TWIX": "Twix",
-          "OREO": "Oreo",
-          "KINDER": "Kinder"
-        }
-      },
+      "ADD-ON": "Добавка",
       "QUANTITY": "Количество",
       "FRUITS": "Фрукты"
     }

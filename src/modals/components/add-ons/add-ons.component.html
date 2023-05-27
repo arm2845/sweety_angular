@@ -24,7 +24,7 @@
         </div>
     </div>
     <div *ngIf="allAddings.length" class="single-option">
-        <div class="option-name">{{ 'PRODUCTS.PROPERTIES.ADD-ON.NAME' | translate }}</div>
+        <div class="option-name">{{ 'PRODUCTS.PROPERTIES.ADD-ON' | translate }}</div>
         <div class="options">
             <ng-container *ngFor="let adding of allAddings">
                 <span class="one-third" [class.selected]="selectedAddings.includes(adding.id)"
