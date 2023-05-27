@@ -11,7 +11,7 @@ import {PopUpNotificationComponent} from "../../../modals/components/pop-up-noti
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {TranslateService} from "@ngx-translate/core";
 import {MenuProduct} from "../../models/menu-product";
-import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {getTranslatedProductName} from "../../../app/helpers/language.helper";
 import {Adding} from "../../models/adding";
 
 @Component({

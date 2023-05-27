@@ -4,7 +4,7 @@ import {ProductAdditionalData} from "../../../dashboard/interfaces/product-addit
 import {MIX_ID, SugarOptions} from "../../../dashboard/constants/add-on-data";
 import {ProductWithAddOn} from "../../../dashboard/interfaces/product-with-add-on";
 import {getAddOnPrice} from "../../../app/helpers/addOns.helper";
-import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {getTranslatedProductName} from "../../../app/helpers/language.helper";
 import {PopUpNotificationComponent} from "../pop-up-notification/pop-up-notification.component";
 import {TranslateService} from "@ngx-translate/core";
 import {MatSnackBar} from "@angular/material/snack-bar";

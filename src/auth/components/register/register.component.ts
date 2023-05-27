@@ -16,8 +16,7 @@ export class RegisterComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private authService: AuthService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.initRegisterForm();
@@ -36,7 +35,7 @@ export class RegisterComponent implements OnInit {
         changePassVisibility(event.target, id);
     }
 
-    registerUser() {
+    registerUser(): void {
         this.authService.register(this.getRegisterFormData())
             .subscribe();
     }

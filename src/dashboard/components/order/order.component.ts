@@ -10,7 +10,7 @@ import {environment} from "../../../environments/environment";
 import {TranslateService} from "@ngx-translate/core";
 import {MenuProduct} from "../../models/menu-product";
 import {Adding} from "../../models/adding";
-import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {getTranslatedProductName} from "../../../app/helpers/language.helper";
 
 @Component({
     selector: 'app-order',

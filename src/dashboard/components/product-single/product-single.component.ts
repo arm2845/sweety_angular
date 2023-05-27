@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 import {UserTypes} from "../../../auth/constants/user-types";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {PopUpNotificationComponent} from "../../../modals/components/pop-up-notification/pop-up-notification.component";
-import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {getTranslatedProductName} from "../../../app/helpers/language.helper";
 import {MIX_PRICE_RANGE} from "../../constants/add-on-data";
 
 @Component({

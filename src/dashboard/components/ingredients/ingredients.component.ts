@@ -4,7 +4,7 @@ import {finalize, Subscription, tap} from "rxjs";
 import {IngredientsService} from "../../services/ingredients.service";
 import {IngredientCategories, IngredientCategoriesData} from "../../constants/ingredient-categories";
 import {TranslateService} from "@ngx-translate/core";
-import {getTranslatedProductName} from "../../../auth/helpers/language.helper";
+import {getTranslatedProductName} from "../../../app/helpers/language.helper";
 
 @Component({
     selector: 'app-ingredients',

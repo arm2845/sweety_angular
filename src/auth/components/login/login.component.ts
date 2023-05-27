@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private authService: AuthService,
-    ) {
-    }
+    ) {}
 
     ngOnInit(): void {
         this.initLoginForm();
@@ -27,7 +26,7 @@ export class LoginComponent implements OnInit {
         changePassVisibility(event.target, id);
     }
 
-    login() {
+    login(): void {
         this.authService.login(this.getLoginFormData())
             .subscribe()
     }
