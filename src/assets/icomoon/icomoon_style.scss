@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?70nvg4');
-  src:  url('fonts/icomoon.eot?70nvg4#iefix') format('embedded-opentype'),
-  url('fonts/icomoon.ttf?70nvg4') format('truetype'),
-  url('fonts/icomoon.woff?70nvg4') format('woff'),
-  url('fonts/icomoon.svg?70nvg4#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?ixu235');
+  src:  url('fonts/icomoon.eot?ixu235#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?ixu235') format('truetype'),
+  url('fonts/icomoon.woff?ixu235') format('woff'),
+  url('fonts/icomoon.svg?ixu235#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -99,6 +99,9 @@
 }
 .icon-file-excel:before {
   content: "\eae2";
+}
+.icon-location:before {
+  content: "\e947";
 }
 .icon-filter:before {
   content: "\e90a";

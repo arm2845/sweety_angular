@@ -24,6 +24,13 @@
                 margin-right: 20px;
             }
         }
+        .address {
+            @extend .hours;
+            flex-direction: column;
+            div span {
+                margin-right: 10px;
+            }
+        }
     }
 
     p, a {

@@ -148,6 +148,10 @@
     "FIND-US": "Найдите нас в Facebook и Instagram.",
     "HOURS": "Открытые часы",
     "DAYS": "Понедельник-Воскресенье",
-    "LOCATION": "Расположение"
+    "LOCATION": "Расположение",
+    "ADDRESS": {
+      "MARGARYAN": "Маргарян 6/3",
+      "HALABYAN": "Алабян 25/2"
+    }
   }
 }

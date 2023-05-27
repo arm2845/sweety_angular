@@ -148,6 +148,10 @@
     "FIND-US": "Find us on Facebook and Instagram.",
     "HOURS": "Open Hours",
     "DAYS": "Monday-Sunday",
-    "LOCATION": "Location"
+    "LOCATION": "Location",
+    "ADDRESS": {
+      "MARGARYAN": "Margaryan 6/3",
+      "HALABYAN": "Halabyan 25/2"
+    }
   }
 }
