@@ -3,7 +3,7 @@ app-product-listing {
 }
 
 .ftco-section {
-    padding: 120px 0 40px 0;
+    padding: 100px 0 40px 0;
     position: relative;
     .up-icon {
         font-size: 32px;
@@ -28,7 +28,7 @@ app-product-listing {
 
     .nav-link-wrap {
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .nav-pills {
@@ -40,10 +40,10 @@ app-product-listing {
         }
 
         .nav-link {
-            padding: 10px 2px !important;
+            padding: 6px 2px !important;
             margin-bottom: 0;
             color: #000000;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             position: relative;
             display: inline-block;
@@ -156,16 +156,6 @@ app-product-listing {
         .nav-pills {
             .nav-link {
                 font-size: 14px;
-            }
-        }
-    }
-}
-
-@media (max-width: 790px) {
-    .ftco-search {
-        .nav-pills {
-            .nav-link {
-                font-size: 15px;
             }
         }
     }

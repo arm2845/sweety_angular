@@ -1,7 +1,7 @@
 .main-container {
     display: inline-block;
     width: 100%;
-    padding: 120px 50px 50px 50px;
+    padding: 100px 50px 50px 50px;
 
     .items-container {
         margin-bottom: 20px;
@@ -16,7 +16,7 @@
                 border-bottom: 1px solid #e6e6e6;
                 margin: 0 10px -10px 10px;
                 .title {
-                    font-size: 24px;
+                    font-size: 16px;
                     font-weight: bold;
                 }
                 .status {
@@ -49,17 +49,17 @@
                 align-items: center;
                 margin: 10px;
                 padding-top: 10px;
-                font-size: 20px;
                 .name {
                     font-weight: bold;
                     color: #EABE5E;
                     margin-right: 10px;
+                    font-size: 16px;
                 }
                 .sub-name {
                     display: flex;
                     align-items: baseline;
-                    font-size: 16px;
-                    line-height: 24px;
+                    font-size: 14px;
+                    line-height: 20px;
                     .title-text {
                         width: fit-content;
                         margin-right: 5px;
@@ -94,7 +94,7 @@
                 border-bottom: 1px solid #e6e6e6;
             }
             .total-info {
-                font-size: 24px;
+                font-size: 16px;
                 display: flex;
                 justify-content: space-between;
                 padding: 5px 10px;
@@ -106,8 +106,8 @@
             .payment-type {
                 @extend .total-info;
                 padding: 0 10px;
-                font-size: 16px;
-                line-height: 16px;
+                font-size: 14px;
+                line-height: 14px;
                 margin-bottom: 10px;
             }
         }
@@ -115,8 +115,8 @@
     }
 
     .header {
-        margin-bottom: 55px;
-        font-size: 26px;
+        margin-bottom: 40px;
+        font-size: 20px;
         text-transform: capitalize;
         font-weight: 600;
         border-bottom: 1px solid #666666;
@@ -124,7 +124,7 @@
 }
 
 .no-data-text {
-    font-size: 18px;
+    font-size: 16px;
     color: #969595;
     text-align: center;
 }
@@ -152,17 +152,11 @@
     .main-container {
         .items-container {
             .order-container {
-                .total-info {
-                    font-size: 20px;
-                }
                 .payment-type {
                     font-size: 12px;
                     line-height: 14px;
                 }
                 .header {
-                    .title {
-                        font-size: 20px;
-                    }
                     .status {
                         width: 94px;
                         height: 24px;
@@ -170,14 +164,6 @@
                     }
                     .status-big {
                         width: 124px;
-                    }
-                }
-                .single-item {
-                    .name, .quantity {
-                        font-size: 18px;
-                    }
-                    .price {
-                        font-size: 18px;
                     }
                 }
             }

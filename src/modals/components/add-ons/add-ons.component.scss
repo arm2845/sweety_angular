@@ -19,21 +19,21 @@ mat-dialog-content {
     .header {
         display: flex;
         justify-content: space-between;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         .price {
             color: #EABE5E;
         }
     }
     .description {
-        font-size: 15px;
+        font-size: 14px;
         color: #969595;
     }
     .single-option {
         margin: 14px 0;
 
         .option-name {
-            font-size: 16px;
+            font-size: 14px;
             color: #969595;
             text-transform: uppercase;
         }
@@ -43,7 +43,7 @@ mat-dialog-content {
             flex-wrap: wrap;
             margin-top: 4px;
             .one-forth {
-                font-size: 13px;
+                font-size: 12px;
                 width: 20%;
                 border-radius: 15px;
                 border: 1px solid #e6e6e6;
