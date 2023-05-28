@@ -1,7 +1,7 @@
 <mat-dialog-content>
     <div class="header">
         <span class="name">{{getName(product) | titlecase}}</span>
-        <span class="price">{{(product.price + addingPrice) * product.count}} AMD</span>
+        <span class="price">{{(product.product_price + addingPrice) * product.count}} AMD</span>
     </div>
     <div class="description">
         {{ 'MESSAGES.MODAL-CHOOSE-OPTIONS' | translate }}
@@ -38,7 +38,7 @@
         <div class="options">
             <ng-container *ngFor="let mix of allMixes">
                 <span class="one-third" [class.selected]="selectedMixes.includes(mix.id)" [class.disabled]="!mix.in_stock"
-                      (click)="setMixesAndUpdatePrice(mix.id)">
+                      (click)="setMixAndUpdatePrice(mix.id)">
                     {{ getProductName(mix) | titlecase }}</span>
             </ng-container>
         </div>
@@ -54,8 +54,9 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button class="btn btn-primary" [class.disabled]="!selectedSugarOption && !selectedAddings.length ||
-    (product.product_id === mix_id ? !selectedMixes.length : false)"
+    <button class="btn btn-primary" [class.disabled]="(!selectedSugarOption && product.has_sugar) ||
+     (product.allAddings.length && !selectedAddings.length && product.price_includes_addings) ||
+     (product.product_id === mix_id ? !selectedMixes.length : false)"
             mat-button [mat-dialog-close]="createdOrUpdatedProductData">{{data.confirm_button_name | translate}}</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">{{ 'BUTTONS.DISCARD' | translate }}</button>
 </mat-dialog-actions>

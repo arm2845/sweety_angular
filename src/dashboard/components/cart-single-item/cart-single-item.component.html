@@ -8,6 +8,9 @@
                 <div>
                     <div class="add-on-data-single single-row centered">
                         <span class="name">{{getName(product.item) | titlecase}}</span>
+                        <ng-container *ngIf="product.mix_ids.length">
+                            <span class="add-on-text">{{'(' + (getMixes(product.mix_ids) | titlecase) + ')'}}</span>
+                        </ng-container>
                     </div>
                     <div *ngIf="product.item.has_sugar" class="add-on-data-single single-row">
                         <span class="text-title">{{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}</span>

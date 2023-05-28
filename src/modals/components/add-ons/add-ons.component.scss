@@ -15,6 +15,7 @@ mat-dialog-actions {
 mat-dialog-content {
     margin: 0 -14px !important;
     padding: 0 14px !important;
+    max-height: 70vh;
     .header {
         display: flex;
         justify-content: space-between;
@@ -30,9 +31,7 @@ mat-dialog-content {
     }
     .single-option {
         margin: 14px 0;
-        &.quantity {
-            margin-top: -7px;
-        }
+
         .option-name {
             font-size: 16px;
             color: #969595;

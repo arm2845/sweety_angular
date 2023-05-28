@@ -76,6 +76,7 @@ export class AddOnsComponent implements OnInit {
             allAddings: this.data.product.addings || this.data.product?.item?.addings,
             allMixes: this.data.product.mixes || this.data.product?.item?.mixes,
             product_id: this.data.product?.item?.id || this.data.product.id,
+            product_price: this.data.product?.item?.product_price || this.data.product.price,
             price_includes_addings: this.data.product?.item?.price_includes_addings || this.data.product.price_includes_addings
         };
     }
@@ -98,7 +99,7 @@ export class AddOnsComponent implements OnInit {
         return this.allMixes.findIndex(it => it.id === mix.id) !== -1;
     }
 
-    setMixesAndUpdatePrice(id: number): void {
+    setMixAndUpdatePrice(id: number): void {
         const index = this.selectedMixes.indexOf(id);
         if (index === -1) {
             this.selectedMixes.length < 3 ? this.selectedMixes.push(id) : this.showNotification();
@@ -107,7 +108,7 @@ export class AddOnsComponent implements OnInit {
         }
         const prices: number[] = [];
         this.selectedMixes.forEach(mixId => prices.push(this.allMixes.find(mix => mix.id === mixId).price));
-        this.product.price = prices.length ? Math.max(...prices) : 0;
+        this.product.product_price = prices.length ? Math.max(...prices) : 0;
     }
 
     increase(): void {

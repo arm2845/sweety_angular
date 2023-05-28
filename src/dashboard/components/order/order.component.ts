@@ -106,4 +106,10 @@ export class OrderComponent implements OnInit {
         this.orders.find(item => item.id === orderId).status = status;
     }
 
+    getMixes(ids: number[], item: MenuProduct): string {
+        const mixes: string[] = [];
+        ids.forEach(id => mixes.push(this.getName(item.mixes.find(mix => mix.id === id))));
+        return mixes.join(', ');
+    }
+
 }

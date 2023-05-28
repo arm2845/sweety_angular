@@ -53,7 +53,10 @@
                                     <img [src]="item.image_path" alt="">
                                 </div>
                                 <div class="info">
-                                    <div class="name">{{item.name_en | titlecase}}</div>
+                                    <span class="name">{{item.name_en | titlecase}}</span>
+                                    <ng-container *ngIf="item.order_options.mix_ids.length">
+                                        <span class="add-on-text">{{'(' + (getMixes(item.order_options.mix_ids, item) | titlecase) + ')'}}</span>
+                                    </ng-container>
                                     <div *ngIf="item.has_sugar" class="sub-name title-text">
                                         {{ 'PRODUCTS.PROPERTIES.SUGAR.NAME' | translate }}: {{getSugarOption(item.order_options.sugar) | titlecase}}</div>
                                     <div class="sub-name">

@@ -43,6 +43,17 @@ export class CartSingleItemComponent {
         return this.getName(adding);
     }
 
+    getMixName(id: number): string {
+        const mix = this.product.item.mixes.find(mix => mix.id === id);
+        return this.getName(mix);
+    }
+
+    getMixes(ids: number[]): string {
+        const mixes: string[] = [];
+        ids.forEach(id => mixes.push(this.getName(this.product.item.mixes.find(mix => mix.id === id))));
+        return mixes.join(', ');
+    }
+
     openAddOnModal(product: CartItem): void {
         let dialogRef = this.dialog.open(AddOnsComponent, {
             maxWidth: '90vh',

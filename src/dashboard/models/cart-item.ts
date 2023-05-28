@@ -6,6 +6,7 @@ export class CartItem {
     sugar: number;
     item: MenuProduct;
     adding_ids: number[];
+    mix_ids: number[];
     adding_price: number;
     price: number;
 
@@ -15,6 +16,7 @@ export class CartItem {
         this.sugar = data.sugar;
         this.item = MenuProduct.transform(data.item);
         this.adding_ids = data.adding_ids;
+        this.mix_ids = data.mix_ids;
         this.adding_price = data.adding_price;
         this.price = data.price;
     }

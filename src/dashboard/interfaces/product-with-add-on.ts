@@ -16,5 +16,6 @@ export interface ProductWithAddOn {
     allMixes?: Mix[];
     adding_price: number;
     product_id: number;
+    product_price: number;
     price_includes_addings: boolean;
 }
