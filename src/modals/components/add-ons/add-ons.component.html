@@ -27,7 +27,9 @@
         <div class="option-name">{{ 'PRODUCTS.PROPERTIES.ADD-ON' | translate }}</div>
         <div class="options">
             <ng-container *ngFor="let adding of allAddings">
-                <span class="one-third" [class.selected]="selectedAddings.includes(adding.id)"
+                <span class="one-third"
+                      [class.selected]="selectedAddings.includes(adding.id)"
+                      [class.disabled]="!adding.in_stock"
                       (click)="setAddingAndUpdatePrice(adding.id)">
                     {{ getProductName(adding) | titlecase }}</span>
             </ng-container>
