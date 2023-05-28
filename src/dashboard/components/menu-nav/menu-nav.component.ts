@@ -4,7 +4,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MenuProduct} from "../../models/menu-product";
 import {MainService} from "../../services/main.service";
 import {finalize, tap} from "rxjs";
-import {TranslateService} from "@ngx-translate/core";
 import {getTranslatedProductName} from "../../../app/helpers/language.helper";
 
 @Component({
@@ -22,7 +21,6 @@ export class MenuNavComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private mainService: MainService,
-        private translate: TranslateService,
     ) {}
 
     ngOnInit(): void {
