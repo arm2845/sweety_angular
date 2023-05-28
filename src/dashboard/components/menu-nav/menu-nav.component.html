@@ -10,7 +10,7 @@
                                [routerLink]="['/dashboard/menu', category.id]"
                                class="nav-link ftco-animate"
                                data-toggle="pill"
-                               role="tab">{{ getCategoryName(category.id) }}</a>
+                               role="tab">{{ getCategoryName(category) | titlecase }}</a>
                         </ng-container>
                     </div>
                 </div>
