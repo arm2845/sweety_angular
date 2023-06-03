@@ -16,7 +16,7 @@
                 <span class="icon-info" [matTooltip]="toolTip | translate" matTooltipPosition="above"></span>
             </div>
             <div class="button-container">
-                <button class="btn btn-primary" (click)="confirmOrder()" [class.disabled]="productsAreNotAvailable()">
+                <button class="btn btn-primary" (click)="startOrder()" [class.disabled]="productsAreNotAvailable()">
                     {{ 'BUTTONS.MAKE-ORDER' | translate }}</button>
             </div>
         </ng-container>

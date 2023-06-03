@@ -8,6 +8,8 @@ import {OrderData} from "../../interfaces/order-data";
 import {updateCartCount} from "../../../app/helpers/cart-count.helper";
 import {CartService} from "../../services/cart.service";
 import {OrderService} from "../../services/order.service";
+import {ConfirmationModalComponent} from "../../../modals/components/confirmation-modal/confirmation-modal.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
     selector: 'app-cart',
@@ -28,6 +30,7 @@ export class CartComponent implements OnInit {
         private orderService: OrderService,
         private route: ActivatedRoute,
         private router: Router,
+        private translate: TranslateService,
     ) {}
 
     ngOnInit(): void {
@@ -53,7 +56,30 @@ export class CartComponent implements OnInit {
         this.total_price -= product.count * product.price;
     }
 
-    confirmOrder(): void {
+    startOrder(): void {
+        this.products.some(product => !product.item.in_stock) ? this.confirmOrder() : this.openOrderDialog();
+    }
+
+    private confirmOrder(): void {
+        const message = this.translate.instant('MESSAGES.ORDER-INCLUDES-NOT-AVAILABLE-ITEMS');
+        let dialogRef = this.dialog.open(ConfirmationModalComponent, {
+            width: '300px',
+            height: 'auto',
+            data: {
+                message: message,
+            }
+        });
+        dialogRef.afterClosed().pipe(
+            tap((result) => {
+                if (result) {
+                    this.openOrderDialog();
+                }
+            })
+        )
+            .subscribe();
+    }
+
+    private openOrderDialog(): void {
         let dialogRef = this.dialog.open(OrderCheckoutComponent, {
             maxWidth: '90vh',
             width: '300px',
