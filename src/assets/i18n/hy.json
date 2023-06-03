@@ -116,6 +116,9 @@
     "PRODUCT-NOT-AVAILABLE": "Ապրանքը հասանելի չէ",
     "MIX-MAX-ALLOWED": "Դուք չեք կարող ընտրել 3-ից ավելի միրգ։"
   },
+  "TOOLTIPS": {
+    "ORDER-PRICE": "Ոչ առկա ապրանքների գինը ներառված չէ:"
+  },
   "LANGUAGES": {
     "ENGLISH": "English",
     "ARMENIAN": "Հայերեն",

@@ -20,6 +20,8 @@ export class CartComponent implements OnInit {
     isLoading = true;
     total_price: number;
 
+    readonly toolTip = 'TOOLTIPS.ORDER-PRICE';
+
     constructor(
         public dialog: MatDialog,
         private cartService: CartService,

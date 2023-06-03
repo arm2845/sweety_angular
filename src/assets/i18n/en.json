@@ -116,6 +116,9 @@
     "PRODUCT-NOT-AVAILABLE": "Product is not available",
     "MIX-MAX-ALLOWED": "You can't choose more than 3 fruits."
   },
+  "TOOLTIPS": {
+    "ORDER-PRICE": "Price of not available products is not included."
+  },
   "LANGUAGES": {
     "ENGLISH": "English",
     "ARMENIAN": "Հայերեն",

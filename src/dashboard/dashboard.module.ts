@@ -17,6 +17,7 @@ import {FormsModule} from "@angular/forms";
 import { ClickedOutsideDirective } from './directives/clicked-outside.directive';
 import {MatButtonModule} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import {TranslateModule} from "@ngx-translate/core";
         FormsModule,
         MatButtonModule,
         TranslateModule,
+        MatTooltipModule,
     ],
     exports: [
         HeaderComponent,
