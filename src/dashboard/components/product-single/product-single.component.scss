@@ -58,8 +58,8 @@
             }
 
             .favorite-icon {
-                margin: 4px 0 0 10px;
-                font-size: 20px;
+                margin: 5px 0 0 10px;
+                font-size: 18px;
                 color: #dedada;
                 float: right;
                 cursor: pointer;
@@ -138,6 +138,7 @@
         .text {
             padding: 10px;
             margin: 0;
+            justify-content: center;
             p {
                 margin: 10px 0 0 0;
             }
@@ -145,6 +146,10 @@
                 .name {
                     margin: 0;
                 }
+            }
+            .right-side {
+                width: auto;
+                min-width: 180px;
             }
         }
     }
