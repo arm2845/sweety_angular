@@ -22,10 +22,6 @@ const routes: Routes = [
                 path: 'favourites',
                 component: FavouritesComponent,
             },
-            {
-                path: 'menu',
-                component: MenuNavComponent,
-            },
         ],
         canActivate: [IsAuthGuard, IsNotAdminGuard],
     },
@@ -33,6 +29,10 @@ const routes: Routes = [
         path: 'dashboard/order',
         component: OrderComponent,
         canActivate: [IsAuthGuard],
+    },
+    {
+        path: 'dashboard/menu',
+        component: MenuNavComponent,
     },
     {
         path: 'dashboard/ingredients',
