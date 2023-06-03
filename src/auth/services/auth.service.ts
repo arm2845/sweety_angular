@@ -111,7 +111,7 @@ export class AuthService {
     }
 
     private navigateToHomePage(): void {
-        this.router.navigate(['/dashboard/menu/1']).then(() => {
+        this.router.navigate(['/dashboard/menu']).then(() => {
             location.reload();
         });
     }

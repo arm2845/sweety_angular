@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductCategory} from "../../models/product-category";
-import {ActivatedRoute, Router} from "@angular/router";
 import {MenuProduct} from "../../models/menu-product";
 import {MainService} from "../../services/main.service";
 import {finalize, tap} from "rxjs";
@@ -17,11 +16,7 @@ export class MenuNavComponent implements OnInit {
     selectedTab = 1;
     isLoading = true;
 
-    constructor(
-        private route: ActivatedRoute,
-        private router: Router,
-        private mainService: MainService,
-    ) {}
+    constructor(private mainService: MainService) {}
 
     ngOnInit(): void {
         this.getCategories();
@@ -29,9 +24,12 @@ export class MenuNavComponent implements OnInit {
 
     getCategories(): void {
         this.mainService.getCategories().pipe(
-            tap((categories: any) => this.productCategories = categories.data),
-            tap(() => this.setCategoryAsSelected()),
-            tap((categories: any) => this.products = categories.data[0].items),
+            tap((categories: {data: ProductCategory[]}) => {
+                this.productCategories = categories.data;
+                this.setCategoryAsSelected();
+                this.products = categories.data[0].items;
+
+            }),
             finalize(() => this.isLoading = false),
         )
             .subscribe();
@@ -40,15 +38,6 @@ export class MenuNavComponent implements OnInit {
     setCategoryAsSelected(): void {
         const index = this.productCategories.findIndex(category => category.id == this.selectedTab);
         this.productCategories[index].selected = true;
-        this.router.navigate([], {
-                relativeTo: this.route,
-                queryParams: {
-                    category: this.productCategories[index].id
-                },
-                queryParamsHandling: 'merge',
-                skipLocationChange: true
-            }
-        )
     }
 
     selectCategory(category: ProductCategory): void {
@@ -68,5 +57,4 @@ export class MenuNavComponent implements OnInit {
     getCategoryName(category: ProductCategory): string {
         return getTranslatedProductName(category);
     }
-
 }

@@ -19,7 +19,7 @@ export class IsNotAdminGuard implements CanActivate {
         if (this.authService.getUserType() !== UserTypes.admin) {
           return true;
         } else {
-          this.router.navigate(['/dashboard/menu/1']);
+          this.router.navigate(['/dashboard/menu']);
           return false;
         }
     }

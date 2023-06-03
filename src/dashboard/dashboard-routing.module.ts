@@ -22,6 +22,10 @@ const routes: Routes = [
                 path: 'favourites',
                 component: FavouritesComponent,
             },
+            {
+                path: 'menu',
+                component: MenuNavComponent,
+            },
         ],
         canActivate: [IsAuthGuard, IsNotAdminGuard],
     },
@@ -36,12 +40,8 @@ const routes: Routes = [
         canActivate: [IsAuthGuard, IsAdminGuard],
     },
     {
-        path: 'dashboard/menu/:id',
-        component: MenuNavComponent,
-    },
-    {
         path: '**',
-        redirectTo: 'dashboard/menu/1',
+        redirectTo: 'dashboard/menu',
     }
 ];
 
