@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-6 d-flex align-self-stretch" [class.disabled]="!product.item.in_stock">
+<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
         <div class="menu-img img">
             <img class="image" [src]="product.item.image_path" alt="">
@@ -37,11 +37,12 @@
                         <span class="text-title">{{ 'MAIN-PHRASES.TOTAL-PRICE' | translate }}</span>
                         <span class="price">{{product.price * product.count}} AMD</span>
                     </div>
-                    <div *ngIf="!product.item.in_stock" class="one-forth">
+                    <div *ngIf="!product.can_order" class="one-forth">
                         <span class="message">{{ 'MESSAGES.PRODUCT-NOT-AVAILABLE' |translate }}</span>
                     </div>
                     <div class="icon single-row">
-                        <span (click)="openAddOnModal(product)" class="icon-edit edit-icon"></span>
+                        <span *ngIf="product.can_order"
+                              (click)="openAddOnModal(product)" class="icon-edit edit-icon"></span>
                         <span (click)="openConfirmationModal()" class="icon-bin remove-icon"></span>
                     </div>
                 </div>
