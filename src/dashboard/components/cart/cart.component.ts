@@ -57,7 +57,7 @@ export class CartComponent implements OnInit {
     }
 
     startOrder(): void {
-        this.products.some(product => !product.item.in_stock) ? this.confirmOrder() : this.openOrderDialog();
+        this.products.some(product => !product.can_order) ? this.confirmOrder() : this.openOrderDialog();
     }
 
     private confirmOrder(): void {
@@ -112,7 +112,7 @@ export class CartComponent implements OnInit {
     private getCartAvailableProductsCount(): number {
         let unavailableProductsCount = 0;
         this.products.forEach(product => {
-            if (!product.item.in_stock) {
+            if (!product.can_order) {
                 unavailableProductsCount += product.count;
             }
         })
