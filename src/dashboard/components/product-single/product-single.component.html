@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-6 d-flex align-self-stretch" [class.disabled]="!product.in_stock">
+<div class="col-md-12 col-lg-6 d-flex align-self-stretch">
     <div class="menus d-sm-flex ftco-animate align-items-stretch">
         <div class="menu-img img">
             <img class="image" [src]="product.image_path" alt="">
@@ -18,7 +18,7 @@
                         <span class="message">{{ 'MESSAGES.PRODUCT-NOT-AVAILABLE' |translate }}</span>
                     </div>
                 </div>
-                <p *ngIf="!authUser || userType !== userTypes.admin">
+                <p *ngIf="!authUser || userType !== userTypes.admin" [class.disabled]="!product.in_stock">
                     <a (click)="openDialog(product)" class="btn btn-primary">
                         {{ 'BUTTONS.ADD-TO-CART' | translate }}</a></p>
             </div>

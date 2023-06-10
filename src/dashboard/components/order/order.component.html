@@ -43,8 +43,8 @@
                                 </ng-container>
                             </ng-container>
                             <ng-template #defaultStatusTpl>
-                                <button [ngStyle]="{backgroundColor : getStatusColor(order.status)}" class="status">
-                                    {{getOrderStatus(order.status)}}</button>
+                                <span [ngStyle]="{color : getStatusColor(order.status)}" class="status-text">
+                                    {{getOrderStatus(order.status)}}</span>
                             </ng-template>
                         </div>
                         <ng-container *ngFor="let item of order.items">
