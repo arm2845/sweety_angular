@@ -106,7 +106,7 @@ export class CartComponent implements OnInit {
     }
 
     productsAreNotAvailable(): boolean {
-        return this.products.every(product => !product.item.in_stock);
+        return this.products.every(product => !product.can_order);
     }
 
     private getCartAvailableProductsCount(): number {
