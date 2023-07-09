@@ -11,6 +11,15 @@
             </div>
         </ng-container>
     </div>
+    <div class="time">
+        <div class="header">{{ 'MAIN-PHRASES.ORDER.TIME' | translate }}</div>
+        <input [ngxTimepicker]="timePicker"
+               [format]="24"
+               [min]="minTime"
+               [max]="maxTime"
+               [(ngModel)]="selectedTime">
+        <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+    </div>
     <div class="header">{{ 'MAIN-PHRASES.ORDER.NOTES' | translate }}</div>
     <div class="comment-container">
         <textarea placeholder="{{ 'MAIN-PHRASES.ORDER.NOTE-PLACEHOLDER' | translate }}" #comment></textarea>
@@ -20,6 +29,6 @@
 </mat-dialog-content>
 <mat-dialog-actions>
     <button class="btn btn-primary" mat-button [mat-dialog-close]="orderData"
-            [disabled]="!selectedPaymentType">{{ 'BUTTONS.CONFIRM' | translate }}</button>
+            [disabled]="!selectedPaymentType || !selectedTime">{{ 'BUTTONS.CONFIRM' | translate }}</button>
     <button class="btn btn-white" mat-button [mat-dialog-close]="false">{{ 'BUTTONS.DISCARD' | translate }}</button>
 </mat-dialog-actions>

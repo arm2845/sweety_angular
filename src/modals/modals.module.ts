@@ -15,6 +15,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
         MatNativeDateModule,
         MatInputModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgxMaterialTimepickerModule
     ],
     providers: [
         { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }

@@ -12,11 +12,15 @@ export class OrderCheckoutComponent {
     @ViewChild('comment', { static: true }) textarea: ElementRef;
     paymentTypes = PaymentTypesData;
     selectedPaymentType: number;
+    selectedTime: string;
+    minTime = '10:00';
+    maxTime = '23:59'
 
     get orderData(): OrderData {
         return {
             payment_type: this.selectedPaymentType,
-            note: this.textarea.nativeElement.value,
+            order_time: this.selectedTime,
+            note: this.textarea.nativeElement.value
         }
     }
 

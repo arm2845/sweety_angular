@@ -84,6 +84,7 @@
       "NAME": "Order",
       "CONFIRM": "Order Confirmation",
       "NOTES": "Notes",
+      "TIME": "Time",
       "NOTE-PLACEHOLDER": "type here ...",
       "STATUSES": {
         "PENDING": "Pending",

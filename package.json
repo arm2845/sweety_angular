@@ -24,6 +24,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/file-saver": "^2.0.5",
     "file-saver": "^2.0.5",
+    "ngx-material-timepicker": "^13.1.0",
     "rxjs": "~7.5.0",
     "sse.js": "^0.6.1",
     "tslib": "^2.3.0",

@@ -60,6 +60,18 @@ mat-dialog-content {
             }
         }
     }
+    .time {
+        input {
+            border: 1px solid #e6e6e6;
+            border-radius: 5px;
+            padding: 4px 15px;
+            margin: 10px 0;
+            color: #666666;
+            background-color: #f8f8f8;
+            font-size: 14px;
+            width: 100%;
+        }
+    }
     .comment-container {
         margin-top: 10px;
         textarea {
@@ -73,5 +85,31 @@ mat-dialog-content {
             font-size: 14px;
             resize: none;
         }
+    }
+}
+
+::ng-deep {
+    .timepicker-overlay {
+        z-index: 1000 !important;
+    }
+    .timepicker__actions {
+        justify-content: center !important;
+    }
+    .timepicker-button {
+        color: #EABE5E !important;
+    }
+    .timepicker__header {
+        background-color: #EABE5E !important;
+    }
+    .clock-face__number {
+        > span.active {
+            background-color: #EABE5E !important;
+        }
+    }
+    .clock-face__clock-hand {
+        background-color: #EABE5E !important;
+    }
+    .clock-face__clock-hand_minute::before {
+        border-color: #EABE5E !important;
     }
 }
