@@ -86,6 +86,9 @@
                         <div class="payment-type">
                             {{ 'MAIN-PHRASES.ORDER.NOTES' | translate }}: {{order.note || '-'}}
                         </div>
+                        <div class="payment-type">
+                            {{ 'MAIN-PHRASES.ORDER.TIME' | translate }}: {{order.order_time || '-'}}
+                        </div>
                         <div class="total-info">
                             <span>{{ 'MAIN-PHRASES.TOTAL' | translate }}</span>
                             <span class="price">{{order.price}} AMD</span>

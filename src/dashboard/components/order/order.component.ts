@@ -35,6 +35,7 @@ export class OrderComponent implements OnInit {
         this.orderService.getServerSentEvent(`${environment.baseURL}recent-orders`).pipe(
             tap((res: any) => {
                 this.orders = res;
+                this.orders.forEach(order => order.order_time = order.order_time.slice(0, 5));
                 this.isLoading = false;
             })
         )

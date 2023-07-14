@@ -9,7 +9,8 @@ export class Order {
     discount: number;
     original_price: number;
     price: number;
-    note: string
+    note: string;
+    order_time: string;
     items: MenuProduct[];
 
     constructor(data: any) {
@@ -22,6 +23,7 @@ export class Order {
         this.original_price = data.original_price;
         this.price = data.price;
         this.note = data.note;
+        this.order_time = data.order_time;
         this.items = MenuProduct.transformCollection(data.items);
     }
 
